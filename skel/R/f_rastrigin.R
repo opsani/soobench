@@ -3,18 +3,25 @@
 ##' @param x Parameter vector.
 ##' @return Value of the Rastrigin function.
 ##' @export
-##' @author David Arnu \email{david.arnu@@tu-dortmund.de}
-##' @export
 f_rastrigin <- function(x)
   sum(x*x - 10 * cos(2*pi*x) + 10)
 
-##' Create a Rastrigin problem instance
-##'
-##' @param dim Dimensionality of the problem.
-##' @return An instance of a \code{box_constrained_problem}.
-##' @export
-rastrigin_problem <- function(dim=10) {
-  box_constrained_problem(f_rastrigin,
-                          lower=rep(-5, dim),
-                          upper=rep(5, dim))
-}
+class(f_rastrigin) <- "rastrigin_function"
+
+##' @method lower_bounds rastrigin_function
+##' @S3method lower_bounds rastrigin_function
+##' @rdname bounds.Rd
+lower_bounds.rastrigin_function <- function(x, dim)
+  rep(-5, dim)
+
+##' @method upper_bounds rastrigin_function
+##' @S3method upper_bounds rastrigin_function
+##' @rdname bounds.Rd
+upper_bounds.rastrigin_function <- function(x, dim)
+  rep(5, dim)
+
+##' @method global_minimum rastrigin_function
+##' @S3method global_minimum rastrigin_function
+##' @rdname global_minimum.Rd
+global_minimum.rastrigin_function <- function(x, dim, ...)
+  list(par=rep(0, dim), value=0)

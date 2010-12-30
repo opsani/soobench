@@ -4,6 +4,6 @@ Description: Collection of different single objective benchmark
   functions for internal use at the TU Dortmund.
 Author: Olaf Mersmann <olafm@datensplitter.net>
 Maintainer: Olaf Mersmann <olafm@datensplitter.net>
-License: TU Dortmund INTERNAL USE ONLY
+License: file LICENSE
 LazyData: yes
 Version: UNKNOWN

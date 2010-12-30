@@ -1,172 +1,88 @@
-##' @useDynLib soobench
+##' @useDynLib soobench do_bbob_opt do_bbob_eval
 NA
-
-.generate_bbob09_instance <- function(fid, tid) {
-  fid <- as.integer(fid)
-  tid <- as.integer(tid)
-  f <- function(x) {}
-  body(f) <- substitute(.Call("do_bbob_eval", fid, tid, x, PACKAGE="soobench"),
-                        list(fid=fid, tid=tid))
-  class(f) <- "bbob09_function"  
-  rm(fid, tid)
-  f
-}
-
-##' Create a BBOB 2009 problem instance.
-##' 
-##' @param funid Function id. Possible values are 1 to 24.
-##' @param iid Instance id of the function.
-##' @param dim Dimensionality of the problem.
-##' @return An instance of a \code{box_constrained_problem}.
-##' @export
-bbob2009_problem <- function(funid, iid, dim) {
-  stopifnot(dim > 1)  
-  f <- .generate_bbob09_instance(funid, iid)
-  box_constrained_problem(f,
-                          lower=rep(-5, dim),
-                          upper=rep(5, dim))
-}
-
-##' Create a BBOB 2009 problem instance.
-##' 
-##' @param funid Function id. Possible values are 1 to 24.
-##' @param iid Instance id of the function.
-##' @param dim Dimensionality of the problem.
-##' @return An list containing the optimal paramater settings
-##'   (\code{par}) and the function value at that point (\code{value}).
-##' @export
-bbob2009_optimum <- function(funid, iid, dim) {
-  l <- .Call("do_bbob_opt",
-             as.integer(funid), as.integer(iid), as.integer(dim),
-             PACKAGE="soobench")
-  names(l) <- c("par", "value")
-  return(l)
-}
-
-## The following block used to be a tight for() loop, but for roxygen
-## to work, we need each explicit declaration.
 
 ##' BBOB 2009 test function.
 ##'
+##' @usage
+##'  f_bbob2009(x, fid, iid)
+##'  f_bbob2009_01(x, iid=1)
+##'  f_bbob2009_02(x, iid=1)
+##'  f_bbob2009_03(x, iid=1)
+##'  f_bbob2009_04(x, iid=1)
+##'  f_bbob2009_05(x, iid=1)
+##'  f_bbob2009_06(x, iid=1)
+##'  f_bbob2009_07(x, iid=1)
+##'  f_bbob2009_08(x, iid=1)
+##'  f_bbob2009_09(x, iid=1)
+##'  f_bbob2009_10(x, iid=1)
+##'  f_bbob2009_11(x, iid=1)
+##'  f_bbob2009_12(x, iid=1)
+##'  f_bbob2009_13(x, iid=1)
+##'  f_bbob2009_14(x, iid=1)
+##'  f_bbob2009_15(x, iid=1)
+##'  f_bbob2009_16(x, iid=1)
+##'  f_bbob2009_17(x, iid=1)
+##'  f_bbob2009_18(x, iid=1)
+##'  f_bbob2009_19(x, iid=1)
+##'  f_bbob2009_20(x, iid=1)
+##'  f_bbob2009_21(x, iid=1)
+##'  f_bbob2009_22(x, iid=1)
+##'  f_bbob2009_23(x, iid=1)
+##'  f_bbob2009_24(x, iid=1)
+##'
 ##' @param x Parameter value.
+##' @param fid Function ID.
 ##' @param iid Instance ID, defaults to \code{1L}.
-##' @return Function value
+##' @return Function value.
+##'
+##' @aliases f_bbob2009_01 f_bbob2009_02  f_bbob2009_03 f_bbob2009_04
+##' f_bbob2009_05 f_bbob2009_06 f_bbob2009_07 f_bbob2009_08
+##' f_bbob2009_09 f_bbob2009_10 f_bbob2009_11 f_bbob2009_12
+##' f_bbob2009_13 f_bbob2009_14 f_bbob2009_15 f_bbob2009_16
+##' f_bbob2009_17 f_bbob2009_18 f_bbob2009_19 f_bbob2009_20
+##' f_bbob2009_21 f_bbob2009_22 f_bbob2009_23 f_bbob2009_24
+##'
 ##' @rdname f_bbob2009
-##' @export
-f_bbob2009_01 <- function(x, iid=1L)
-  .Call("do_bbob_eval",  1L, as.integer(iid), x, PACKAGE="soobench")
+##' @exportPattern "f_bbob2009.*"
+f_bbob2009 <- function(x, fid, iid)
+  .Call(do_bbob_eval, as.integer(fid), as.integer(iid), x)
 
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_02 <- function(x, iid=1L)
-  .Call("do_bbob_eval",  2L, as.integer(iid), x, PACKAGE="soobench")
+for (fid in 1:24) {
+  name <- sprintf("f_bbob2009_%02i", fid)
+  f <- function(x, iid=1L) {}
+  body(f) <- substitute(.Call(do_bbob_eval, fid, as.integer(iid), x),
+                        list(fid=fid))
+  attr(f, "fid") <- fid
+  class(f) <- "bbob2009_function"
+  assign(name, f)
+  rm(f)
+}
 
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_03 <- function(x, iid=1L)
-  .Call("do_bbob_eval",  3L, as.integer(iid), x, PACKAGE="soobench")
+##' @S3method lower_bounds bbob2009_function
+##' @method lower_bounds bbob2009_function
+##' @rdname bounds.Rd
+lower_bounds.bbob2009_function <- function(x, dim)
+  rep(-5, dim)
 
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_04 <- function(x, iid=1L)
-  .Call("do_bbob_eval",  4L, as.integer(iid), x, PACKAGE="soobench")
+##' @S3method upper_bounds bbob2009_function
+##' @method upper_bounds bbob2009_function
+##' @rdname bounds.Rd
+upper_bounds.bbob2009_function <- function(x, dim)
+  rep(5, dim)
 
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_05 <- function(x, iid=1L)
-  .Call("do_bbob_eval",  5L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_06 <- function(x, iid=1L)
-  .Call("do_bbob_eval",  6L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_07 <- function(x, iid=1L)
-  .Call("do_bbob_eval",  7L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_08 <- function(x, iid=1L)
-  .Call("do_bbob_eval",  8L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_09 <- function(x, iid=1L)
-  .Call("do_bbob_eval",  9L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_10 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 10L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_11 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 11L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_12 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 12L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_13 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 13L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_14 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 14L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_15 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 15L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_16 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 16L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_17 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 17L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_18 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 18L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_19 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 19L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_20 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 20L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_21 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 21L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_22 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 22L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_23 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 23L, as.integer(iid), x, PACKAGE="soobench")
-
-##' @rdname f_bbob2009
-##' @export
-f_bbob2009_24 <- function(x, iid=1L)
-  .Call("do_bbob_eval", 24L, as.integer(iid), x, PACKAGE="soobench")
+##' Retrieve global minimum of a BBOB 2009 test function.
+##' 
+##' @param x Function to query.
+##' @param dim Dimensionality of parameter space.
+##' @param iid Instance ID of function.
+##' @param ... Ignored.
+##' @return Global minimum.
+##' @S3method global_minimum bbob2009_function
+##' @method global_minimum bbob2009_function
+global_minimum.bbob2009_function <- function(x, dim, iid=1L, ...) {
+  fid <- attr(x, "fid")
+  l <- .Call(do_bbob_opt,
+             as.integer(fid), as.integer(iid), as.integer(dim))
+  names(l) <- c("par", "value")
+  l
+}
