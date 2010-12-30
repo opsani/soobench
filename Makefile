@@ -1,4 +1,4 @@
-VERSION := "0.1.$(shell sh -c svnversion -c)"
+VERSION := "0.1.$(shell sh -c svnversion -c | sed -e 's/M/.99/')"
 
 .SILENT:
 .PHONEY: clean test check build install package data usage help
@@ -38,3 +38,6 @@ pkg: clean
 	echo "Roxygenizing package..."
 	./roxygenize > roxygen.log 2>&1
 	sed -i '' -e "s/^Version:.*/Version: UNKNOWN/g" skel/DESCRIPTION
+
+version:
+	echo ${VERSION}
