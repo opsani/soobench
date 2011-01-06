@@ -3,7 +3,7 @@
 ##' @param x Parameter vector.
 ##' @return Value of the Branin function.
 ##' @export
-f_branin <- function(x, ...) {
+f_branin <- function(x) {
   stopifnot(length(x) == 2)
   x1 <- x[1]
   x2 <- x[2]
