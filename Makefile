@@ -1,5 +1,6 @@
-BUILD   := $(shell sh -c "date '+%s'")
-VERSION := "0.1.$(shell sh -c svnversion -c | sed -e 's/M/.${BUILD}/')"
+R	:= R
+RSCRIPT	:= Rscript
+DELETE	:= rm -fR
 
 .SILENT:
 .PHONEY: clean test check build install package data usage help
@@ -17,30 +18,26 @@ help: usage
 	echo " pkg      - roxygenize skel/ into pkg/"
 
 install: clean pkg
-	echo "Installing package..."
-	LC_ALL=C R CMD INSTALL pkg > install.log 2>&1
+	echo "Installing package ..."
+	${R} CMD INSTALL pkg > install.log 2>&1
 
 check: clean pkg
-	echo "Running R CMD check..."
-	R CMD check pkg && rm -fR pkg.Rcheck
+	echo "Running R CMD check ..."
+	${R} CMD check pkg && ${DELETE} pkg.Rcheck
 
 clean:
-	echo "Cleaning up..."
-	rm -fR skel/src/*.o skel/src/*.so skel.Rcheck
-	rm -fR pkg
-	rm -fR .RData .Rhistory build.log install.log roxygen.log package.log
+	echo "Cleaning up ..."
+	${DELETE} skel/src/*.o skel/src/*.so skel.Rcheck
+	${DELETE} pkg
+	${DELETE} .RData .Rhistory build.log install.log roxygen.log package.log
 
 package: pkg
-	echo "Building package file..."
-	R CMD build pkg/ > package.log 2>&1
+	echo "Building package file ..."
+	${R} CMD build pkg/ > package.log 2>&1
 
 pkg: clean
-	echo "Updating 'Version' field..."
-	perl -pi -e  "s/^Version:.*UNKNOWN/Version: ${VERSION}/g" skel/DESCRIPTION
-	echo "Roxygenizing package..."
-	./roxygenize > roxygen.log 2>&1
-	perl -pi -e  "s/^Version:.*/Version: UNKNOWN/g" skel/DESCRIPTION
-	rm -fR pkg/inst ## Stupid roxygen!
-
-version:
-	echo ${VERSION}
+	echo "Roxygenizing package ..."
+	${RSCRIPT} ./tools/roxygenize > roxygen.log 2>&1
+	echo "Setting 'Version' in DESCRIPTION ..."
+	${RSCRIPT} ./tools/set-version 0 1
+	${DELETE} pkg/inst ## Stupid roxygen!
