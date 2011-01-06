@@ -6,7 +6,7 @@
 ##' @return Value of the sphere function.
 ##' @export
 f_sphere <- function(x)
-  crossprod(x)
+  drop(crossprod(x))
 
 class(f_sphere) <- "sphere_function"
 
