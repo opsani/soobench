@@ -32,7 +32,7 @@ clean:
 
 package: pkg
 	echo "Building package file..."
-	R CMD BUILD pkg/ > package.log 2>&1
+	R CMD build pkg/ > package.log 2>&1
 
 pkg: clean
 	echo "Updating 'Version' field..."
