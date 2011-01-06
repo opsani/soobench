@@ -3,13 +3,17 @@
 ##' @param x Parameter vector.
 ##' @return Value of the Branin function.
 ##' @export
-f_branin <- function(x) {
+f_branin <- function(x, ...) {
   stopifnot(length(x) == 2)
   x1 <- x[1]
   x2 <- x[2]
-  c1 <- x2 - 5/(2*pi)^2 * x1^2 + 5/pi * x1 - 6
-  c2 <- 10*(1 - 1/(8*pi))*cos(x1)
-  c1^2 + c2 + 10
+  a <- 1
+  b <- 5.1 / (2*pi)^2
+  c <- 5 / pi
+  d <- 6
+  e <- 10
+  f <- 1 / (8 * pi)
+  a * (x2 - b * x1^2 + c * x1 - d)^2 + e * (1 - f) * cos(x1) + e
 }
 
 class(f_branin) <- "branin_function"
