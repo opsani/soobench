@@ -36,10 +36,10 @@ package: pkg
 
 pkg: clean
 	echo "Updating 'Version' field..."
-	sed -i '' -e "s/^Version: UNKNOWN/Version: ${VERSION}/g" skel/DESCRIPTION
+	perl -pi -e  "s/^Version: UNKNOWN/Version: ${VERSION}/g" skel/DESCRIPTION
 	echo "Roxygenizing package..."
 	./roxygenize > roxygen.log 2>&1
-	sed -i '' -e "s/^Version:.*/Version: UNKNOWN/g" skel/DESCRIPTION
+	perl -pi -e  "s/^Version:.*/Version:  UNKNOWN/g" skel/DESCRIPTION
 	rm -fR pkg/inst ## Stupid roxygen!
 
 version:
