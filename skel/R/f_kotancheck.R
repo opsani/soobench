@@ -1,13 +1,17 @@
 ##' Kotancheck function
 ##'
+##' This is a slightly modified version of the Kotancheck test
+##' function. It is the negation of the original test function. So
+##' instead of maximizing it, this function has to be minimized.
+##' 
 ##' @param x Parameter vector (5D for original function).
 ##' @return Value of the Kotancheck function.
 ##' @export
 f_kotancheck <- function(x) {
-  stopifnot(length(x) >= 2)
-  x1 <- x[1]
-  x2 <- x[2]
-  exp(-2*x[2]^2) / (1.2 + x[1]) + rnorm(1, sd=sqrt(1e-4))
+    stopifnot(length(x) >= 2)
+    x1 <- x[1]
+    x2 <- x[2]
+    -exp(-(x[2] - 1)^2)/(1.2 + (x[1] - 2.5)^2)
 }
 
 class(f_kotancheck) <- "kotancheck_function"
@@ -29,5 +33,9 @@ upper_bounds.kotancheck_function <- function(x, dim) {
 ##' @S3method global_minimum kotancheck_function
 ##' @method global_minimum kotancheck_function
 ##' @rdname global_minimum.Rd
-global_minimum.kotancheck_function <- function(x, dim, ...)
-  list(par=rep(NA, dim), value=NA)
+global_minimum.kotancheck_function <- function(x, dim, ...) {
+  stopifnot(dim >= 2)
+  par <- c(2.5, 1.2, rep(NA, dim-2))
+  val <- f_kotancheck(par)
+  list(par=par, value=val)
+}
