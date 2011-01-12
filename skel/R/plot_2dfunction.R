@@ -4,6 +4,7 @@
 ##' @param xlim Limit of x1.
 ##' @param ylim Limit of x2.
 ##' @param n Number of places to sample the function.
+##' @param ... Further arguments passed to contour().
 ##' @export
 plot_2dfunction <- function(f, xlim, ylim, n=1024, ...) {
   k <- floor(sqrt(n))
