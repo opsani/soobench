@@ -40,8 +40,8 @@ plot.soo_function <- function(x,
             is.list(contour_args),
             n == as.integer(n))
   k <- floor(sqrt(n))
-  x1 <- seq(lower[1], upper[2], length.out=k)
-  x2 <- seq(lower[1], upper[2], length.out=k)
+  x1 <- seq(lower[1], upper[1], length.out=k)
+  x2 <- seq(lower[2], upper[2], length.out=k)
   X <- expand.grid(x1, x2)
   z <- apply(X, 1, x)
   dim(z) <- c(k, k)
