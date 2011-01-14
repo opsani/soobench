@@ -20,14 +20,14 @@ class(f_kotancheck) <- c("kotancheck_function", "soo_function")
 ##' @method lower_bounds kotancheck_function
 ##' @rdname bounds.Rd
 lower_bounds.kotancheck_function <- function(x, dim) {
-  c(-2.5, -1.0, rep(-5, dim-2))
+  c(-2.0, -1.0, rep(-5, dim-2))
 }
 
 ##' @S3method upper_bounds kotancheck_function
 ##' @method upper_bounds kotancheck_function
 ##' @rdname bounds.Rd
 upper_bounds.kotancheck_function <- function(x, dim) {
-  c(1.5, 3.0, rep(5, dim-2))
+  c(7.0, 3.0, rep(5, dim-2))
 }
 
 ##' @S3method global_minimum kotancheck_function
