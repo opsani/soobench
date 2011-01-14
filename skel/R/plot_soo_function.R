@@ -38,7 +38,7 @@ plot.soo_function <- function(x,
     ## Ooops, some below zero. Lets fix that.
     if (any(z < 0)) {
       warning("Negative function values. Shifting function to apply logarithm.")
-      z <- z - min(z)
+      z <- z - min(z) + 1
     }
     z <- log(z)
   }
