@@ -8,8 +8,8 @@ f_ackley <- function(x) {
   b <- 0.2
   c <- 2 * pi
   d <- length(x)
-  c1 <- crossprod(x) / d
-  c2 <- sum(c * x) / d
+  c1 <- sqrt(crossprod(x) / d)
+  c2 <- sum(cos(c * x)) / d
   -a * exp(-b * c1) - exp(c2) + a + exp(1)
 }
 
