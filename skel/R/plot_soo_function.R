@@ -1,6 +1,6 @@
 ##' Plot a test function in 2D.
 ##'
-##' @param f Function to plot.
+##' @param x Function to plot.
 ##' @param lower Lower bounds of x1 and x2.
 ##' @param upper Upper bounds of x1 and x2.
 ##' @param n Number of locations at which to sample the function.
@@ -8,8 +8,19 @@
 ##' @param ylab Label of y (x2) axes.
 ##' @param main Main title of plot.
 ##' @param log If \code{TRUE}, the z axes is plotted on log scale.
+##' @param show A vector of parts to plot. Defaults to
+##'   \code{c("image", "contour")} and can be any subset.
+##' @param ... Ignored.
 ##' @param image_args List of further arguments passed to image().
 ##' @param contour_args List of further arguments passed to contour().
+##'
+##' @examples
+##' par(mfrow=c(2, 2))
+##' plot(f_ackley)
+##' plot(f_kotancheck, show="contour")
+##' plot(f_branin, show="image")
+##' plot(f_rosenbrock, log=TRUE)
+##' @author Olaf Mersmann \email{olafm@@datensplitter.net}
 ##' @S3method plot soo_function
 ##' @export
 plot.soo_function <- function(x,
@@ -20,6 +31,8 @@ plot.soo_function <- function(x,
                               xlab=expression(x[1]),
                               ylab=expression(x[2]),
                               log=FALSE,
+                              show=c("image", "contour"),
+                              ...,
                               image_args=list(),
                               contour_args=list()) {
 
@@ -47,9 +60,18 @@ plot.soo_function <- function(x,
   if (!"col" %in% names(image_args))
     image_args$col <- terrain.colors(255)
 
-  image_args <- append(list(x=x1, y=x2, z=z, xlab=xlab, ylab=ylab, main=main),
-                       image_args)
-  contour_args <- append(list(x=x1, y=x2, z=z, add=TRUE), contour_args)
-  do.call(image, image_args)
-  do.call(contour, contour_args)
+  if ("image" %in% show) {
+    image_args <- append(list(x=x1, y=x2, z=z, xlab=xlab, ylab=ylab, main=main),
+                         image_args)
+    do.call(image, image_args)
+  }
+  if ("contour" %in% show) {    
+    contour_args <- append(list(x=x1, y=x2, z=z), contour_args)
+    if (!"image" %in% show)
+      contour_args <- append(contour_args,
+                             list(xlab=xlab, ylab=ylab, main=main))
+    else
+      contour_args$add <- TRUE
+    do.call(contour, contour_args)
+  }
 }
