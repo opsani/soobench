@@ -28,3 +28,22 @@ upper_bounds <- function(x, dim)
 ##' @rdname global_minimum.Rd
 global_minimum <- function(x, dim, ...)
   UseMethod("global_minimum")
+
+##' Get a pretty function name for a benchmark function.
+##'
+##' @param x Function to name.
+##' @param ... Ignored.
+##' @return Name of function.
+##' @export
+##' @rdname function_name.Rd
+function_name <- function(x, ...)
+  UseMethod("function_name")    
+
+##' @S3method function_name soo_function
+##' @method function_name soo_function
+##' @rdname function_name.Rd
+function_name.soo_function <- function(x, ...) {
+  nm <- strsplit(class(x)[[1]], "_")[[1]][1]
+  ## Uppercase first letter:
+  paste(toupper(substring(nm, 1,1)), substring(nm, 2), " function", sep="")
+}
