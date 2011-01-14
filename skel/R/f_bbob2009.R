@@ -53,7 +53,7 @@ for (fid in 1:24) {
   body(f) <- substitute(.Call(do_bbob_eval, fid, as.integer(iid), x),
                         list(fid=fid))
   attr(f, "fid") <- fid
-  class(f) <- "bbob2009_function"
+  class(f) <- c("bbob2009_function", "soo_function")
   assign(name, f)
   rm(f)
 }
@@ -85,4 +85,12 @@ global_minimum.bbob2009_function <- function(x, dim, iid=1L, ...) {
              as.integer(fid), as.integer(iid), as.integer(dim))
   names(l) <- c("par", "value")
   l
+}
+
+##' @S3method function_name bbob2009_function
+##' @method function_name bbob2009_function
+##' @rdname function_name.Rd
+function_name.bbob2009_function <- function(x, ...) {
+  fid <- attr(x, "fid")
+  paste("BBOB 2009 test function Nr. ", fid, sep="")
 }

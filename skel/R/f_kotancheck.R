@@ -14,7 +14,7 @@ f_kotancheck <- function(x) {
     -exp(-(x[2] - 1)^2)/(1.2 + (x[1] - 2.5)^2)
 }
 
-class(f_kotancheck) <- "kotancheck_function"
+class(f_kotancheck) <- c("kotancheck_function", "soo_function")
 
 ##' @S3method lower_bounds kotancheck_function
 ##' @method lower_bounds kotancheck_function

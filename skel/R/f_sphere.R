@@ -8,7 +8,7 @@
 f_sphere <- function(x)
   drop(crossprod(x))
 
-class(f_sphere) <- "sphere_function"
+class(f_sphere) <- c("sphere_function", "soo_function")
 
 ##' @S3method lower_bounds sphere_function
 ##' @method lower_bounds sphere_function

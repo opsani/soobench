@@ -6,7 +6,7 @@
 f_rastrigin <- function(x)
   sum(x*x - 10 * cos(2*pi*x) + 10)
 
-class(f_rastrigin) <- "rastrigin_function"
+class(f_rastrigin) <- c("rastrigin_function", "soo_function")
 
 ##' @method lower_bounds rastrigin_function
 ##' @S3method lower_bounds rastrigin_function

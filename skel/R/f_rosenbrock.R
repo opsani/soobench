@@ -10,7 +10,7 @@ f_rosenbrock <- function(x) {
   sum(100 * (hx^2 - tx)^2 + (hx - 1)^2)
 }
 
-class(f_rosenbrock) <- "rosenbrock_function"
+class(f_rosenbrock) <- c("rosenbrock_function", "soo_function")
 
 ##' @S3method lower_bounds rosenbrock_function
 ##' @method lower_bounds rosenbrock_function

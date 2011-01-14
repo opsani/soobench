@@ -13,7 +13,7 @@ f_ackley <- function(x) {
   -a * exp(-b * c1) - exp(c2) + a + exp(1)
 }
 
-class(f_ackley) <- "ackley_function"
+class(f_ackley) <- c("ackley_function", "soo_function")
 
 ##' @S3method lower_bounds ackley_function
 ##' @method lower_bounds ackley_function

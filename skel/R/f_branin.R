@@ -16,7 +16,7 @@ f_branin <- function(x) {
   a * (x2 - b * x1^2 + c * x1 - d)^2 + e * (1 - f) * cos(x1) + e
 }
 
-class(f_branin) <- "branin_function"
+class(f_branin) <- c("branin_function", "soo_function")
 
 ##' @S3method lower_bounds branin_function
 ##' @method lower_bounds branin_function
