@@ -11,7 +11,7 @@ f_kotancheck <- function(x) {
     stopifnot(length(x) >= 2)
     x1 <- x[1]
     x2 <- x[2]
-    -exp(-(x[2] - 1)^2)/(1.2 + (x[1] - 2.5)^2)
+    -exp(-(x[2] - 1.2)^2)/(1 + (x[1] - 2.5)^2)
 }
 
 class(f_kotancheck) <- c("kotancheck_function", "soo_function")
