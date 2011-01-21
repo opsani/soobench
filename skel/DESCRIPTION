@@ -5,5 +5,7 @@ Description: Collection of different single objective benchmark
 Author: Olaf Mersmann <olafm@datensplitter.net>
 Maintainer: Olaf Mersmann <olafm@datensplitter.net>
 License: file LICENSE
+Imports: rgl
+Suggests: rgl
 LazyData: yes
 Version: UNKNOWN

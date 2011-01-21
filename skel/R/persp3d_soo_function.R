@@ -1,0 +1,46 @@
+##' Plot a test function in 3D.
+##' Perspective 3d plot of benchmark function.
+##' 
+##' @param x Function to plot.
+##' @param lower Lower bounds of x1 and x2.
+##' @param upper Upper bounds of x1 and x2.
+##' @param n Number of locations at which to sample the function.
+##' @param xlab Label of x (x1) axes.
+##' @param ylab Label of y (x2) axes.
+##' @param main Main title of plot.
+##' @param log If \code{TRUE}, the z axes is plotted on log scale.
+##' @param ... Passed to \code{persp3d.default}.
+##'
+##' @author Olaf Mersmann \email{olafm@@datensplitter.net}
+##' @importFrom rgl persp3d
+##'
+##' @S3method persp3d soo_function
+##' @method persp3d soo_function
+persp3d.soo_function <- function (x,
+                                  lower=lower_bounds(x, 2), upper=upper_bounds(x, 2),
+                                  n=10000L,
+                                  main=function_name(x),
+                                  xlab=expression(x[1]), ylab=expression(x[2]),
+                                  log=FALSE,
+                                  ...)
+{
+  stopifnot(require("rgl"),
+            n == as.integer(n))
+  k <- floor(sqrt(n))
+  x1 <- seq(lower[1], upper[1], length.out = k)
+  x2 <- seq(lower[2], upper[2], length.out = k)
+  X <- expand.grid(x1, x2)
+  z <- apply(X, 1, x)
+  dim(z) <- c(k, k)
+  if (log) {
+    if (any(z < 0)) {
+      warning("Negative function values. Shifting function to apply logarithm.")
+      z <- z - min(z) + 1
+    }
+    z <- log(z)
+  }
+  persp3d(x1, x2, z,
+          xlab=xlab, ylab=ylab, ...,
+          main=main,
+          color=terrain.colors(200)[cut(z, 200)])
+}
