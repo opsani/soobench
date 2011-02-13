@@ -7,7 +7,7 @@ v <- system("svnversion", TRUE)
 if (regexpr(".*M", v) > 0) { ## Modified
   revision <- as.integer(Sys.time())
 } else {
-  revision <- max(as.integer(strsplit(v, ":")))
+  revision <- max(as.integer(strsplit(v, ":")[[1]]))
 }
 
 if (length(args) == 0) {
