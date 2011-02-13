@@ -1,12 +1,21 @@
-Building and installing the R package on Unix/Linux systems:
+soobench
+========
 
-You can build a source package version with 
-make package
-or directly install with 
-make install
+Build instructions
+------------------
 
-Check the usage of make for other options with
-make
+To build a source package, run
 
-  
-    
+  make package
+
+in the root directory of the checkout. Alternativly, if you want to
+immediately install the package, run
+
+  make install
+
+Other build options are available. Further build options are
+available. Check the output of
+
+  make
+
+for a short list.
