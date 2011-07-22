@@ -47,3 +47,24 @@ function_name.soo_function <- function(x, ...) {
   ## Uppercase first letter:
   paste(toupper(substring(nm, 1,1)), substring(nm, 2), " function", sep="")
 }
+
+##' Get a short name for the function that can be used in filenames and such. 
+##'
+##' @param x Function to name.
+##' @param ... Ignored.
+##' @return ID of function.
+##' @export
+##' @rdname function_id.Rd
+function_id <- function(x, ...)
+  UseMethod("function_id")    
+
+##' @S3method function_id soo_function
+##' @method function_id soo_function
+##' @rdname function_id.Rd
+function_id.soo_function <- function(x, ...) {
+  id <- class(x)[1]
+  if (id != "soo_function")
+    id
+  else
+    stop("ERROR: No id known for function.")
+}

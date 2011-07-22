@@ -34,3 +34,9 @@ global_minimum.goldsteinprice_function <- function(x, dim, ...) {
   stopifnot(dim == 2)
   list(par=c(0,-1), value=3)
 }
+
+##' @method function_name goldsteinprice_function
+##' @S3method function_name goldsteinprice_function
+##' @rdname function_name.Rd
+function_name.goldsteinprice_function <- function(x, ...)
+  "Goldstein-Price function"

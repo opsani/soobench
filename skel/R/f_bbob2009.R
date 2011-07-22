@@ -161,3 +161,13 @@ function_name.bbob2009_function <- function(x, ...) {
   iid <- attr(x, "iid")
   sprintf("BBOB 2009 test function Nr. %i (instance %i)", fid, iid)
 }
+
+
+##' @S3method function_id bbob2009_function
+##' @method function_id bbob2009_function
+##' @rdname function_id.Rd
+function_id.bbob2009_function <- function(x, ...) {
+  fid <- attr(x, "fid")
+  iid <- attr(x, "iid")
+  sprintf("f_bbob2009_%02i_%02i", fid, iid)
+}
