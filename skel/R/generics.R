@@ -64,7 +64,7 @@ function_id <- function(x, ...)
 function_id.soo_function <- function(x, ...) {
   id <- strsplit(class(x)[1], "_function")[[1]]
   if (id != "soo_function")
-    id
+    strsplit(id, "_")[[1]][1]
   else
     stop("ERROR: No id known for function.")
 }

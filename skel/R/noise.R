@@ -30,3 +30,21 @@ upper_bounds.normal_noise_function <- function(x, dim)
 ##' @rdname global_minimum.Rd
 global_minimum.normal_noise_function <- function(x, dim, ...)
   global_minimum(environment(x)$f, dim, ...)
+
+##' @method function_name normal_noise_function
+##' @S3method function_name normal_noise_function
+##' @rdname function_name.Rd
+function_name.normal_noise_function <- function(x, ...) {
+  name <- function_name(environment(x)$f)
+  paste("Normally-noisy", name, sep=" ")
+}
+  
+
+##' @method function_id normal_noise_function
+##' @S3method function_id normal_noise_function
+##' @rdname function_id.Rd
+function_id.normal_noise_function <- function(x, ...) {
+  id <- function_id(environment(x)$f)
+  paste(id, "normal_noise", sep="_")
+}
+  
