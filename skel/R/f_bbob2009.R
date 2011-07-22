@@ -169,5 +169,5 @@ function_name.bbob2009_function <- function(x, ...) {
 function_id.bbob2009_function <- function(x, ...) {
   fid <- attr(x, "fid")
   iid <- attr(x, "iid")
-  sprintf("f_bbob2009_%02i_%02i", fid, iid)
+  sprintf("bbob2009_%02i_%02i", fid, iid)
 }

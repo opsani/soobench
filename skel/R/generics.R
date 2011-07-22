@@ -62,7 +62,7 @@ function_id <- function(x, ...)
 ##' @method function_id soo_function
 ##' @rdname function_id.Rd
 function_id.soo_function <- function(x, ...) {
-  id <- class(x)[1]
+  id <- strsplit(class(x)[1], "_function")[[1]]
   if (id != "soo_function")
     id
   else
