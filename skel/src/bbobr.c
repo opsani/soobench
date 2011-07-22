@@ -20,16 +20,26 @@ static unsigned int last_fid;
 static unsigned int last_tid;
 static unsigned int last_d;
 
+#define INITIALIZE_BBOB_FUNCTION(FID, TID, DIM)                         \
+    if (init == 0 ||                                                    \
+        last_fid != FID || last_tid != TID || last_d != DIM) {          \
+        if (init != 0)                                                  \
+            bbob_free();                                                \
+	bbob_init(fid, tid, d);                                         \
+    }
+
 static void bbob_init(unsigned int fid, int tid, unsigned int d) {
     isInitDone = 0;
     DIM = last_d = d;
-    trialid = last_tid = tid;
-    last_fid = fid;
-    init = 1;
-    
+
     initbenchmarkshelper();
     initbenchmarks();
     initbenchmarksnoisy();
+    trialid = last_tid = tid;
+    last_fid = fid;
+    init = 1;
+
+    Fopt = computeFopt(fid, tid);
 }
 
 static void bbob_free() {
@@ -40,11 +50,7 @@ static void bbob_free() {
 }
 
 static double bbob_eval(unsigned int fid, unsigned int tid, unsigned int d, double *x) {
-    if (last_fid != fid || last_tid != tid || last_d != d) {	
-	if (init != 0)
-	    bbob_free();	    
-	bbob_init(fid, tid, d);
-    }
+    INITIALIZE_BBOB_FUNCTION(fid, tid, d)
 
     switch(last_fid) {
     case  1: return  f1(x).Fval;
@@ -76,60 +82,61 @@ static double bbob_eval(unsigned int fid, unsigned int tid, unsigned int d, doub
 }
 
 static double bbob_fopt(unsigned int fid, unsigned int tid, unsigned int d) {
-    if (0 == init)
-	bbob_init(fid, tid, d);
+    INITIALIZE_BBOB_FUNCTION(fid, tid, d)
+
     double fopt = computeFopt(fid, tid);
     return fopt;
 }
 
 static void bbob_xopt(unsigned int fid, unsigned int tid, unsigned int d, double *x) {
-    int i;
-    if (0 == init)
-	bbob_init(fid, tid, d);
-    computeXopt(tid, d);
+    int i, rseed;    
+    INITIALIZE_BBOB_FUNCTION(fid, tid, d);
+    
+    for (i = 0; i < d; ++i)
+	x[i] = 0;
+
+    /* Evaluate function once to initialize Xopt: */
+    bbob_eval(fid, tid, d, x);
+
     for (i = 0; i < d; ++i)
 	x[i] = Xopt[i];    
 }
 
-SEXP do_bbob_eval(SEXP s_fid, SEXP s_tid, SEXP s_x) {
-    SEXP s_res;
+SEXP do_bbob_eval(SEXP s_fid, SEXP s_tid, SEXP s_par) {
+    double value;
     
     /* Unpack arguments: */
     UNPACK_INT(s_fid, fid);
     UNPACK_INT(s_tid, tid);
-    UNPACK_REAL_VECTOR(s_x, x, d);
+    UNPACK_REAL_VECTOR(s_par, par, dim);
     
-    /* Allocate result: */
-    PROTECT(s_res = allocVector(REALSXP, 1));
-    double *res = REAL(s_res);
     /* Evaluate function: */
-    *res = bbob_eval(fid, tid, d, x);
-    UNPROTECT(1); /* s_res */
-    return(s_res);
+    value = bbob_eval(fid, tid, dim, par);
+    return(ScalarReal(value));
 }
 
-SEXP do_bbob_opt(SEXP s_fid, SEXP s_tid, SEXP s_d) {
-    SEXP s_res, s_x, s_fopt;
+SEXP do_bbob_opt(SEXP s_fid, SEXP s_tid, SEXP s_dim) {
+    SEXP s_res, s_par, s_value;
 
     /* Unpack arguments: */
     UNPACK_INT(s_fid, fid);
     UNPACK_INT(s_tid, tid);
-    UNPACK_INT(s_d,  d);
-
+    UNPACK_INT(s_dim, dim);
+        
     /* Allocate result objects: */
-    PROTECT(s_res  = allocVector(VECSXP, 2));
-    PROTECT(s_x    = allocVector(REALSXP, d));
-    PROTECT(s_fopt = allocVector(REALSXP, 1));
-    SET_VECTOR_ELT(s_res, 0, s_x);
-    SET_VECTOR_ELT(s_res, 1, s_fopt);
-    double *x = REAL(s_x);
-    double *fopt = REAL(s_fopt);
+    PROTECT(s_res   = allocVector(VECSXP, 2));
+    PROTECT(s_par   = allocVector(REALSXP, dim));
+    PROTECT(s_value = allocVector(REALSXP, 1));
+    double *par = REAL(s_par);
+    double *value = REAL(s_value);
 
     /* Calculate optimal parameters and value: */
-    *fopt = bbob_fopt(fid, tid, d);
-    bbob_xopt(fid, tid, d, x);
-
-    UNPROTECT(3); /* s_res */
+    value[0] = bbob_fopt(fid, tid, dim);
+    bbob_xopt(fid, tid, dim, par);
+    
+    SET_VECTOR_ELT(s_res, 0, s_par);
+    SET_VECTOR_ELT(s_res, 1, s_value);
+    UNPROTECT(3); /* s_res, s_par, s_value */
 
     return(s_res);
 }

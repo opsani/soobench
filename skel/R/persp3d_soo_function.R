@@ -9,6 +9,7 @@
 ##' @param ylab Label of y (x2) axes.
 ##' @param main Main title of plot.
 ##' @param log If \code{TRUE}, the z axes is plotted on log scale.
+##' @param rank If \code{TRUE}, instead of the y values, their ranks are drawn.
 ##' @param ... Passed to \code{persp3d.default}.
 ##'
 ##' @author Olaf Mersmann \email{olafm@@datensplitter.net}
@@ -21,11 +22,10 @@ persp3d.soo_function <- function (x,
                                   n=10000L,
                                   main=function_name(x),
                                   xlab=expression(x[1]), ylab=expression(x[2]),
-                                  log=FALSE,
+                                  log=FALSE, rank=FALSE,
                                   ...)
 {
-  stopifnot(require("rgl"),
-            n == as.integer(n))
+  stopifnot(n == as.integer(n))
   k <- floor(sqrt(n))
   x1 <- seq(lower[1], upper[1], length.out = k)
   x2 <- seq(lower[2], upper[2], length.out = k)
@@ -39,6 +39,9 @@ persp3d.soo_function <- function (x,
     }
     z <- log(z)
   }
+  if (rank)
+    z <- rank(z)
+  
   persp3d(x1, x2, z,
           xlab=xlab, ylab=ylab, ...,
           main=main,

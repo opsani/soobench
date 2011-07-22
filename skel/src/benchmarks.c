@@ -471,28 +471,24 @@ TwoDoubles f9(double* x) {
     double scales, tmp, Fadd, Fval, Ftrue = 0.;
     TwoDoubles res;
 
-    if (!isInitDone)
-    {
+    if (!isInitDone) {
         rseed = funcId + 10000 * trialid;
         /*INITIALIZATION*/
         Fopt = computeFopt(funcId, trialid);
         /* computeXopt(rseed, DIM);*/
         computeRotation(rotation, rseed, DIM);
         scales = fmax(1., sqrt(DIM) / 8.);
-        for (i = 0; i < DIM; i ++)
-        {
+        for (i = 0; i < DIM; i ++) {
             for (j = 0; j < DIM; j++)
                 linearTF[i][j] = scales * rotation[i][j];
         }
-/*         for (i = 0; i < DIM; i++)
-           {
-               Xopt[i] = 0.;
-               for (j = 0; j < DIM; j++)
-               {
-                   Xopt[i] += linearTF[j][i] * 0.5/scales/scales;
-                   //computed only if Xopt is returned which is not the case at this point.
-               }
-            }*/
+        /* OME: Do compute Xopt here: */
+        for (i = 0; i < DIM; i++) {
+            Xopt[i] = 0.;
+            for (j = 0; j < DIM; j++) {
+                Xopt[i] += linearTF[j][i] * 0.5/scales/scales;
+            }
+        }
         isInitDone = 1;
     }
     Fadd = Fopt;

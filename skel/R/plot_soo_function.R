@@ -8,6 +8,7 @@
 ##' @param ylab Label of y (x2) axes.
 ##' @param main Main title of plot.
 ##' @param log If \code{TRUE}, the z axes is plotted on log scale.
+##' @param rank If \code{TRUE}, instead of the y values, their ranks are drawn.
 ##' @param show A vector of parts to plot. Defaults to
 ##'   \code{c("image", "contour")} and can be any subset.
 ##' @param ... Ignored.
@@ -30,7 +31,7 @@ plot.soo_function <- function(x,
                               main=function_name(x),
                               xlab=expression(x[1]),
                               ylab=expression(x[2]),
-                              log=FALSE,
+                              log=FALSE, rank=FALSE,
                               show=c("image", "contour"),
                               ...,
                               image_args=list(),
@@ -55,7 +56,9 @@ plot.soo_function <- function(x,
     }
     z <- log(z)
   }
-  
+
+  if (rank)
+    z <- rank(z)
   ## Fixup image_args:
   if (!"col" %in% names(image_args))
     image_args$col <- terrain.colors(255)
