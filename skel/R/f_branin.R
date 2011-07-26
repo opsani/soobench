@@ -1,8 +1,27 @@
-##' Branin function.
+##' Generatore for the Branin test function.
 ##'
-##' @param x Parameter vector.
-##' @return Value of the Branin function.
+##' This function is a 2D test function. The generator does not take
+##' any parameters. The only exists so that the interface is consitent with all other test functions.
+##' 
+##' @examples
+##' f <- branin_function()
+##' plot(f, rank=TRUE)
+##' 
+##' @return A \code{soo_function}.
 ##' @export
+##' @useDynLib soobench do_f_branin
+branin_function <- function()
+  soo_function(name="Branin", id="branin",
+               dimensions=2,
+               fun=function(x) .Call(do_f_branin, x),
+               lower_bounds=c(-5, 0),
+               upper_bounds=c(10, 15),
+               best_par=list(c(-pi, 12.275),
+                             c(pi, 2.275),
+                             c(3*pi, 2.475)),
+               best_value=0.3978873577297381558537381351925432682037353515625)
+
+## Pure R reference implementation:
 f_branin <- function(x) {
   stopifnot(length(x) == 2)
   x1 <- x[1]
@@ -15,28 +34,3 @@ f_branin <- function(x) {
   f <- 1 / (8 * pi)
   a * (x2 - b * x1^2 + c * x1 - d)^2 + e * (1 - f) * cos(x1) + e
 }
-
-class(f_branin) <- c("branin_function", "soo_function")
-
-##' @S3method lower_bounds branin_function
-##' @method lower_bounds branin_function
-##' @rdname bounds.Rd
-lower_bounds.branin_function <- function(x, dim) {
-  stopifnot(dim == 2)
-  c(-5, 0)
-}
-
-##' @S3method upper_bounds branin_function
-##' @method upper_bounds branin_function
-##' @rdname bounds.Rd
-upper_bounds.branin_function <- function(x, dim) {
-  stopifnot(dim == 2)
-  c(10, 15)
-}
-
-##' @S3method global_minimum branin_function
-##' @method global_minimum branin_function
-##' @rdname global_minimum.Rd
-global_minimum.branin_function <- function(x, dim, ...)
-  list(par=list(c(-pi, 12.275), c(pi, 2.275), c(3*pi, 2.475)),
-       value=0.397887)

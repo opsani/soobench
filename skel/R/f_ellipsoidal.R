@@ -1,31 +1,31 @@
-##' Ellipsoidal Function.
+##' Generator for ellipsoidal test functions.
+##'
+##' The ellipsoidal test function is a badly conditioned variant of
+##' the sphere function.
 ##' 
-##' @param x parameter vector.
-##' @return Value of the Ellipsoidal function.
-##' @export
+##' @param dimensions Size of parameter space.
+##' @return A \code{soo_function}.
+##' 
+##' @examples
+##' f <- ellipsoidal_function(2)
+##' plot(f, rank=TRUE)
+##' 
+##' ##' @export
+##' @useDynLib soobench do_f_ellipsoidal
+ellipsoidal_function <- function(dimensions)
+  soo_function(name="Ellispoidal",
+               id=sprintf("ellipsoidal-%id", dimensions),
+               fun=function(x, ...) .Call(do_f_ellipsoidal, x),
+               dimensions=dimensions,
+               lower_bounds=rep(-32.786, dimensions),
+               upper_bounds=rep(32.786, dimensions),
+               best_par=rep(0, dimensions),
+               best_value=0)
+
+## Pure R reference implementation:
 f_ellipsoidal <- function(x) {
   d <- length(x)
   c1 <- 6 * (1:d) / d
   s <- sum(10^c1 * x^2)
   return(s)
 }
-
-class(f_ellipsoidal) <- c("ellipsoidal_function", "soo_function")
-
-##' @S3method lower_bounds ellipsoidal_function
-##' @method lower_bounds ellipsoidal_function
-##' @rdname bounds.Rd
-lower_bounds.ellipsoidal_function <- function(x, dim)
-  rep(-32.768, dim)
-
-##' @S3method upper_bounds ellipsoidal_function
-##' @method upper_bounds ellipsoidal_function
-##' @rdname bounds.Rd
-upper_bounds.ellipsoidal_function <- function(x, dim)
-  rep(32.768, dim)
-
-##' @S3method global_minimum ellipsoidal_function
-##' @method global_minimum ellipsoidal_function
-##' @rdname global_minimum.Rd
-global_minimum.ellipsoidal_function <- function(x, dim, ...)
-  list(par=rep(0, dim), value=0)

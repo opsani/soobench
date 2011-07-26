@@ -1,8 +1,24 @@
-##' Ackley function
+##' Generator for the Ackley function.
 ##'
-##' @param x Parameter vector.
-##' @return Value of the Ackley function.
+##' @param dimensions Size of parameter space.
+##' @return A \code{soo_function}.
+##'
+##' @examples
+##' f <- ackley_function(2)
+##' plot(f, rank=TRUE)
+##' 
 ##' @export
+##' @useDynLib soobench do_f_ackley
+ackley_function <- function(dimensions)
+  soo_function(name="Ackley", id=sprintf("ackley-%id", dimensions),
+               dimensions=dimensions,
+               fun=function(x) .Call(do_f_ackley, x),
+               lower_bounds=rep(-32.786, dimensions),
+               upper_bounds=rep(32.786, dimensions),
+               best_par=rep(0, dimensions),
+               best_value=0)
+
+## Pure R implementation for reference purposes:
 f_ackley <- function(x) {
   a <- 20
   b <- 0.2
@@ -12,23 +28,3 @@ f_ackley <- function(x) {
   c2 <- sum(cos(c * x)) / d
   -a * exp(-b * c1) - exp(c2) + a + exp(1)
 }
-
-class(f_ackley) <- c("ackley_function", "soo_function")
-
-##' @S3method lower_bounds ackley_function
-##' @method lower_bounds ackley_function
-##' @rdname bounds.Rd
-lower_bounds.ackley_function <- function(x, dim)
-  rep(-32.768, dim)
-
-##' @S3method upper_bounds ackley_function
-##' @method upper_bounds ackley_function
-##' @rdname bounds.Rd
-upper_bounds.ackley_function <- function(x, dim)
-  rep(32.768, dim)
-
-##' @S3method global_minimum ackley_function
-##' @method global_minimum ackley_function
-##' @rdname global_minimum.Rd
-global_minimum.ackley_function <- function(x, dim, ...)
-  list(par=rep(0, dim), value=0)

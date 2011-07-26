@@ -17,16 +17,17 @@
 ##'
 ##' @examples
 ##' par(mfrow=c(2, 2))
-##' plot(f_ackley)
-##' plot(f_kotancheck, show="contour")
-##' plot(f_branin, show="image")
-##' plot(f_rosenbrock, log=TRUE)
+##' f <- sphere_function(2)
+##' plot(f)
+##' plot(f, show="contour")
+##' plot(f, rank=TRUE)
+##' plot(f, log=TRUE)
 ##' @author Olaf Mersmann \email{olafm@@datensplitter.net}
 ##' @S3method plot soo_function
 ##' @export
 plot.soo_function <- function(x,
-                              lower=lower_bounds(x, 2),
-                              upper=upper_bounds(x, 2),
+                              lower=lower_bounds(x),
+                              upper=upper_bounds(x),
                               n=10000L,
                               main=function_name(x),
                               xlab=expression(x[1]),
@@ -36,16 +37,16 @@ plot.soo_function <- function(x,
                               ...,
                               image_args=list(),
                               contour_args=list()) {
-
-  stopifnot(is.list(image_args),
+  
+  stopifnot(number_of_parameters(x) == 2,
+            is.list(image_args),
             is.list(contour_args),
             n == as.integer(n))
-  k <- floor(sqrt(n))
-  x1 <- seq(lower[1], upper[1], length.out=k)
-  x2 <- seq(lower[2], upper[2], length.out=k)
+  breaks_per_axis <- floor(sqrt(n))
+  x1 <- seq(lower[1], upper[1], length.out=breaks_per_axis)
+  x2 <- seq(lower[2], upper[2], length.out=breaks_per_axis)
   X <- expand.grid(x1, x2)
   z <- apply(X, 1, x)
-  dim(z) <- c(k, k)
 
   ## Shoud we logarithm the function values?
   if (log) {
@@ -59,17 +60,25 @@ plot.soo_function <- function(x,
 
   if (rank)
     z <- rank(z)
+
+  ## Make z a breaks_per_axis times breaks_per_axis matrix:
+  dim(z) <- c(breaks_per_axis, breaks_per_axis)
+
   ## Fixup image_args:
   if (!"col" %in% names(image_args))
     image_args$col <- terrain.colors(255)
 
+  ## Plot image:
   if ("image" %in% show) {
     image_args <- append(list(x=x1, y=x2, z=z, xlab=xlab, ylab=ylab, main=main),
                          image_args)
     do.call(image, image_args)
   }
+  ## Plot contour:
   if ("contour" %in% show) {    
     contour_args <- append(list(x=x1, y=x2, z=z), contour_args)
+    ## If we did not plot an image, fixup contour args to include axis
+    ## labels and plot title:
     if (!"image" %in% show)
       contour_args <- append(contour_args,
                              list(xlab=xlab, ylab=ylab, main=main))

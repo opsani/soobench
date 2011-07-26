@@ -1,27 +1,19 @@
-##' Discus Function
+##' Discus test function generator.
+##'
+##' The discus test function is similar to a high condition ellipsoid. It is defined as
+##'
+##'   \deqn{f(x) = 10^6 x_1^2 + x'x.}
 ##' 
-##' @param x parameter vector.
-##' @return Value of the Discus function.
+##' @param dimensions Size of parameter space.
+##' @return A \code{soo_function}.
 ##' @export
-f_discus <- function(x)
-  1e6 * x[1]^2 + sum(x*x)
+discus_function <- function(dimensions)
+  soo_function(name="Discus",
+               id=sprintf("discus-%id", dimensions),
+               fun=function(x, ...) 1e6 * x[1]^2 + sum(x*x),
+               dimensions=dimensions,
+               lower_bounds=rep(-32.768, dimensions),
+               upper_bounds=rep(-32.768, dimensions),
+               best_par=rep(0, dimensions),
+               best_value=0)
 
-class(f_discus) <- c("discus_function", "soo_function")
-
-##' @S3method lower_bounds discus_function
-##' @method lower_bounds discus_function
-##' @rdname bounds.Rd
-lower_bounds.discus_function <- function(x, dim)
-  rep(-32.768, dim)
-
-##' @S3method upper_bounds discus_function
-##' @method upper_bounds discus_function
-##' @rdname bounds.Rd
-upper_bounds.discus_function <- function(x, dim)
-  rep(32.768, dim)
-
-##' @S3method global_minimum discus_function
-##' @method global_minimum discus_function
-##' @rdname global_minimum.Rd
-global_minimum.discus_function <- function(x, dim, ...)
-  list(par=rep(0, dim), value=0)

@@ -18,20 +18,20 @@
 ##' @S3method persp3d soo_function
 ##' @method persp3d soo_function
 persp3d.soo_function <- function (x,
-                                  lower=lower_bounds(x, 2), upper=upper_bounds(x, 2),
+                                  lower=lower_bounds(x), upper=upper_bounds(x),
                                   n=10000L,
                                   main=function_name(x),
                                   xlab=expression(x[1]), ylab=expression(x[2]),
                                   log=FALSE, rank=FALSE,
                                   ...)
 {
-  stopifnot(n == as.integer(n))
+  stopifnot(n == as.integer(n), number_of_parameters(x) == 2)
   k <- floor(sqrt(n))
   x1 <- seq(lower[1], upper[1], length.out = k)
   x2 <- seq(lower[2], upper[2], length.out = k)
   X <- expand.grid(x1, x2)
   z <- apply(X, 1, x)
-  dim(z) <- c(k, k)
+
   if (log) {
     if (any(z < 0)) {
       warning("Negative function values. Shifting function to apply logarithm.")
@@ -41,7 +41,7 @@ persp3d.soo_function <- function (x,
   }
   if (rank)
     z <- rank(z)
-  
+  dim(z) <- c(k, k)  
   persp3d(x1, x2, z,
           xlab=xlab, ylab=ylab, ...,
           main=main,

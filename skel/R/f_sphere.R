@@ -1,29 +1,19 @@
-##' Sphere function.
+##' Sphere test function generator.
 ##'
-##' \deqn{f(x) = x'x}
+##' The sphere function is arguably the simplest test function. It is
+##' defined as
 ##'
-##' @param x Parameter vector.
-##' @return Value of the sphere function.
+##'   \deqn{f(x) = x'x.}
+##' 
+##' @param dimensions Size of parameter space.
+##' @return A \code{soo_function}.
 ##' @export
-f_sphere <- function(x)
-  drop(crossprod(x))
-
-class(f_sphere) <- c("sphere_function", "soo_function")
-
-##' @S3method lower_bounds sphere_function
-##' @method lower_bounds sphere_function
-##' @rdname bounds.Rd
-lower_bounds.sphere_function <- function(x, dim)
-  rep(-5, dim)
-
-##' @S3method upper_bounds sphere_function
-##' @method upper_bounds sphere_function
-##' @rdname bounds.Rd
-upper_bounds.sphere_function <- function(x, dim)
-  rep(5, dim)
-
-##' @S3method global_minimum sphere_function
-##' @method global_minimum sphere_function
-##' @rdname global_minimum.Rd
-global_minimum.sphere_function <- function(x, dim, ...)
-  list(par=rep(0, dim), value=0)
+sphere_function <- function(dimensions)
+  soo_function(name="Sphere",
+               id=sprintf("sphere-%id", dimensions),
+               fun=function(x, ...) sum(x*x),
+               dimensions=dimensions,
+               lower_bounds=rep(-5, dimensions),
+               upper_bounds=rep(5, dimensions),
+               best_par=rep(0, dimensions),
+               best_value=0)

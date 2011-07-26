@@ -1,27 +1,15 @@
-##' Rastrigin function
-##' 
-##' @param x Parameter vector.
-##' @return Value of the Rastrigin function.
+##' Rastrigin test function generator.
+##'
+##' @param dimensions Size of parameter space.
+##' @return A \code{soo_function}.
 ##' @export
-f_rastrigin <- function(x)
-  sum(x*x - 10 * cos(2*pi*x) + 10)
-
-class(f_rastrigin) <- c("rastrigin_function", "soo_function")
-
-##' @method lower_bounds rastrigin_function
-##' @S3method lower_bounds rastrigin_function
-##' @rdname bounds.Rd
-lower_bounds.rastrigin_function <- function(x, dim)
-  rep(-5, dim)
-
-##' @method upper_bounds rastrigin_function
-##' @S3method upper_bounds rastrigin_function
-##' @rdname bounds.Rd
-upper_bounds.rastrigin_function <- function(x, dim)
-  rep(5, dim)
-
-##' @method global_minimum rastrigin_function
-##' @S3method global_minimum rastrigin_function
-##' @rdname global_minimum.Rd
-global_minimum.rastrigin_function <- function(x, dim, ...)
-  list(par=rep(0, dim), value=0)
+##' @useDynLib soobench do_f_rastrigin
+rastrigin_function <- function(dimensions)
+  soo_function(name="Rastrigin",
+               id=sprintf("rastrigin-%id", dimensions),
+               fun=function(x, ...) .Call(do_f_rastrigin, x),
+               dimensions=dimensions,
+               lower_bounds=rep(-5, dimensions),
+               upper_bounds=rep(5, dimensions),
+               best_par=rep(0, dimensions),
+               best_value=0)
