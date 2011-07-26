@@ -1,5 +1,5 @@
-R	:= R
-RSCRIPT	:= Rscript
+R	:= R --vanilla
+RSCRIPT	:= Rscript --vanilla
 DELETE	:= rm -fR
 
 .SILENT:
@@ -39,5 +39,5 @@ pkg: clean
 	echo "Roxygenizing package ..."
 	${RSCRIPT} ./tools/roxygenize > roxygen.log 2>&1
 	echo "Setting 'Version' in DESCRIPTION ..."
-	${RSCRIPT} ./tools/set-version 0 1
+	${RSCRIPT} ./tools/set-version 0 2
 	${DELETE} pkg/inst ## Stupid roxygen!
