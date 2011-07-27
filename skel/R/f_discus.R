@@ -13,7 +13,7 @@ discus_function <- function(dimensions)
                fun=function(x, ...) 1e6 * x[1]^2 + sum(x*x),
                dimensions=dimensions,
                lower_bounds=rep(-32.768, dimensions),
-               upper_bounds=rep(-32.768, dimensions),
+               upper_bounds=rep(32.768, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
 
