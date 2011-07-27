@@ -10,6 +10,8 @@ generators <- list(ackley_function,
                    rastrigin_function,
                    rosenbrock_function,
                    sphere_function,
+                   schwefel_function,
+                   double_sum_function,
                    weierstrass_function)
 
 check <- function(f, par, value) {
