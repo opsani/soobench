@@ -1,3 +1,16 @@
+##' Generate a random \code{d}-dimensional rotation matrix.
+##'
+##' The algorithm used to randomly create the rotation matrix is due
+##' to R Salomon (see reference). No guarantee is given that the
+##' generated rotation matricies are uniformly distributed in any
+##' sense.
+##' 
+##' @param d Dimension of desired rotation matrix.
+##' @return A random \eqn{d \times d} rotation matrix.
+##' @references
+##' Salomon R. Re-evaluating genetic algorithm performance under coordinate
+##' rotation of benchmark functions. A survey of some theoretical and practical
+##' aspects of genetic algorithms. Biosystems. 1996;39(3):263-78. 
 random_rotation_matrix <- function(d) {
   simple_rotation_matrix <- function(d, i, j, alpha) {
     R <- diag(d)
