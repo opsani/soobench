@@ -1,3 +1,4 @@
+##' @export
 soo_function <- function(name, id, fun, dimensions,
                          lower_bounds, upper_bounds,
                          best_value, best_par) {
