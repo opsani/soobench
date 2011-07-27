@@ -11,7 +11,7 @@ SEXP do_f_rosenbrock(SEXP s_x) {
         
         const double c1 = xp * xp - xc;
         const double c2 = xp - 1.0;
-        res += 100 * c1 * c2 + c2 * c2;
+        res += 100 * c1 * c1 + c2 * c2;
     }
     return ScalarReal(res);
 }
