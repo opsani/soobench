@@ -1,6 +1,0 @@
-BB: the dependency on rgl is annoying for more than one reason. 
-instead of moving this to another package I suggest not to use
-S3 dispatching for persp3d. rename the method to shitty3dPlotWhatever,
-require rgl internally, call persp3d and move rgl to "suggests".
-
-
