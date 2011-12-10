@@ -77,7 +77,7 @@ static double bbob_eval(unsigned int fid, unsigned int tid, unsigned int d, doub
     case 22: return f22(x).Fval;
     case 23: return f23(x).Fval;
     case 24: return f24(x).Fval;
-    default: exit(-1);
+    default: return R_NaN;
     }
 }
 

@@ -75,7 +75,7 @@ void unif(double* r, int N, int inseed)
         r[i] = (double)aktrand/2.147483647e9;
         if (r[i] == 0.)
         {
-            printf("Warning: zero sampled(?), set to 1e-99.\n");
+            /* printf("Warning: zero sampled(?), set to 1e-99.\n"); */
             r[i] = 1e-99;
         }
     }
@@ -325,27 +325,14 @@ void finibenchmarkshelper() {
 /* this one exits after printing - severe error, not recoverable */
 void ERROR(char *fmt, ...)
 {
-  va_list argp;
-  fprintf(stderr, "ERROR: ");
-  va_start(argp, fmt);
-  vfprintf(stderr, fmt, argp);
-  va_end(argp);
-  fprintf(stderr, "\n");
-/* and EXIT */
-  exit(1);
+    error("Fatal BBOB error.");
 }
 
 /* same, but returns to the caller, mild error */
 void WARNING(char *fmt, ...)
 {
-  va_list argp;
-  fprintf(stderr, "WARNING: ");
-  va_start(argp, fmt);
-  vfprintf(stderr, fmt, argp);
-  va_end(argp);
-  fprintf(stderr, "\n");
-/* and RETURN */
-  return;
+    /* warning("BBOB Warning."); */
+    return;
 }
 
 /* create complete pathName from filename and dirname 
@@ -354,14 +341,14 @@ void WARNING(char *fmt, ...)
 */
 void createFullFileName(char *fullFileName, char *dirName, char *fileName)
 {
-char sLoc[1024];
-if ( (strlen(fileName) + strlen(dirName)) > 1022 )
-   ERROR("FileName will be too long for %s + %s", dirName, fileName);
-
-sprintf(sLoc, "%s/%s", dirName, fileName);
-strcpy(fullFileName, sLoc);
-/* What if fullFileName is not long enough? */
-return;
+    char sLoc[1024];
+    if ( (strlen(fileName) + strlen(dirName)) > 1022 )
+        ERROR("FileName will be too long for %s + %s", dirName, fileName);
+    
+    sprintf(sLoc, "%s/%s", dirName, fileName);
+    strcpy(fullFileName, sLoc);
+    /* What if fullFileName is not long enough? */
+    return;
 }
 
 /* Checks if sDir exists, 
