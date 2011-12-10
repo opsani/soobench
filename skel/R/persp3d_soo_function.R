@@ -1,5 +1,4 @@
 ##' Plot a test function in 3D.
-##' Perspective 3d plot of benchmark function.
 ##' 
 ##' @param x Function to plot.
 ##' @param lower Lower bounds of x1 and x2.
@@ -13,18 +12,16 @@
 ##' @param ... Passed to \code{persp3d.default}.
 ##'
 ##' @author Olaf Mersmann \email{olafm@@datensplitter.net}
-##' @importFrom rgl persp3d
-##'
-##' @S3method persp3d soo_function
-##' @method persp3d soo_function
-persp3d.soo_function <- function (x,
-                                  lower=lower_bounds(x), upper=upper_bounds(x),
-                                  n=10000L,
-                                  main=function_name(x),
-                                  xlab=expression(x[1]), ylab=expression(x[2]),
-                                  log=FALSE, rank=FALSE,
-                                  ...)
+plot3d <- function (x,
+                    lower=lower_bounds(x), upper=upper_bounds(x),
+                    n=10000L,
+                    main=function_name(x),
+                    xlab=expression(x[1]), ylab=expression(x[2]),
+                    log=FALSE, rank=FALSE,
+                    ...)
 {
+  if (!require("rgl"))
+    stop("plot3d requires the rgl package. Please install it first.")
   stopifnot(n == as.integer(n), number_of_parameters(x) == 2)
   k <- floor(sqrt(n))
   x1 <- seq(lower[1], upper[1], length.out = k)

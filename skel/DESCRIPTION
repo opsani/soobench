@@ -9,3 +9,4 @@ License: BSD
 Imports: rgl
 LazyData: yes
 Version: UNKNOWN
+Suggests: rgl
