@@ -24,6 +24,7 @@
 ##' plot(f, log=TRUE)
 ##' @author Olaf Mersmann \email{olafm@@datensplitter.net}
 ##' @S3method plot soo_function
+##' @method plot soo_function
 ##' @export
 plot.soo_function <- function(x,
                               lower=lower_bounds(x),
