@@ -1,13 +1,11 @@
-#include "sexp_macros.h"
+#include "soobench.h"
 
-SEXP do_f_mexican_hat(SEXP s_x) {
+const double f_mexican_hat(const double *x, const size_t n) {
     double res = 0.0;
     size_t i;
-    UNPACK_REAL_VECTOR(s_x, x, n);
     
     for (i = 0; i < n; ++i) {
         res += x[i] * x[i];
     }
-    res = -(1 - res) * exp(-res * 0.5);
-    return ScalarReal(res);
+    return -(1.0 - res) * exp(-res * 0.5);
 }

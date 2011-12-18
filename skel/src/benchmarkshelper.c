@@ -323,9 +323,8 @@ void finibenchmarkshelper() {
 
 /* error handling routines - same arguments as printf, i.e. format first, then list of things to print */
 /* this one exits after printing - severe error, not recoverable */
-void ERROR(char *fmt, ...)
-{
-    error("Fatal BBOB error.");
+void ERROR(char *fmt, ...) {
+    /* error("Fatal BBOB error."); */
 }
 
 /* same, but returns to the caller, mild error */

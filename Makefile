@@ -12,6 +12,7 @@ usage:
 	echo " check    - run R CMD check on the package"
 	echo " package  - build source package"
 	echo " help     - shows all available targets"
+	echo " test     - run test suite"
 
 help: usage
 	echo " clean    - clean up package cruft"
@@ -40,4 +41,6 @@ pkg: clean
 	${RSCRIPT} ./tools/roxygenize > roxygen.log 2>&1
 	echo "Setting 'Version' in DESCRIPTION ..."
 	${RSCRIPT} ./tools/set-version 0 2
-	${DELETE} pkg/inst ## Stupid roxygen!
+
+test: install
+	${RSCRIPT} ./tools/run-tests

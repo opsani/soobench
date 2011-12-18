@@ -1,12 +1,10 @@
-#include "sexp_macros.h"
+#include <stdlib.h>
 
-SEXP do_f_sphere(SEXP s_x) {
-    double res = 0.0;
+const double f_sphere(const double *x, const size_t n) {
     size_t i;
-    UNPACK_REAL_VECTOR(s_x, x, n);
-    
+    double res = 0.0;
     for (i = 0; i < n; ++i) {
         res += x[i] * x[i];
     }
-    return ScalarReal(res);
+    return res;
 }

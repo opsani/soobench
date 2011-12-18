@@ -49,7 +49,8 @@ static void bbob_free() {
     init = 0;
 }
 
-static double bbob_eval(unsigned int fid, unsigned int tid, unsigned int d, double *x) {
+static double bbob_eval(unsigned int fid, unsigned int tid, 
+                        unsigned int d, double *x) {
     INITIALIZE_BBOB_FUNCTION(fid, tid, d)
 
     switch(last_fid) {
@@ -89,9 +90,9 @@ static double bbob_fopt(unsigned int fid, unsigned int tid, unsigned int d) {
 }
 
 static void bbob_xopt(unsigned int fid, unsigned int tid, unsigned int d, double *x) {
-    int i, rseed;    
+    int i, rseed;
     INITIALIZE_BBOB_FUNCTION(fid, tid, d);
-    
+
     for (i = 0; i < d; ++i)
 	x[i] = 0;
 
@@ -99,20 +100,36 @@ static void bbob_xopt(unsigned int fid, unsigned int tid, unsigned int d, double
     bbob_eval(fid, tid, d, x);
 
     for (i = 0; i < d; ++i)
-	x[i] = Xopt[i];    
+	x[i] = Xopt[i];
 }
 
-SEXP do_bbob_eval(SEXP s_fid, SEXP s_tid, SEXP s_par) {
-    double value;
-    
+SEXP do_bbob_eval(SEXP s_fid, SEXP s_tid, SEXP s_x) {
+    size_t n_parameters, n_values, current_value;
     /* Unpack arguments: */
     UNPACK_INT(s_fid, fid);
     UNPACK_INT(s_tid, tid);
-    UNPACK_REAL_VECTOR(s_par, par, dim);
-    
-    /* Evaluate function: */
-    value = bbob_eval(fid, tid, dim, par);
-    return(ScalarReal(value));
+
+    if (!isReal(s_x))
+        error("s_x must be numeric.");
+
+    double *x = REAL(s_x);
+    if (isMatrix(s_x)) {
+        n_parameters = nrows(s_x);
+        n_values = ncols(s_x);
+    } else if (isVector(s_x)) {
+        n_parameters = length(s_x);
+        n_values = 1;
+    }
+
+    SEXP s_res;
+    PROTECT(s_res = allocVector(REALSXP, n_values));
+    double *res = REAL(s_res);
+    for (current_value = 0; current_value < n_values; ++current_value) {
+        res[current_value] = bbob_eval(fid, tid, n_parameters,
+                                       x + current_value * n_parameters);
+    }
+    UNPROTECT(1); /* s_res */
+    return s_res;
 }
 
 SEXP do_bbob_opt(SEXP s_fid, SEXP s_tid, SEXP s_dim) {
@@ -122,7 +139,7 @@ SEXP do_bbob_opt(SEXP s_fid, SEXP s_tid, SEXP s_dim) {
     UNPACK_INT(s_fid, fid);
     UNPACK_INT(s_tid, tid);
     UNPACK_INT(s_dim, dim);
-        
+
     /* Allocate result objects: */
     PROTECT(s_res   = allocVector(VECSXP, 2));
     PROTECT(s_par   = allocVector(REALSXP, dim));
@@ -133,7 +150,7 @@ SEXP do_bbob_opt(SEXP s_fid, SEXP s_tid, SEXP s_dim) {
     /* Calculate optimal parameters and value: */
     value[0] = bbob_fopt(fid, tid, dim);
     bbob_xopt(fid, tid, dim, par);
-    
+
     SET_VECTOR_ELT(s_res, 0, s_par);
     SET_VECTOR_ELT(s_res, 1, s_value);
     UNPROTECT(3); /* s_res, s_par, s_value */

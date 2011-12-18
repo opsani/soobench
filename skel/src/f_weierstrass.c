@@ -1,12 +1,11 @@
-#include "sexp_macros.h"
+#include "soobench.h"
 
-SEXP do_f_weierstrass(SEXP s_x) {
+const double f_weierstrass(const double *x, const size_t n) {
     const size_t k_max = 20;
     const double a = 0.5;
     const double b = 3.0;
     double c1 = 0.0, c2 = 0.0, res = 0.0;
     size_t i, k;
-    UNPACK_REAL_VECTOR(s_x, x, n);
     
     for (k = 0; k <= k_max; ++k) {
         const double a_k = pow(a, k);
@@ -17,6 +16,5 @@ SEXP do_f_weierstrass(SEXP s_x) {
         }
         c2 += a_k * cos(2 * M_PI * b_k * 0.5);
     }
-    res = c1 - n * c2;
-    return ScalarReal(res);
+    return c1 - n * c2;
 }

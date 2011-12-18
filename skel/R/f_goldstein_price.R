@@ -16,7 +16,7 @@ goldstein_price_function <- function()
                lower_bounds=c(-2, -2),
                upper_bounds=c(2, 2),
                best_par=c(0, -1),
-               best_value=0)
+               best_value=3)
 
 ## Pure R reference implementation:
 f_goldsteinprice <- function(x) {

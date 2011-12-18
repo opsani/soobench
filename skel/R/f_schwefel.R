@@ -17,5 +17,5 @@ schwefel_function <- function(dimensions)
                dimensions=dimensions,
                lower_bounds=rep(-500, dimensions),
                upper_bounds=rep(500, dimensions),
-               best_par=rep(420.9687, dimensions),
+               best_par=rep(-420.9687, dimensions),
                best_value=0)
