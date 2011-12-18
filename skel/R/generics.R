@@ -132,3 +132,32 @@ number_of_parameters <- function(fn)
 ##' @rdname number_of_parameters.Rd
 number_of_parameters.soo_function <- function(fn)
   attr(fn, "dimensions")  
+
+##' @title Generate random parameters for a given function.
+##'
+##' Given a test function \code{fn}, generate \code{n} random
+##' parameter settings for that function.
+##'
+##' @param n Number of parameters to generate.
+##' @param fn Test function.
+##'
+##' @return A matrix containing the parameter settings in the
+##' \emph{columns} of the matrix.
+##'
+##' @examples
+##' fn <- ackley_function(10)
+##' X <- random_parameters(100, fn)
+##' str(X)
+##' y <- fn(X)
+##' 
+##' @export
+random_parameters <- function(n, fn)
+  UseMethod("random_parameters", fn)
+
+##' @S3method random_parameters soo_function
+##' @method random_parameters soo_function
+random_parameters.soo_function <- function(n, fn)
+  replicate(n, runif(number_of_parameters(fn),
+                     lower_bounds(fn),
+                     upper_bounds(fn)))
+
