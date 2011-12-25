@@ -36,7 +36,7 @@ plot.soo_function <- function(x,
                               log=FALSE, rank=FALSE,
                               show=c("image", "contour"),
                               ...,
-                              image_args=list(),
+                              image_args=list(useRaster=TRUE),
                               contour_args=list()) {
   
   stopifnot(number_of_parameters(x) == 2,
