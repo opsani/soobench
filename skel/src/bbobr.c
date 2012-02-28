@@ -78,6 +78,31 @@ static double bbob_eval(unsigned int fid, unsigned int tid,
     case 22: return f22(x).Fval;
     case 23: return f23(x).Fval;
     case 24: return f24(x).Fval;
+    /* Noisy funcrions: */
+    case 101: return f101(x).Fval;
+    case 102: return f102(x).Fval;
+    case 103: return f103(x).Fval;
+    case 104: return f104(x).Fval;
+    case 105: return f105(x).Fval;
+    case 106: return f106(x).Fval;
+    case 107: return f107(x).Fval;
+    case 108: return f108(x).Fval;
+    case 109: return f109(x).Fval;
+    case 110: return f110(x).Fval;
+    case 111: return f111(x).Fval;
+    case 112: return f112(x).Fval;
+    case 113: return f113(x).Fval;
+    case 114: return f114(x).Fval;
+    case 115: return f115(x).Fval;
+    case 116: return f116(x).Fval;
+    case 117: return f117(x).Fval;
+    case 118: return f118(x).Fval;
+    case 119: return f119(x).Fval;
+    case 120: return f120(x).Fval;
+    case 121: return f121(x).Fval;
+    case 122: return f122(x).Fval;
+    case 123: return f123(x).Fval;
+    case 124: return f124(x).Fval;
     default: return R_NaN;
     }
 }
@@ -156,4 +181,10 @@ SEXP do_bbob_opt(SEXP s_fid, SEXP s_tid, SEXP s_dim) {
     UNPROTECT(3); /* s_res, s_par, s_value */
 
     return(s_res);
+}
+
+SEXP do_set_bbob_noise_seed(SEXP s_seed) {
+    UNPACK_INT(s_seed, seed);
+    setNoiseSeed(seed, seed);
+    return(s_seed);
 }

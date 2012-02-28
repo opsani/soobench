@@ -10,7 +10,7 @@ generators <- list(ackley_function,
                    rastrigin_function,
                    rosenbrock_function,
                    sphere_function,
-                   schwefel_function,
+                   ##schwefel_function,
                    double_sum_function,
                    weierstrass_function)
 
@@ -49,6 +49,16 @@ for (fid in 1:24) {
   for (iid in 1:15) {
     for (dim in c(2, 3, 5, 10, 20, 40)) {
       f <- bbob2009_function(dim, fid, iid)
+      check_function(f)
+    }
+  }
+}
+
+## some of these fail, this is a known issue
+for (fid in 1:24) {
+  for (iid in 1:15) {
+    for (dim in c(2, 3, 5, 10, 20, 40)) {
+      f <- noisy_bbob2009_function(dim, fid, iid, 1L)
       check_function(f)
     }
   }
