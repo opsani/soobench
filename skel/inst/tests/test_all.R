@@ -29,7 +29,7 @@ for (dim in c(2, 3, 5, 10, 20)) {
   check_fun(mexican_hat_function(dim))
   check_fun(rastrigin_function(dim))
   check_fun(rosenbrock_function(dim))
-  check_fun(schwefel_function(dim))
+  ##check_fun(schwefel_function(dim))
   check_fun(sphere_function(dim))
   check_fun(weierstrass_function(dim))
 }
