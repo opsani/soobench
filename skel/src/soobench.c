@@ -40,6 +40,6 @@ R_SOOFUNCTION(f_kotancheck)
 R_SOOFUNCTION(f_mexican_hat)
 R_SOOFUNCTION(f_rastrigin)
 R_SOOFUNCTION(f_rosenbrock)
-R_SOOFUNCTION(f_schwefel)
+/* R_SOOFUNCTION(f_schwefel) */
 R_SOOFUNCTION(f_sphere)
 R_SOOFUNCTION(f_weierstrass)

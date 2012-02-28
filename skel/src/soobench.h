@@ -20,7 +20,7 @@ SOOFUNCTION(f_kotancheck)
 SOOFUNCTION(f_mexican_hat)
 SOOFUNCTION(f_rastrigin)
 SOOFUNCTION(f_rosenbrock)
-SOOFUNCTION(f_schwefel)
+/* SOOFUNCTION(f_schwefel) */
 SOOFUNCTION(f_sphere)
 SOOFUNCTION(f_weierstrass)
 
