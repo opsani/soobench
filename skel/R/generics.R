@@ -160,4 +160,3 @@ random_parameters.soo_function <- function(n, fn)
   replicate(n, runif(number_of_parameters(fn),
                      lower_bounds(fn),
                      upper_bounds(fn)))
-
