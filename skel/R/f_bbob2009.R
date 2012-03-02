@@ -50,6 +50,7 @@ bbob2009_function <- function(dimensions, fid, iid) {
 }
 
 ##' @rdname bbob2009_function.Rd
+##' @export
 noisy_bbob2009_function <- function(dimensions, fid, iid, noiseSeed=1L) {
   fid <- as.integer(fid)
   realfid <- 100L + fid
