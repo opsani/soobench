@@ -6,7 +6,6 @@ Author: Olaf Mersmann <olafm@p-value.net>
   Bernd Bischl <bischl@statistik.tu-dortmund.de>
 Maintainer: Olaf Mersmann <olafm@p-value.net>
 License: BSD
-Imports: rgl
 LazyData: yes
 Version: UNKNOWN
 Suggests: rgl
