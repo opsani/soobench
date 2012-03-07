@@ -1,0 +1,4 @@
+we need a function to ask the id of a function generator like sphere_function 
+(would return "sphere", not "sphere-2d")
+
+counting_function could get a vector of y-levels to compute first hitting times
