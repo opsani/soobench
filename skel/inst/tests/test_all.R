@@ -48,9 +48,9 @@ expect_equal(soobench:::target_values(f), numeric(0))
 y1 <- sapply(c(2,1,3), f)
 y2 <- soobench:::target_values(f)
 expect_equal(y1, y2)
-expect_equal(soobench:::first_hitting_times(y2, c(1, 0, 7), minimize=TRUE),
+expect_equal(soobench:::first_hitting_times(y2, c(1, 0, 7)),
     c(2, NA, 1)) 
-expect_equal(soobench:::first_hitting_times(y2, c(1, 10, 7), minimize=FALSE), 
+expect_equal(soobench:::first_hitting_times(y2, c(1, 10, 7)), 
     c(1, NA, 3)) 
 soobench:::reset_target_values(f)
 expect_equal(soobench:::target_values(f), numeric(0))

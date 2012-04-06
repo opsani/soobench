@@ -8,7 +8,7 @@
 ##' soobench:::target_values(f)
 ##' sapply(c(2,3,1), f)
 ##' y <- soobench:::target_values(f)
-##' soobench:::first_hitting_times(y, c(1, 7), minimize=FALSE) 
+##' soobench:::first_hitting_times(y, c(1, 7)) 
 ##' soobench:::reset_target_values(f)
 ##' soobench:::target_values(f)
 ##'
@@ -65,12 +65,7 @@ reset_target_values <- function(fun) {
 ##' @param target_values Numerical vector of recorded target values.
 ##' @param target_levels Numerical vector of target levels which should
 ##'   ideally be reached.
-##' @param minimize Is the function to be minimized that produced the target values?
-first_hitting_times <- function(target_values, target_levels, minimize=TRUE) {
-  if (!minimize) {
-    target_values <- -1*target_values 
-    target_levels <- -1*target_levels 
-  }
+first_hitting_times <- function(target_values, target_levels) {
   sapply(target_levels, function(lev) which(target_values <= lev)[1L])
 }
 
