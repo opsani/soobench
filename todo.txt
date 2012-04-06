@@ -2,5 +2,7 @@ we need a function to ask the id of a function generator like sphere_function
 (would return "sphere", not "sphere-2d")
 
 counting_function could get a vector of y-levels to compute first hitting times
+--> did record_target_values_function insetad, more flexible and does not
+    break old interface. export when ok 
 
 add a function to compute ERT and boostrap same as done in BBOB
