@@ -6,3 +6,6 @@ counting_function could get a vector of y-levels to compute first hitting times
     break old interface. export when ok 
 
 add a function to compute ERT and boostrap same as done in BBOB
+
+- look again at noisy testfuns, whether we have enugh tests, as there were problems before.
+noisy bbob set and generic noise added to deterministic funs.
