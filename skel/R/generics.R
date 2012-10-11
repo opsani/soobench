@@ -101,11 +101,18 @@ function_name.soo_function <- function(fn) {
   sprintf("%iD %s function", dim, basename)
 }
 
+##' @S3method function_name soo_function_generator
+##' @method function_name soo_function_generator
+##' @rdname function_name.Rd
+function_name.soo_function_generator <- function(fn)
+  attr(fn, "name")
+
 ##' Get a short id for the function that can be used in filenames and
 ##' such. 
 ##'
 ##' @param fn Function to name.
-##' @return ID of function. Guaranteed to be unique among all test functions.
+##' @return ID of function. Guaranteed to be unique among all test
+##' functions.
 ##' @export
 ##' @rdname function_id.Rd
 function_id <- function(fn)
@@ -117,7 +124,25 @@ function_id <- function(fn)
 function_id.soo_function <- function(fn)
   attr(fn, "id")
 
-##' Return the parameter space size of a function.
+##' @S3method function_id soo_function_generator
+##' @method function_id soo_function_generator
+##' @rdname function_id.Rd
+function_id.soo_function_generator <- function(fn) {
+  attr(fn, "id")
+}
+
+##' Returns wether \code{fn} is a generator for a single objective
+##' optimization function.
+##'
+##' @param fn Function.
+##' @return \code{TRUE} if \code{fn} is a function generator and
+##'   \code{FALSE} otherwise.
+##' @export
+is_function_generator <- function(fn)
+  inherits(fn, "soo_function_generator")
+
+##' Return the parameter space size of a
+##' function.
 ##'
 ##' @param fn Function.
 ##' @return Expected length of first argument. I.e. the size of the

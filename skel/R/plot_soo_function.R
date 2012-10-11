@@ -17,7 +17,7 @@
 ##'
 ##' @examples
 ##' par(mfrow=c(2, 2))
-##' f <- sphere_function(2)
+##' f <- generate_sphere_function(2)
 ##' plot(f)
 ##' plot(f, show="contour")
 ##' plot(f, rank=TRUE)

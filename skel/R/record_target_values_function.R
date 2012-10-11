@@ -4,18 +4,17 @@
 ##' @param fun A test function (class \code{soo_function}).
 ##'
 ##' @examples
-##' f <- soobench:::record_target_values_function(sphere_function(1))
+##' f <- soobench:::record_target_values_function(generate_sphere_function(1))
 ##' soobench:::target_values(f)
 ##' sapply(c(2,3,1), f)
 ##' y <- soobench:::target_values(f)
-##' soobench:::first_hitting_times(y, c(1, 7)) 
+##' soobench:::first_hitting_times(y, c(1, 7))
 ##' soobench:::reset_target_values(f)
 ##' soobench:::target_values(f)
 ##'
 ##' @seealso \code{\link{target_values}},
 ##'          \code{\link{reset_target_values}},
 ##'          \code{\link{first_hitting_times}}
-# FIXME: remove ::: when exported in example
 record_target_values_function <- function(fun) {            
   force(fun)
   stopifnot("soo_function" %in% class(fun))
@@ -68,4 +67,3 @@ reset_target_values <- function(fun) {
 first_hitting_times <- function(target_values, target_levels) {
   sapply(target_levels, function(lev) which(target_values <= lev)[1L])
 }
-

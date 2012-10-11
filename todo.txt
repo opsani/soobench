@@ -1,11 +1,22 @@
-we need a function to ask the id of a function generator like sphere_function 
-(would return "sphere", not "sphere-2d")
+ * Rename all generators to generate_<function name>. So
+   'sphere_function' becomes 'generate_sphere_function'. See sphere.R
+   for an example of what all other generators should look like.
 
-counting_function could get a vector of y-levels to compute first hitting times
---> did record_target_values_function insetad, more flexible and does not
-    break old interface. export when ok 
+ * More checks for arguments in generators, esp. check for NULLs.
 
-add a function to compute ERT and boostrap same as done in BBOB
+ * Add more test cases to skel/inst/tests/.
 
-- look again at noisy testfuns, whether we have enugh tests, as there were problems before.
-noisy bbob set and generic noise added to deterministic funs.
+ * Add more transformations.
+
+ * Add a function to compute the ERT from a set of runs and also
+   bootstrap variance as done in official BBOB code.
+
+ * Improve noisy testbed.
+
+ * For each function, research where it was first mentioned in the
+   literature. Add reference to manual page and bibtex entry to
+   manual/functions.bib. If paper is not available online (add link to
+   BibTeX entry if it is), order it from library and add scan to
+   repository.
+
+ * Add formulas to help page of generators.
