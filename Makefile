@@ -28,9 +28,11 @@ check: clean pkg
 
 clean:
 	echo "Cleaning up ..."
-	${DELETE} skel/src/*.o skel/src/*.so skel.Rcheck
+	${DELETE} build.log install.log roxygen.log package.log
+	${DELETE} skel/src/*.o skel/src/*.so
+	${DELETE} soobench.Rcheck
 	${DELETE} pkg
-	${DELETE} .RData .Rhistory build.log install.log roxygen.log package.log
+	${DELETE} .RData .Rhistory
 
 package: pkg
 	echo "Building package file ..."
