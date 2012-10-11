@@ -24,3 +24,8 @@
  * Improve efficiency of record_target_values_function(). 
 
  * Add missing generics for record_target_values_function(). 
+
+ * Add HappyCat and Batman functions from:
+
+    https://homepages.fhv.at/hgb/New-Papers/PPSN12_BF12.pdf
+
