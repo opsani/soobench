@@ -13,8 +13,7 @@ immediately install the package, run
 
   make install
 
-Other build options are available. Further build options are
-available. Check the output of
+Further build options are available. Check the output of
 
   make
 

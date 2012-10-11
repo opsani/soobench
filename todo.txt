@@ -20,3 +20,7 @@
    repository.
 
  * Add formulas to help page of generators.
+
+ * Improve efficiency of record_target_values_function(). 
+
+ * Add missing generics for record_target_values_function(). 
