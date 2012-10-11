@@ -7,9 +7,9 @@
 ##' 
 ##' @param d Dimension of desired rotation matrix.
 ##' @return A random \eqn{d \times d} rotation matrix.
-##' @references
-##' Salomon R. Re-evaluating genetic algorithm performance under coordinate
-##' rotation of benchmark functions. A survey of some theoretical and practical
+##' @references Salomon R. Re-evaluating genetic algorithm performance
+##' under coordinate rotation of benchmark functions. A survey of some
+##' theoretical and practical
 ##' aspects of genetic algorithms. Biosystems. 1996;39(3):263-78. 
 random_rotation_matrix <- function(d) {
   simple_rotation_matrix <- function(d, i, j, alpha) {
@@ -45,7 +45,7 @@ random_rotation_matrix <- function(d) {
 ##' @return A new \code{soo_function} object where the parameter space
 ##'  has been randomly rotated.
 ##' @examples
-##' f <- ackley_function(2)
+##' f <- generate_ackley_function(2)
 ##' f_r <- rotate_parameter_space(f)
 ##' par(mfrow=c(1, 2))
 ##' plot(f)

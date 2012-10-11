@@ -31,6 +31,9 @@
 soo_function <- function(name, id, fun, dimensions,
                          lower_bounds, upper_bounds,
                          best_value, best_par) {
+  stopifnot(as.integer(dimensions) == dimensions,
+            length(dimensions) == 1,
+            length(lower_bounds) == length(upper_bounds))            
   structure(fun, name=name, id=id, dimensions=dimensions,
             class=c("soo_function", class(fun)),
             lower_bounds=lower_bounds,
@@ -170,7 +173,7 @@ number_of_parameters.soo_function <- function(fn)
 ##' \emph{columns} of the matrix.
 ##'
 ##' @examples
-##' fn <- ackley_function(10)
+##' fn <- generate_ackley_function(10)
 ##' X <- random_parameters(100, fn)
 ##' str(X)
 ##' y <- fn(X)

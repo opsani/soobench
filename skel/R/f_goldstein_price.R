@@ -3,7 +3,7 @@
 ##' @return A \code{soo_function}.
 ##'
 ##' @examples
-##' f <- ackley_function(2)
+##' f <- goldstein_price_function()
 ##' plot(f, rank=TRUE)
 ##'
 ##' @export

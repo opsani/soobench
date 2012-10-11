@@ -4,12 +4,12 @@
 ##' @return A \code{soo_function}.
 ##'
 ##' @examples
-##' f <- ackley_function(2)
+##' f <- generate_ackley_function(2)
 ##' plot(f, rank=TRUE)
 ##' 
 ##' @export
 ##' @useDynLib soobench do_f_ackley
-ackley_function <- function(dimensions)
+generate_ackley_function <- function(dimensions)
   soo_function(name="Ackley", id=sprintf("ackley-%id", dimensions),
                dimensions=dimensions,
                fun=function(x) .Call(do_f_ackley, x),
@@ -17,6 +17,11 @@ ackley_function <- function(dimensions)
                upper_bounds=rep(32.786, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
+
+
+class(generate_ackley_function) <- "soo_function_generator"
+attr(generate_ackley_function, "id") <- "ackley"
+attr(generate_ackley_function, "name") <- "Ackley's test function"
 
 ## Pure R implementation for reference purposes:
 f_ackley <- function(x) {
