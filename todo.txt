@@ -1,4 +1,4 @@
- * Rename all generators to generate_<function name>. So
+ * (LJ) Rename all generators to generate_<function name>. So
    'sphere_function' becomes 'generate_sphere_function'. See sphere.R
    for an example of what all other generators should look like.
 
@@ -13,13 +13,13 @@
 
  * Improve noisy testbed.
 
- * For each function, research where it was first mentioned in the
+ * (LJ) For each function, research where it was first mentioned in the
    literature. Add reference to manual page and bibtex entry to
    manual/functions.bib. If paper is not available online (add link to
    BibTeX entry if it is), order it from library and add scan to
    repository.
 
- * Add formulas to help page of generators.
+ * (LJ) Add formulas to help page of generators.
 
  * (JB) Improve efficiency of record_target_values_function(). 
 
