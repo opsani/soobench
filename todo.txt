@@ -2,13 +2,13 @@
    'sphere_function' becomes 'generate_sphere_function'. See sphere.R
    for an example of what all other generators should look like.
 
- * More checks for arguments in generators, esp. check for NULLs.
+ * (JB) More checks for arguments in generators, esp. check for NULLs.
 
  * Add more test cases to skel/inst/tests/.
 
  * Add more transformations.
 
- * Add a function to compute the ERT from a set of runs and also
+ * (JB) Add a function to compute the ERT from a set of runs and also
    bootstrap variance as done in official BBOB code.
 
  * Improve noisy testbed.
@@ -21,11 +21,11 @@
 
  * Add formulas to help page of generators.
 
- * Improve efficiency of record_target_values_function(). 
+ * (JB) Improve efficiency of record_target_values_function(). 
 
  * Add missing generics for record_target_values_function(). 
 
- * Add HappyCat and Batman functions from:
+ * (JB) Add HappyCat and Batman functions from:
 
     https://homepages.fhv.at/hgb/New-Papers/PPSN12_BF12.pdf
 
