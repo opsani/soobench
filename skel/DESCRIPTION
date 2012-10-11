@@ -2,8 +2,10 @@ Package: soobench
 Title: Single Objective Optimization Benchmark Functions
 Description: Collection of different single objective test
   functions useful for benchmarks and algorithm development. 
-Author: Olaf Mersmann <olafm@p-value.net>
-  Bernd Bischl <bischl@statistik.tu-dortmund.de>
+Author: Olaf Mersmann <olafm@p-value.net>,
+  Bernd Bischl <bischl@statistik.tu-dortmund.de>,
+  Jakob Bossek <jakob.bossek@tu-dortmund.de> and
+  Leonard Judt <judt@gmx.net>
 Maintainer: Olaf Mersmann <olafm@p-value.net>
 License: BSD
 LazyData: yes
