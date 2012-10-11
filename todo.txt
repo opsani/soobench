@@ -29,3 +29,9 @@
 
     https://homepages.fhv.at/hgb/New-Papers/PPSN12_BF12.pdf
 
+ * Currently we have a lot of redundant C code for handling SEXP. The R_SOOFUNCTION
+   macro is fine for test functions which expect no parameters beside the vector x.
+   Unfortunately until now we have copies of the function body of R_SOOFUNCTION in
+   do_bbob_eval, do_happycat_eval and do_batman_eval.
+     
+

@@ -1,6 +1,6 @@
 library("soobench")
 
-generators <- list(ackley_function,
+generators <- list(generate_ackley_function,
                    branin_function,
                    discus_function,
                    ellipsoidal_function,
@@ -9,8 +9,8 @@ generators <- list(ackley_function,
                    mexican_hat_function,
                    rastrigin_function,
                    rosenbrock_function,
-                   sphere_function,
-                   schwefel_function,
+                   generate_sphere_function,
+                   #schwefel_function,
                    double_sum_function,
                    weierstrass_function)
 
@@ -38,6 +38,11 @@ for (fid in 1:24) {
     f <- bbob2009_function(2, fid, iid)
     plotit(f)
   }
+}
+
+for(alpha in seq(0,1,by=0.1)) {
+	f <- generate_happycat_function(2, alpha)
+	plotit(f)
 }
 
 dev.off()
