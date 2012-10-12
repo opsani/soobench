@@ -25,10 +25,10 @@ generate_batman_function <- function(dimensions, alpha) {
   body(f) <- substitute(.Call(do_eval_batman, alpha, x), 
                         list(alpha=alpha))
   soo_function(name="Batman", 
-               id=sprintf("batman-%id", dimensions),
+               id=sprintf("batman-%id-%5.3f", dimensions, alpha),
                dimensions=dimensions,
                fun=f,
-			   # lower and upper bounds unknown until now
+               ## lower and upper bounds unknown until now
                lower_bounds=rep(-2, dimensions),
                upper_bounds=rep(2, dimensions),
                best_par=rep(-1, dimensions),

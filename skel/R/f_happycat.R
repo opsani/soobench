@@ -20,15 +20,15 @@
 ##' @rdname generate_happycat_function
 generate_happycat_function <- function(dimensions, alpha) {
   if(alpha < 0) 
-	warning("Alpha should be greater zero. Otherwise you lose the global optimum!")
+    warning("Alpha should be greater zero. Otherwise you lose the global optimum!")
   f <- function(x) {}
   body(f) <- substitute(.Call(do_eval_happycat, alpha, x), 
                         list(alpha=alpha))
   soo_function(name="Happycat", 
-               id=sprintf("happycat-%id", dimensions),
+               id=sprintf("happycat-%id-%5.3f", dimensions, alpha),
                dimensions=dimensions,
                fun=f,
-			   # lower and upper bounds unknown until now
+               ## lower and upper bounds unknown until now
                lower_bounds=rep(-2, dimensions),
                upper_bounds=rep(2, dimensions),
                best_par=rep(-1, dimensions),
