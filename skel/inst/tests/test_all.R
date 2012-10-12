@@ -42,10 +42,11 @@ for (dim in c(2, 3, 5, 10, 20)) {
   }
 }
 
-# Tests for happyCat function
+# Tests for happyCat and batman function
 for(dim in c(2,3,5,10,20) {
 	for(alpha in seq(0,1,by=0.1)) {
 		check_fun(generate_happycat_function(dim, alpha))
+		check_fun(generate_batman_function(dim, alpha))
 	}
 }
 

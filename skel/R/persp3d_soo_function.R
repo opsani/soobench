@@ -38,7 +38,7 @@ plot3d <- function (x,
   }
   if (rank)
     z <- rank(z)
-  dim(z) <- c(k, k)  
+  dim(z) <- c(k, k)
   persp3d(x1, x2, z,
           xlab=xlab, ylab=ylab, ...,
           main=main,

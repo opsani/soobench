@@ -45,4 +45,9 @@ for(alpha in seq(0,1,by=0.1)) {
 	plotit(f)
 }
 
+for(alpha in seq(0,1,by=0.1)) {
+	f <- generate_batman_function(2, alpha)
+	plotit(f)
+}
+
 dev.off()

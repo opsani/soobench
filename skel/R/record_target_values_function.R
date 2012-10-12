@@ -1,5 +1,5 @@
 ##' Return a new function which is identical to the \code{soofunction}
-##' passed in except that all visited target vales are recorded.
+##' passed in except that all visited target values are recorded.
 ##' 
 ##' @param fun A test function (class \code{soo_function}).
 ##'

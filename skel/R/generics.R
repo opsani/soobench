@@ -33,7 +33,20 @@ soo_function <- function(name, id, fun, dimensions,
                          best_value, best_par) {
   stopifnot(as.integer(dimensions) == dimensions,
             length(dimensions) == 1,
-            length(lower_bounds) == length(upper_bounds))            
+            length(lower_bounds) == length(upper_bounds),
+			length(lower_bounds) == dimensions,
+			length(best_value) == 1,
+			if(is.list(best_par))
+				all(sapply(best_par, length) == dimensions)
+			else
+				length(best_par) == dimensions, # check if all parameter vectors have the correct length 
+			is.character(name),
+			is.character(id),
+			length(name) == 1,
+			length(id) == 1)
+  if(is.null(grep("^[:alpha:]+[[:alnum:]_-]*$", id, value=TRUE)))
+	warning("ID should start with letter and beside contain just elements from the set [A-Za-z0-9_-]")
+			         
   structure(fun, name=name, id=id, dimensions=dimensions,
             class=c("soo_function", class(fun)),
             lower_bounds=lower_bounds,
