@@ -11,6 +11,7 @@
 ##' @param rank If \code{TRUE}, instead of the y values, their ranks are drawn.
 ##' @param show A vector of parts to plot. Defaults to
 ##'   \code{c("image", "contour")} and can be any subset.
+##' @param asp Aspect ratio of plot. Defaults to \code{1}.
 ##' @param ... Ignored.
 ##' @param image_args List of further arguments passed to image().
 ##' @param contour_args List of further arguments passed to contour().
@@ -33,7 +34,7 @@ plot.soo_function <- function(x,
                               main=function_name(x),
                               xlab=expression(x[1]),
                               ylab=expression(x[2]),
-                              log=FALSE, rank=FALSE,
+                              log=FALSE, rank=FALSE, asp=1,
                               show=c("image", "contour"),
                               ...,
                               image_args=list(useRaster=TRUE),
@@ -71,13 +72,14 @@ plot.soo_function <- function(x,
 
   ## Plot image:
   if ("image" %in% show) {
-    image_args <- append(list(x=x1, y=x2, z=z, xlab=xlab, ylab=ylab, main=main),
+    image_args <- append(list(x=x1, y=x2, z=z, xlab=xlab, ylab=ylab,
+                              main=main, asp=asp),
                          image_args)
     do.call(image, image_args)
   }
   ## Plot contour:
   if ("contour" %in% show) {    
-    contour_args <- append(list(x=x1, y=x2, z=z), contour_args)
+    contour_args <- append(list(x=x1, y=x2, z=z, asp=asp), contour_args)
     ## If we did not plot an image, fixup contour args to include axis
     ## labels and plot title:
     if (!"image" %in% show)
