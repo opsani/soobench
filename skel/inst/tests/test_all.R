@@ -21,7 +21,7 @@ check_fun(goldstein_price_function())
 check_fun(branin_function())
 
 for (dim in c(2, 3, 5, 10, 20)) {
-  check_fun(ackley_function(dim))
+  check_fun(generate_ackley_function(dim))
   check_fun(double_sum_function(dim))
   check_fun(ellipsoidal_function(dim))
   check_fun(griewank_function(dim))
@@ -43,13 +43,12 @@ for (dim in c(2, 3, 5, 10, 20)) {
 }
 
 # Tests for happyCat and batman function
-for(dim in c(2,3,5,10,20) {
-	for(alpha in seq(0,1,by=0.1)) {
-		check_fun(generate_happycat_function(dim, alpha))
-		check_fun(generate_batman_function(dim, alpha))
-	}
+for (dim in c(2, 3, 5, 10, 20)) {
+  for (alpha in seq(0, 1, by=0.1)) {
+    check_fun(generate_happycat_function(dim, alpha))
+    check_fun(generate_batman_function(dim, alpha))
+  }
 }
-
 
 # FIXME: remove ::: when exported
 ## f <- soobench:::record_target_values_function(generate_sphere_function(1))
