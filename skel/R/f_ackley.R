@@ -1,4 +1,8 @@
-##' Generator for the Ackley function.
+##' Generator for the Ackley test function.
+##'
+##' The definition used is
+##'
+##'   \deqn{f(x) = \displaystyle -20 \exp\left(-0.2 \sqrt{\frac{1}{n} \sum_{i=1}^n\left(x_i^2\right)}\right) - \exp\left(\frac{1}{n}\sum_{i=1}^n \cos\left(2 \pi x_i \right)\right) + 20 + \exp(1)}
 ##'
 ##' @param dimensions Size of parameter space.
 ##' @return A \code{soo_function}.
@@ -7,6 +11,8 @@
 ##' f <- generate_ackley_function(2)
 ##' plot(f, rank=TRUE)
 ##' 
+##' @references D. H. Ackley. A connectionist machine for genetic hillclimbing. 
+##' Kluwer Academic Publishers, Boston, 1987
 ##' @export
 ##' @useDynLib soobench do_f_ackley
 generate_ackley_function <- function(dimensions)
@@ -21,7 +27,7 @@ generate_ackley_function <- function(dimensions)
 
 class(generate_ackley_function) <- "soo_function_generator"
 attr(generate_ackley_function, "id") <- "ackley"
-attr(generate_ackley_function, "name") <- "Ackley's test function"
+attr(generate_ackley_function, "name") <- "Ackley test function"
 
 ## Pure R implementation for reference purposes:
 f_ackley <- function(x) {
