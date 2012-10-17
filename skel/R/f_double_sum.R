@@ -6,8 +6,10 @@
 ##'
 ##' @param dimensions Size of parameter space.
 ##' @return A \code{soo_function}.
+##' 
 ##' @references H. P. Schwefel. Evolution and Optimum Seeking. 
-##' John Wiley & Sons, New York, 1995. 
+##' John Wiley & Sons, New York, 1995.
+##' 
 ##' @export
 ##' @useDynLib soobench do_f_double_sum
 generate_double_sum_function <- function(dimensions)

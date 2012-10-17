@@ -4,7 +4,7 @@
 ##' @param fun A test function (class \code{soo_function}).
 ##'
 ##' @examples
-##' f <- counting_function(double_sum_function(5))
+##' f <- counting_function(generate_double_sum_function(5))
 ##' number_of_evaluations(f)
 ##' y <- f(random_parameters(1, f))
 ##' number_of_evaluations(f)
