@@ -3,10 +3,13 @@
 ##' The sphere function is arguably the simplest test function. It is
 ##' defined as
 ##'
-##'   \deqn{f(x) = sqrt(x'x).}
+##'   \deqn{f(x) = \sum_{i=1}^n x_i^2
 ##' 
 ##' @param dimensions Size of parameter space.
 ##' @return A \code{soo_function}.
+##' @references K. D. De Jong. An analysis of the behavior of a class 
+##' of genetic adaptive systems. PhD thesis, Department of Computer and 
+##' Communication Sciences, University of Michigan, Ann Arbor, 1975
 ##' @export
 ##' @useDynLib soobench do_f_sphere
 generate_sphere_function <- function(dimensions) {
