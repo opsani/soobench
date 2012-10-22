@@ -13,6 +13,7 @@
 ##' 
 ##' @references D. H. Ackley. A connectionist machine for genetic hillclimbing. 
 ##' Kluwer Academic Publishers, Boston, 1987
+##'
 ##' @export
 ##' @useDynLib soobench do_f_ackley
 generate_ackley_function <- function(dimensions)

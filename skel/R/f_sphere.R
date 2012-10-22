@@ -20,8 +20,8 @@ generate_sphere_function <- function(dimensions) {
                id=sprintf("sphere-%id", dimensions),
                fun=function(x, ...) .Call(do_f_sphere, x),
                dimensions=dimensions,
-               lower_bounds=rep(-5, dimensions),
-               upper_bounds=rep(5, dimensions),
+               lower_bounds=rep(-5.12, dimensions),
+               upper_bounds=rep(5.12, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
 }
@@ -29,4 +29,4 @@ generate_sphere_function <- function(dimensions) {
 ## Set attributes for soo_function_generator class.
 class(generate_sphere_function) <- "soo_function_generator"
 attr(generate_sphere_function, "id") <- "sphere"
-attr(generate_sphere_function, "name") <- "Sphere Function"
+attr(generate_sphere_function, "name") <- "Sphere test function"

@@ -6,9 +6,11 @@
 ##'
 ##' @param dimensions Size of parameter space.
 ##' @return A \code{soo_function}.
+##'
 ##' @references L. A. Rastrigin. Extremal control systems.  
 ##' Theoretical Foundations of Engineering Cybernetics Series. 
 ##' (in Russian), Nauka, Moscow, 1974.
+##'
 ##' @export
 ##' @useDynLib soobench do_f_rastrigin
 generate_rastrigin_function <- function(dimensions)
