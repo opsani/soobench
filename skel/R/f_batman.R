@@ -12,8 +12,10 @@
 ##' f <- generate_batman_function(2, 1/4)
 ##' plot(f)
 ##'
-##' @references For a complete description of the batman test function
-##' see ...
+##' @references H.-G. Beyer and S. Finck. HappyCat – A Simple Function Class 
+##' Where Well-Known Direct Search Algorithms Do Fail.
+##' In: PPSN XII (Parallel Problem Solving from Nature), 367-376, 
+##' Springer, Heidelberg, 2012.
 ##'
 ##' @export
 ##' @useDynLib soobench do_eval_batman
