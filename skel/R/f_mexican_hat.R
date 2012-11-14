@@ -12,7 +12,7 @@
 ##' @return A \code{soo_function}.
 ##' @export
 ##' @useDynLib soobench do_f_mexican_hat
-mexican_hat_function <- function(dimensions)
+generate_mexican_hat_function <- function(dimensions)
   soo_function(name="Mexican hat",
                id=sprintf("mexican-hat-%id", dimensions),
                fun=function(x, ...) .Call(do_f_mexican_hat, x),
@@ -21,3 +21,8 @@ mexican_hat_function <- function(dimensions)
                upper_bounds=rep(5, dimensions),
                best_par=rep(0, dimensions),
                best_value=-1)
+               
+## Set attributes for soo_function_generator class.
+class(generate_mexican_hat_function) <- "soo_function_generator"
+attr(generate_mexican_hat_function, "id") <- "mexican-hat"
+attr(generate_mexican_hat_function, "name") <- "Mexican hat test function"

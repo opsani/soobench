@@ -30,7 +30,7 @@
 ##' @export
 ##' @useDynLib soobench do_bbob_opt do_bbob_eval do_set_bbob_noise_seed
 ##' @rdname bbob2009_function.Rd
-bbob2009_function <- function(dimensions, fid, iid) {
+generate_bbob2009_function <- function(dimensions, fid, iid) {
   fid <- as.integer(fid)
   stopifnot(fid < 25)
   iid <- as.integer(iid)
@@ -49,9 +49,15 @@ bbob2009_function <- function(dimensions, fid, iid) {
                best_value=opt[[2]])
 }
 
+## Set attributes for soo_function_generator class.
+class(generate_bbob2009_function) <- "soo_function_generator"
+attr(generate_bbob2009_function, "id") <- "bbob2009"
+attr(generate_bbob2009_function, "name") <- "BBOB 2009 test function"
+
+
 ##' @rdname bbob2009_function.Rd
 ##' @export
-noisy_bbob2009_function <- function(dimensions, fid, iid, noiseSeed=1L) {
+generate_noisy_bbob2009_function <- function(dimensions, fid, iid, noiseSeed=1L) {
   fid <- as.integer(fid)
   realfid <- 100L + fid
   stopifnot(100 < realfid, realfid < 125)
@@ -77,3 +83,8 @@ noisy_bbob2009_function <- function(dimensions, fid, iid, noiseSeed=1L) {
                best_par=opt[[1]],
                best_value=opt[[2]])
 }
+
+## Set attributes for soo_function_generator class.
+class(generate_noisy_bbob2009_function) <- "soo_function_generator"
+attr(generate_noisy_bbob2009_function, "id") <- "noisy-bbob2009"
+attr(generate_noisy_bbob2009_function, "name") <- "Noisy BBOB 2009 test function"
