@@ -20,12 +20,23 @@ record_target_values_function <- function(fun) {
   stopifnot("soo_function" %in% class(fun))
   if ("record_target_values_function" %in% class(fun))
     stop("Function already is of type 'record_target_values_function'.")
-    
-  target_values <- numeric(0L)
+
+  n <- 1000L
+  target_values <- numeric(n)
+  i <- 1L
   
   cfun <- function(x, ...) {
     y <- fun(x, ...)
-    target_values <<- c(target_values, y)
+    m <- length(y)
+	if ((i + m) > n) {
+        n <<- max(2 * n, i + m)
+        target_values_old <- target_values
+        target_values <<- numeric(n)
+        target_values[1:i] <- target_values_old
+    }
+    # X <- matrix(NA, ncol = m, nrow = )
+    target_values[(i+1):(i+m)] <<- y
+    i <- i + m
     y
   }
   attributes(cfun) <- attributes(fun)
