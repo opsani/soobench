@@ -12,14 +12,13 @@
 ##' f <- generate_batman_function(2, 1/4)
 ##' plot(f)
 ##'
-##' @references H.-G. Beyer and S. Finck. HappyCat – A Simple Function Class 
-##' Where Well-Known Direct Search Algorithms Do Fail.
-##' In: PPSN XII (Parallel Problem Solving from Nature), 367-376, 
-##' Springer, Heidelberg, 2012.
+##' @references H.-G. Beyer and S. Finck. HappyCat - A Simple Function Class 
+##'   Where Well-Known Direct Search Algorithms Do Fail.
+##'   In: PPSN XII (Parallel Problem Solving from Nature), 367-376, 
+##'   Springer, Heidelberg, 2012.
 ##'
 ##' @export
 ##' @useDynLib soobench do_eval_batman
-##' @rdname generate_batman_function
 generate_batman_function <- function(dimensions, alpha) {
   if(alpha < 0) 
     warning("Alpha should be greater zero. Otherwise you lose the global optimum!")

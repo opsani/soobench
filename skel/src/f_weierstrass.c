@@ -4,7 +4,7 @@ const double f_weierstrass(const double *x, const size_t n) {
     const size_t k_max = 20;
     const double a = 0.5;
     const double b = 3.0;
-    double c1 = 0.0, c2 = 0.0, res = 0.0;
+    double c1 = 0.0, c2 = 0.0;
     size_t i, k;
     
     for (k = 0; k <= k_max; ++k) {

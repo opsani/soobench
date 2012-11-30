@@ -11,7 +11,7 @@
 ##' plot(f, rank=TRUE)
 ##'
 ##' @references Goldstein, A. A. and Price, I. F. On descent from local minima, 
-##' Mathematics of Computation 25, 569–574, 1971.
+##'   Mathematics of Computation 25, 569-574, 1971.
 ##'
 ##' @export
 ##' @useDynLib soobench do_f_goldstein_price

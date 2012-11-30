@@ -115,7 +115,7 @@ static double bbob_fopt(unsigned int fid, unsigned int tid, unsigned int d) {
 }
 
 static void bbob_xopt(unsigned int fid, unsigned int tid, unsigned int d, double *x) {
-    int i, rseed;
+    int i;
     INITIALIZE_BBOB_FUNCTION(fid, tid, d);
 
     for (i = 0; i < d; ++i)
@@ -129,7 +129,7 @@ static void bbob_xopt(unsigned int fid, unsigned int tid, unsigned int d, double
 }
 
 SEXP do_bbob_eval(SEXP s_fid, SEXP s_tid, SEXP s_x) {
-    size_t n_parameters, n_values, current_value;
+    size_t n_parameters = 0, n_values = 0, current_value;
     /* Unpack arguments: */
     UNPACK_INT(s_fid, fid);
     UNPACK_INT(s_tid, tid);

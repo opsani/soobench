@@ -6,7 +6,8 @@
 #define R_SOOFUNCTION(FUNCTION)                         \
     SEXP do_##FUNCTION (SEXP s_x) {                     \
         size_t n_parameters, n_values, current_value;   \
-                                                        \
+        n_parameters = 0;                               \
+        n_values = 0;                                   \
         if (!isReal(s_x))                               \
             error("s_x must be numeric.");              \
                                                         \
@@ -36,7 +37,7 @@ R_SOOFUNCTION(f_double_sum)
 R_SOOFUNCTION(f_ellipsoidal)
 R_SOOFUNCTION(f_goldstein_price)
 R_SOOFUNCTION(f_griewank)
-R_SOOFUNCTION(f_kotancheck)
+R_SOOFUNCTION(f_kotanchek)
 R_SOOFUNCTION(f_mexican_hat)
 R_SOOFUNCTION(f_rastrigin)
 R_SOOFUNCTION(f_rosenbrock)
