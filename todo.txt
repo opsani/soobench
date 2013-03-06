@@ -1,4 +1,11 @@
- * (BB) We need something like fixed_budget_function(fn, 1000). 
+* (BB) add something like record_x_y_values_function.
+  Same as record_target_values_function but logs x too.
+  First version does _not_ need to be efficient. 
+  If this produces an extremely large matrix it is the user's fault,
+  i want to use this mainly for smaller, shorter "test" runs to
+  analyze solvers.
+
+* (BB) We need something like fixed_budget_function(fn, 1000). 
    Reason: Optimizers like optim, etc make it very hard (impossible?) to set
    a fixed budget, so comparisons become hard. This is ugly but we 
    probably have to throw an exception here and then catch it on the outside
