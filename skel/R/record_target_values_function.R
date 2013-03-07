@@ -4,39 +4,37 @@
 ##' @param fun A test function (class \code{soo_function}).
 ##'
 ##' @examples
-##' f <- soobench:::record_target_values_function(generate_sphere_function(1))
-##' soobench:::target_values(f)
+##' f <- record_target_values_function(generate_sphere_function(1))
+##' target_values(f)
 ##' sapply(c(2,3,1), f)
-##' y <- soobench:::target_values(f)
-##' soobench:::first_hitting_times(y, c(1, 7))
-##' soobench:::reset_target_values(f)
-##' soobench:::target_values(f)
+##' y <- target_values(f)
+##' first_hitting_times(y, c(1, 7))
+##' reset_target_values(f)
+##' target_values(f)
 ##'
 ##' @seealso \code{\link{target_values}},
 ##'          \code{\link{reset_target_values}},
 ##'          \code{\link{first_hitting_times}}
+##' @export
 record_target_values_function <- function(fun) {            
   force(fun)
   stopifnot("soo_function" %in% class(fun))
   if ("record_target_values_function" %in% class(fun))
     stop("Function already is of type 'record_target_values_function'.")
 
-  n <- 1000L
-  target_values <- numeric(n)
-  i <- 1L
+  target_values <- numeric(1000L)
+  i <- 0L
   
   cfun <- function(x, ...) {
     y <- fun(x, ...)
     m <- length(y)
-	if ((i + m) > n) {
-        n <<- max(2 * n, i + m)
-        target_values_old <- target_values
-        target_values <<- numeric(n)
-        target_values[1:i] <- target_values_old
+    n <- length(target_values)
+    if ((i + m) > n) {
+      n <- max(2 * n, i + m)
+      target_values[(i+1):n] <- 0
     }
-    # X <- matrix(NA, ncol = m, nrow = )
     target_values[(i+1):(i+m)] <<- y
-    i <- i + m
+    i <<- i + m
     y
   }
   attributes(cfun) <- attributes(fun)
@@ -50,9 +48,11 @@ record_target_values_function <- function(fun) {
 ##'   \code{\link{record_target_values_function}}.
 ##' 
 ##' @return The currently recorded target values.
+##' @export
 target_values <- function(fun) {
   stopifnot("record_target_values_function" %in% class(fun))
-  environment(fun)$target_values
+  ee <- environment(fun)
+  ee$target_values[1:ee$i]
 }
 
 ##' Reset the internal target values of a test function.
@@ -61,10 +61,13 @@ target_values <- function(fun) {
 ##'   \code{\link{record_target_values_function}}.
 ##'
 ##' @return Recorded target values before reset.
+##' @export
 reset_target_values <- function(fun) {
   stopifnot("record_target_values_function" %in% class(fun))
   ee <- environment(fun)
   last <- ee$target_values
+  ## OME: Reset counter!
+  ee$i <- 0L
   ee$target_values <- numeric(0L)
   last
 }
@@ -72,9 +75,16 @@ reset_target_values <- function(fun) {
 ##' Return numerical vector of first hitting times, counted in 
 ##' function evaluations.
 ##' 
-##' @param target_values Numerical vector of recorded target values.
+##' @param x Numerical vector of recorded target values or
+##'   a function of class \code{record_target_values_function}.
 ##' @param target_levels Numerical vector of target levels which should
 ##'   ideally be reached.
-first_hitting_times <- function(target_values, target_levels) {
-  sapply(target_levels, function(lev) which(target_values <= lev)[1L])
+##'
+##' @seealso \code{\link{record_target_values_function}}
+##' @export
+first_hitting_times <- function(x, target_levels) {
+  if (inherits(x, "record_target_values_function"))
+    x <- target_values(x)
+  stopifnot(is.numeric(x), is.vector(x))    
+  sapply(target_levels, function(level) which(x <= level)[1L])
 }
