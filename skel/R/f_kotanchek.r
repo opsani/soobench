@@ -4,15 +4,14 @@
 ##'
 ##'   \deqn{f(x) = \displaystyle - \frac{\exp\left\{-\left(x_1 - 1\right)^2\right\}}{1.2 + \left(x_1 - 2.5\right)^2}}
 ##' 
-##' @param dimensions Size of parameter space.
 ##' @return A \code{soo_function}.
 ##' @export
 ##' @useDynLib soobench do_f_kotanchek
-generate_kotanchek_function <- function(dimensions)
+generate_kotanchek_function <- function()
   soo_function(name="Kotanchek",
-               id=sprintf("kotanchek-%id", dimensions),
+               id="kotanchek",
                fun=function(x, ...) .Call(do_f_kotanchek, x),
-               dimensions=dimensions,
+               dimensions=2,
                lower_bounds=c(0, 0),
                upper_bounds=c(4, 4),
                best_par=c(2.5, 1),
