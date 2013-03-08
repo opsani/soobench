@@ -5,10 +5,6 @@
    i want to use this mainly for smaller, shorter "test" runs to
    analyze solvers.
 
- * (LJ) Rename all generators to generate_<function name>. So
-   'sphere_function' becomes 'generate_sphere_function'. See sphere.R
-   for an example of what all other generators should look like.
-
  * (JB) More checks for arguments in generators, esp. check for NULLs.
 
  * Add more test cases to skel/inst/tests/.
@@ -19,18 +15,6 @@
    bootstrap variance as done in official BBOB code.
 
  * Improve noisy testbed.
-
- * (LJ) For each function, research where it was first mentioned in the
-   literature. Add reference to manual page and bibtex entry to
-   manual/functions.bib. If paper is not available online (add link to
-   BibTeX entry if it is), order it from library and add scan to
-   repository.
-
- * (LJ) Add formulas to help page of generators.
-
- * (JB) Improve efficiency of record_target_values_function(). 
-
- * Add missing generics for record_target_values_function(). 
 
  * (JB) Add HappyCat and Batman functions from:
 
@@ -45,4 +29,3 @@
    noise.
 
  * Check BBOB Noisy functions.
-
