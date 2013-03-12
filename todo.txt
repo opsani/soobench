@@ -4,21 +4,15 @@
    If this produces an extremely large matrix it is the user's fault,
    i want to use this mainly for smaller, shorter "test" runs to
    analyze solvers.
-
- * (JB) More checks for arguments in generators, esp. check for NULLs.
-
+   
  * Add more test cases to skel/inst/tests/.
 
  * Add more transformations.
 
- * (JB) Add a function to compute the ERT from a set of runs and also
+ * Add a function to compute the ERT from a set of runs and also
    bootstrap variance as done in official BBOB code.
 
  * Improve noisy testbed.
-
- * (JB) Add HappyCat and Batman functions from:
-
-    https://homepages.fhv.at/hgb/New-Papers/PPSN12_BF12.pdf
 
  * Currently we have a lot of redundant C code for handling SEXP. The R_SOOFUNCTION
    macro is fine for test functions which expect no parameters beside the vector x.
