@@ -2,7 +2,7 @@
 ##'
 ##' The algorithm used to randomly create the rotation matrix is due
 ##' to R Salomon (see reference). No guarantee is given that the
-##' generated rotation matricies are uniformly distributed in any
+##' generated rotation matrices are uniformly distributed in any
 ##' sense.
 ##' 
 ##' @param d Dimension of desired rotation matrix.

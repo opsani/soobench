@@ -3,7 +3,7 @@
 ##' @param name Name of function.
 ##' @param id Short id for the function. Must be unique to the
 ##'   function instance and should not contain any other characters than
-##'   [a-z0-9] and \sQuote{-}.
+##'   [a-z], [0-9] and \sQuote{-}.
 ##' @param fun Function definition.
 ##' @param dimensions Size of parameter space.
 ##' @param lower_bounds Lower bounds of the parameter space.
