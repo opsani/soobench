@@ -1,7 +1,7 @@
 ##' Generator for the Branin test function.
 ##'
 ##' This function is a 2D test function. The generator does not take
-##' any parameters. The only exists so that the interface is consistent with all other test functions.
+##' any parameters.
 ##' It is defined as
 ##'
 ##'   \deqn{f(x) = \displaystyle\left(x_2 - \frac{5.1}{4\pi^2}x_1^2 + \frac{5}{\pi}x_1 - 6\right)^2 + 10\left(1 - \frac{1}{8\pi}\right)\cos(x_1) + 10}
