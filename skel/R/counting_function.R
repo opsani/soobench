@@ -1,3 +1,5 @@
+##' @title Count number of function evaluations
+##' 
 ##' Return a new function which is identical to the \code{soofunction}
 ##' passed in except that all function evaluations are counted.
 ##'
