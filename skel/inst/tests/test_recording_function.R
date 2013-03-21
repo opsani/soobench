@@ -19,7 +19,7 @@ test_that("Predicate recording on time", {
   y <- fn(X)
   rv <- recorded_values(fn)
   expect_equal(rv$time %% 3, rep(0, length(rv$time)))
-  expect_equal(rv$par, X[, rv$time])
+  expect_equal(rv$par, X[, rv$time, drop=FALSE])
   expect_equal(rv$value, y[rv$time])
 })
 
@@ -30,6 +30,6 @@ test_that("Predicate recording on value", {
   y <- fn(X)
   rv <- recorded_values(fn)
   expect_equal(rv$time, which(y < 0.5))
-  expect_equal(rv$par, X[, rv$time])
+  expect_equal(rv$par, X[, rv$time, drop=FALSE])
   expect_equal(rv$value, y[rv$time])
 })

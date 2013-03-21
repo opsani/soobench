@@ -16,7 +16,7 @@
 ##'   \code{value} and evaluation \code{time}. Note that \code{time} is
 ##'   measured in function evaluations.
 ##'
-##' @seealso \code{\link{recoded_values}} to retrieve the recorded
+##' @seealso \code{\link{recorded_values}} to retrieve the recorded
 ##' parameter and function values.
 ##'
 ##' @examples
