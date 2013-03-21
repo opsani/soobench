@@ -1,0 +1,21 @@
+Generics
+========
+
+This is a list of all generics that any functions that wrap
+soo_function objects should implement:
+
+ * random_parameters(n, fn) { ... }
+ * recorded_values <- function(fn) { ... }
+
+The implementation can usually be reduced to:
+
+  <generic>.<myclass> <- function(..., fn, ...) {
+    ee <- environment(fn)
+    <generic>(..., ee[["<inner_function_name>"]], ...)
+  }
+
+Note
+----
+
+It would be nice if there was an automated way to test that these are
+present and working. Suggestions welcome.
