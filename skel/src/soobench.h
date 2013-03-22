@@ -11,11 +11,13 @@
 #define SOOFUNCTION(NAME) const double NAME(const double *x, const size_t n);
 
 SOOFUNCTION(f_ackley)
+SOOFUNCTION(f_beale)
 SOOFUNCTION(f_branin)
 SOOFUNCTION(f_double_sum)
 SOOFUNCTION(f_ellipsoidal)
 SOOFUNCTION(f_goldstein_price)
 SOOFUNCTION(f_griewank)
+SOOFUNCTION(f_himmelblau)
 SOOFUNCTION(f_kotanchek)
 SOOFUNCTION(f_mexican_hat)
 SOOFUNCTION(f_rastrigin)
