@@ -1,8 +1,11 @@
+##' Recording functions
+##'
 ##' Return a new function which is identical to the \code{soofunction}
 ##' passed in except that evaluated parameter settings and function
 ##' values are recorded.
 ##' 
-##' @param fn A test function (class \code{soo_function}).
+##' @param fn A test function (class \code{soo_function} or
+##' \code{wrapped_soo_function}).
 ##' 
 ##' @param record_pars [\code{boolean(1)}]\cr If \code{TRUE}, parameter
 ##'   values (x) will be recorded.
@@ -53,8 +56,8 @@ recording_function <- function(fn,
   if (missing(predicate))
     predicate <- function(...) TRUE
   
-  stopifnot("soo_function" %in% class(fn))
-  if ("recording_function" %in% class(fn))
+  stopifnot(is_soo_function(fn))
+  if (is_recording_function(fn))
     stop("Function already is of type 'recording_function'.")
 
   times <- numeric(0L)
@@ -84,8 +87,7 @@ recording_function <- function(fn,
     }
     y
   }
-  attributes(cfun) <- attributes(fn)
-  class(cfun) <- c("recording_function", class(fn))
+  class(cfun) <- c("recording_function", "wrapped_soo_function")
   cfun
 }
 
@@ -112,4 +114,41 @@ recorded_values.recording_function <- function(fn) {
   list(time=ee$times,
        par=ee$pars,
        value=ee$values)
+}
+
+##' @S3method recorded_values wrapped_soo_function
+##' @method recorded_values wrapped_soo_function
+recorded_values.wrapped_soo_function <- function(fn) {
+  recorded_values(inner_function(fn))
+}
+
+##' Recording function
+##'
+##' Check if a function supports the \sQuote{recording_function} interface.
+##'
+##' @param fn Function to check.
+##'
+##' @return \code{TRUE} if \code{fn} is a \sQuote{recording_function}
+##' else \code{FALSE}.
+##'
+##' @export
+is_recording_function <- function(fn)
+  UseMethod("is_recording_function")
+
+##' @S3method is_recording_function wrapped_soo_function
+is_recording_function.wrapped_soo_function <- function(fn)
+  is_recording_function(inner_function(fn))
+
+##' @S3method is_recording_function recording_function
+is_recording_function.recording_function <- function(fn)
+  TRUE
+
+##' @S3method is_recording_function soo_function
+is_recording_function.soo_function <- function(fn)
+  FALSE
+
+##' @S3method inner_function recording_function
+inner_function.recording_function <- function(fn) {
+  ee <- environment(fn)
+  ee$fn
 }

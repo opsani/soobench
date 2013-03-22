@@ -1,3 +1,5 @@
+##' Single Objective Optimization Function
+##' 
 ##' Define a new \code{soo_function} object.
 ##'
 ##' @param name Name of function.
@@ -50,10 +52,13 @@ soo_function <- function(name, id, fun, dimensions,
             best_par=best_par, best_value=best_value)
 }
 
+##' Single Objective Optimization Function
+##'
 ##' Check if a function is a SOO function.
 ##'
 ##' @param fn Function to check.
 ##' @return \code{TRUE} if \code{fn} is a proper SOO function, else \code{FALSE}.
 ##' @export
 is_soo_function <- function(fn)
-  inherits(fn, "soo_function")
+  inherits(fn, "soo_function") || inherits(fn, "wrapped_soo_function")
+

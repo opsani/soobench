@@ -47,11 +47,11 @@ with_fixed_budget <- function(expr, budget) {
 
   ## Extract our soo_function:
   function_name <- functions[[1]]
-  inner_function <- get(function_name, eval_env)
+  original_function <- get(function_name, eval_env)
 
   ## Create fixed budget function:
   count <- 0L
-  best_par <- numeric(number_of_parameters(inner_function))
+  best_par <- numeric(number_of_parameters(original_function))
   best_value <- Inf
   fn <- function(x, ...) {
     if (count >= budget) {
@@ -62,35 +62,25 @@ with_fixed_budget <- function(expr, budget) {
       signalCondition(cond)
     }
     count <<- count + 1
-    value <- inner_function(x, ...)
+    value <- original_function(x, ...)
     if (value < best_value) {
       best_value <<- value
       best_par <<- x
     }
     value
   }
-  class(fn) <- c("fixed_budget_function", class(inner_function))
-  attributes(fn) <- attributes(inner_function)
+  class(fn) <- c("fixed_budget_function", "wrapped_soo_function")
 
   ## Evaluate expression with new binding:
   bindings <- list()
   bindings[[function_name]] <- fn
+
   tryCatch(eval_with_replacement(quoted_expr, eval_env, bindings),
            budget_error=function(...) NULL)
 
   res <- list(par=best_par, value=best_value, counts=c(count, NA))
 }
 
-##' @S3method random_parameters fixed_budget_function
-##' @method random_parameters fixed_budget_function
-random_parameters.fixed_budget_function <- function(n, fn) {
-  ee <- environment(fn)
-  random_parameters(n, ee$inner_function)
-}
-
-##' @S3method recorded_values fixed_budget_function
-##' @method recorded_values fixed_budget_function
-recorded_values.fixed_budget_function <- function(fn) {
-  ee <- environment(fn)
-  recorded_values(ee$inner_function)
-}
+##' @S3method inner_function fixed_budget_function
+inner_function.fixed_budget_function <- function(fn)
+  environment(fn)$original_function

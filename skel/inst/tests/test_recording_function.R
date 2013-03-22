@@ -3,6 +3,16 @@ context("recording_function")
 fn <- generate_sphere_function(2)
 X <- random_parameters(10, fn)
 
+test_that("Generics work", {
+  rfn <- recording_function(fn)
+  expect_equal(lower_bounds(rfn), lower_bounds(fn))
+  expect_equal(upper_bounds(rfn), upper_bounds(fn))
+  expect_equal(global_minimum(rfn), global_minimum(fn))
+  expect_equal(number_of_parameters(rfn), number_of_parameters(fn))
+  expect_equal(function_id(rfn), function_id(fn))
+  expect_equal(function_name(rfn), function_name(fn))
+})
+
 test_that("Simple recording", {
   fn <- recording_function(fn)
   y <- fn(X)
