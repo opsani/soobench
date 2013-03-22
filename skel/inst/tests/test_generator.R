@@ -10,6 +10,7 @@ validate_generator <- function(g) {
 }
 
 validate_generator(generate_ackley_function)
+validate_generator(generate_beale_function)
 validate_generator(generate_branin_function)
 validate_generator(generate_bbob2009_function)
 validate_generator(generate_double_sum_function)

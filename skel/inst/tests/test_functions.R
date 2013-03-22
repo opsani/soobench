@@ -22,6 +22,7 @@ check_fun <- function(fn) {
   })
 }
 
+check_fun(generate_beale_function())
 check_fun(generate_branin_function())
 check_fun(generate_goldstein_price_function())
 check_fun(generate_kotanchek_function())

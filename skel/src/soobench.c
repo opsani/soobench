@@ -32,6 +32,7 @@
     }                                                                   \
     
 R_SOOFUNCTION(f_ackley)
+R_SOOFUNCTION(f_beale)
 R_SOOFUNCTION(f_branin)
 R_SOOFUNCTION(f_double_sum)
 R_SOOFUNCTION(f_ellipsoidal)
