@@ -41,14 +41,14 @@ for (dim in c(2, 3, 5, 10, 20)) {
   check_fun(generate_weierstrass_function(dim))
 }
 
-if (FALSE) {
-for (dim in c(2, 3, 5, 10, 20)) {
-  for (fid in 1:24) {
-    for (tid in 1:15) {
-      check_fun(generate_bbob2009_function(dim, fid, tid))
+if (Sys.getenv("SKIP_BBOB") != "1") {
+  for (dim in c(2, 3, 5, 10, 20)) {
+    for (fid in 1:24) {
+      for (tid in 1:15) {
+        check_fun(generate_bbob2009_function(dim, fid, tid))
+      }
     }
   }
-}
 }
 
 ## FIXME: OME: Both functions are currently broken. Neither optimal
