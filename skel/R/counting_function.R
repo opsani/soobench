@@ -82,7 +82,7 @@ reset_evaluation_counter.counting_function <- function(fn) {
   last_count
 }
 
-##' @S3meothd reset_evaluation_counter wrapped_soo_function
+##' @S3method reset_evaluation_counter wrapped_soo_function
 reset_evaluation_counter.wrapped_soo_function <- function(fn)
   reset_evaluation_counter(inner_function(fn))
 
