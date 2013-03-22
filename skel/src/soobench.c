@@ -38,10 +38,11 @@ R_SOOFUNCTION(f_double_sum)
 R_SOOFUNCTION(f_ellipsoidal)
 R_SOOFUNCTION(f_goldstein_price)
 R_SOOFUNCTION(f_griewank)
+R_SOOFUNCTION(f_himmelblau)
 R_SOOFUNCTION(f_kotanchek)
 R_SOOFUNCTION(f_mexican_hat)
 R_SOOFUNCTION(f_rastrigin)
 R_SOOFUNCTION(f_rosenbrock)
-/* R_SOOFUNCTION(f_schwefel) */
 R_SOOFUNCTION(f_sphere)
+/* R_SOOFUNCTION(f_schwefel) */
 R_SOOFUNCTION(f_weierstrass)

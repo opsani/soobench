@@ -25,6 +25,7 @@ check_fun <- function(fn) {
 check_fun(generate_beale_function())
 check_fun(generate_branin_function())
 check_fun(generate_goldstein_price_function())
+check_fun(generate_himmelblau_function())
 check_fun(generate_kotanchek_function())
 
 for (dim in c(2, 3, 5, 10, 20)) {
