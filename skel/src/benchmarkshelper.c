@@ -54,7 +54,7 @@ void unif(double* r, int N, int inseed)
 
     for (i = 39; i >= 0; i--)
     {
-        tmp = floor((double)aktseed/(double)127773);
+        tmp = (int)floor((double)aktseed/(double)127773);
         aktseed = 16807  * (aktseed - tmp * 127773) - 2836 * tmp;
         if (aktseed < 0)
             aktseed = aktseed + 2147483647;
@@ -65,11 +65,11 @@ void unif(double* r, int N, int inseed)
 
     for (i = 0; i < N; i++)
     {
-        tmp = floor((double)aktseed/(double)127773);
+        tmp = (int)floor((double)aktseed/(double)127773);
         aktseed = 16807 * (aktseed - tmp * 127773) - 2836 * tmp;
         if (aktseed < 0)
             aktseed = aktseed + 2147483647;
-        tmp = floor((double)aktrand / (double)67108865);
+        tmp = (int)floor((double)aktrand / (double)67108865);
         aktrand = rgrand[tmp];
         rgrand[tmp] = aktseed;
         r[i] = (double)aktrand/2.147483647e9;

@@ -1630,11 +1630,11 @@ void initbenchmarks() /*ParamStruct params)*/
     rot2 = malloc(sizeof(double*) * DIM);
     linearTF = malloc(sizeof(double*) * DIM);
     peaks21 = malloc(sizeof(double) * DIM * NHIGHPEAKS21);
-    rperm21 = malloc(sizeof(int) * fmax(DIM, NHIGHPEAKS21 - 1));
+    rperm21 = malloc(sizeof(int) * (int)fmax(DIM, NHIGHPEAKS21 - 1));
     arrScales21 = malloc(sizeof(double*) * NHIGHPEAKS21);
     Xlocal21 = malloc(sizeof(double*) * DIM);
     peaks22 = malloc(sizeof(double) * DIM * NHIGHPEAKS22);
-    rperm22 = malloc(sizeof(int) * fmax(DIM,  NHIGHPEAKS22 - 1));
+    rperm22 = malloc(sizeof(int) * (int)fmax(DIM,  NHIGHPEAKS22 - 1));
     arrScales22 = malloc(sizeof(double*) * NHIGHPEAKS22);
     Xlocal22 = malloc(sizeof(double*) * DIM);
 

@@ -5,7 +5,7 @@
 
 #define R_SOOFUNCTION(FUNCTION)                         \
     SEXP do_##FUNCTION (SEXP s_x) {                     \
-        size_t n_parameters, n_values, current_value;   \
+        R_len_t n_parameters, n_values, current_value;  \
         n_parameters = 0;                               \
         n_values = 0;                                   \
         if (!isReal(s_x))                               \

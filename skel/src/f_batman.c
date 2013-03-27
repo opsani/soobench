@@ -20,7 +20,7 @@ static double batman_eval(const double alpha, const size_t n, const double *x) {
 }
 
 SEXP do_eval_batman(SEXP s_alpha, SEXP s_x) {
-    size_t n_parameters = 0, n_values = 0, current_value;
+    R_len_t n_parameters = 0, n_values = 0, current_value;
     /* Unpack argument */
     UNPACK_REAL(s_alpha, alpha);
     

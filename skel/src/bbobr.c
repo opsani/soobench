@@ -129,7 +129,7 @@ static void bbob_xopt(unsigned int fid, unsigned int tid, unsigned int d, double
 }
 
 SEXP do_bbob_eval(SEXP s_fid, SEXP s_tid, SEXP s_x) {
-    size_t n_parameters = 0, n_values = 0, current_value;
+    R_len_t n_parameters = 0, n_values = 0, current_value;
     /* Unpack arguments: */
     UNPACK_INT(s_fid, fid);
     UNPACK_INT(s_tid, tid);
@@ -150,7 +150,7 @@ SEXP do_bbob_eval(SEXP s_fid, SEXP s_tid, SEXP s_x) {
     PROTECT(s_res = allocVector(REALSXP, n_values));
     double *res = REAL(s_res);
     for (current_value = 0; current_value < n_values; ++current_value) {
-        res[current_value] = bbob_eval(fid, tid, n_parameters,
+        res[current_value] = bbob_eval(fid, tid, (int)n_parameters,
                                        x + current_value * n_parameters);
     }
     UNPROTECT(1); /* s_res */
