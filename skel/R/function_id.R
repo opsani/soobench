@@ -4,7 +4,7 @@
 ##' such. It is guaranteed that the ID contains only \dQuote{safe}
 ##' characters in the range {A-Z,a-z,0-9,_,-}.
 ##'
-##' @param fn Function to name.
+##' @param fn [\code{\link{soo_function}}] Function to name.
 ##' @return ID of function. Guaranteed to be unique among all test
 ##' functions.
 ##' @export

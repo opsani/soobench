@@ -5,7 +5,7 @@
 ##'
 ##' \deqn{f(x) = \sum_{i=1}^n 10^{6\frac{i}{n}}x_i^2}
 ##' 
-##' @param dimensions Size of parameter space.
+##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
 ##' 
 ##' @examples

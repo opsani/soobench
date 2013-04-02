@@ -1,9 +1,9 @@
 ##' (Noisy) BBOB 2009 test function generator.
 ##'
-##' @param dimensions Size of parameter space.
-##' @param fid Function ID, valid values are 1 to 24.
-##' @param iid Instance ID, defaults to \code{1L}.
-##' @param noiseSeed Seed for the noise random number generator,
+##' @param dimensions [\code{integer(1)}] Size of parameter space.
+##' @param fid [\code{integer(1)}] Function ID, valid values are 1 to 24.
+##' @param iid [\code{integer(1)}] Instance ID, defaults to \code{1L}.
+##' @param noiseSeed [\code{integer(1)}] Seed for the noise random number generator,
 ##'   defaults to \code{1L}.
 ##' @return A \code{soo_function}.
 ##'

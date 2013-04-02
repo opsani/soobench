@@ -1,6 +1,6 @@
 ##' Count number of function evaluations
 ##' 
-##' Return a new function which is identical to the \code{soofunction}
+##' Return a new function which is identical to the  \code{\link{soo_function}}
 ##' passed in except that all function evaluations are counted.
 ##'
 ##' @param fn [\code{soo_function}]\cr A test function.

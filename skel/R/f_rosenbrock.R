@@ -4,7 +4,7 @@
 ##'
 ##'   \deqn{f(x) = \displaystyle\sum_{i=1}^{n-1} \left[100\left(x_{i+1} - x_i^2\right)^2 + \left(x_i - 1\right)^2\right]}
 ##'
-##' @param dimensions Size of parameter space.
+##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
 ##'
 ##' @references H. H. Rosenbrock. An Automatic Method for Finding the 

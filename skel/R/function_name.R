@@ -2,7 +2,7 @@
 #'
 #' Get a pretty function name for a benchmark function.
 #'
-#' @param fn Function to name.
+#' @param fn [\code{\link{soo_function}}] Function to name.
 #' @return Name of function.
 #' @export
 function_name <- function(fn)

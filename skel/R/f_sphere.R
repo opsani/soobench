@@ -5,7 +5,7 @@
 ##'
 ##'   \deqn{f(x) = \sum_{i=1}^n x_i^2}
 ##' 
-##' @param dimensions Size of parameter space.
+##' @param dimensions [\code{integer(1)}]  Size of parameter space.
 ##' @return A \code{soo_function}.
 ##' 
 ##' @references K. D. De Jong. An analysis of the behavior of a class

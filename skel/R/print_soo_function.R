@@ -1,6 +1,6 @@
 ##' Print a SOO function.
 ##'
-##' @param x A \code{soo_function} object.
+##' @param x [\code{\link{soo_function}}] A \code{\link{soo_function}} object.
 ##' @param ... Ignored.
 ##' @S3method print soo_function
 ##' @method print soo_function

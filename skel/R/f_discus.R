@@ -4,7 +4,7 @@
 ##'
 ##'   \deqn{f(x) = 10^6 x_1^2 + \sum_{i=2}^n x_i^2}
 ##' 
-##' @param dimensions Size of parameter space.
+##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
 ##' @export
 generate_discus_function <- function(dimensions)

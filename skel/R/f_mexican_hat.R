@@ -8,7 +8,7 @@
 ##' Note that we have flipped the sign of the function so that it is a
 ##' minimization problem like all other SOO functions.
 ##' 
-##' @param dimensions Size of parameter space.
+##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
 ##' @export
 ##' @useDynLib soobench do_f_mexican_hat

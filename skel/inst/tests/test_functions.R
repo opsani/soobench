@@ -51,8 +51,6 @@ if (Sys.getenv("SKIP_BBOB") != "1") {
   }
 }
 
-## FIXME: OME: Both functions are currently broken. Neither optimal
-## value is correct!
 if (TRUE) {
 ### Tests for happyCat and batman function
 for (dim in c(2, 3, 5, 10, 20)) {

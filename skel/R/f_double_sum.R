@@ -4,7 +4,7 @@
 ##'
 ##'   \deqn{f(x) = \sum_{i=1}^n \left( \sum_{j=1}^{i} x_j \right)^2}
 ##'
-##' @param dimensions Size of parameter space.
+##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
 ##' 
 ##' @references H.-P. Schwefel. Evolution and Optimum Seeking. 

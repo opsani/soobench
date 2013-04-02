@@ -4,7 +4,7 @@
 ##'
 ##'   \deqn{f(x) = \displaystyle 10n + \sum_{i=1}^n \left(x_i^2 - 10 \cos\left(2\pi x_i\right)\right)}
 ##'
-##' @param dimensions Size of parameter space.
+##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
 ##'
 ##' @references L. A. Rastrigin. Extremal control systems.  

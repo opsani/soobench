@@ -9,8 +9,8 @@
 ##'       \frac{1}{2}x^Tx + \sum_{i=1}^n x_i
 ##'     \right) + \frac{1}{2}}
 ##'
-##' @param dimensions Size of parameter space.
-##' @param alpha Parameter for control of groove shape
+##' @param dimensions [\code{integer(1)}] Size of parameter space.
+##' @param alpha [\code{numeric(1)}] Parameter for control of groove shape.
 ##' @return A \code{soo_function}.
 ##'
 ##' @examples

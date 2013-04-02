@@ -4,7 +4,7 @@
 ##'
 ##'   \deqn{f(x) = \displaystyle \sum_{i=1}^n \frac{x_i^2}{4000} - \prod_{i=1}^n \cos \left(\frac{x_i}{\sqrt{i}}\right) + 1}
 ##'
-##' @param dimensions Size of parameter space.
+##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
 ##' 
 ##' @references A. O. Griewank. Generalized descent for global optimization. 

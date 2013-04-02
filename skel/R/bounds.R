@@ -1,7 +1,7 @@
 ##' Retrieve the lower or upper bounds of a test function.
 ##'
-##' @param fn Function to query.
-##' @return Vector of lower or upper bounds of test function.
+##' @param fn Object of type \code{\link{soo_function}} to query.
+##' @return [\code{numeric}] Vector of lower or upper bounds of test function.
 ##' @export
 ##' @rdname bounds
 lower_bounds <- function(fn)

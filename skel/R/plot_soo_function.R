@@ -18,11 +18,11 @@
 ##'
 ##' @examples
 ##' par(mfrow=c(2, 2))
-##' f <- generate_sphere_function(2)
-##' plot(f)
-##' plot(f, show="contour")
-##' plot(f, rank=TRUE)
-##' plot(f, log=TRUE)
+##' fn <- generate_sphere_function(2)
+##' plot(fn)
+##' plot(fn, show="contour")
+##' plot(fn, rank=TRUE)
+##' plot(fn, log=TRUE)
 ##' @author Olaf Mersmann \email{olafm@@datensplitter.net}
 ##' @S3method plot soo_function
 ##' @method plot soo_function
