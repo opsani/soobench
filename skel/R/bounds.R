@@ -1,6 +1,6 @@
 ##' Retrieve the lower or upper bounds of a test function.
 ##'
-##' @param fn Object of type \code{\link{soo_function}} to query.
+##' @param fn [\code{\link{soo_function}}] Object of type \code{\link{soo_function}} to query.
 ##' @return [\code{numeric}] Vector of lower or upper bounds of test function.
 ##' @export
 ##' @rdname bounds

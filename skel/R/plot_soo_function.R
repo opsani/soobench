@@ -1,20 +1,20 @@
 ##' Plot a test function in 2D.
 ##'
-##' @param x Function to plot.
-##' @param lower Lower bounds of x1 and x2.
-##' @param upper Upper bounds of x1 and x2.
-##' @param n Number of locations at which to sample the function.
-##' @param xlab Label of x (x1) axes.
-##' @param ylab Label of y (x2) axes.
-##' @param main Main title of plot.
-##' @param log If \code{TRUE}, the z axes is plotted on log scale.
-##' @param rank If \code{TRUE}, instead of the y values, their ranks are drawn.
-##' @param show A vector of parts to plot. Defaults to
+##' @param x [\code{\link{soo_function}}] Function to plot.
+##' @param lower [\code{numeric}] Lower bounds of x1 and x2.
+##' @param upper [\code{numeric}] Upper bounds of x1 and x2.
+##' @param n [\code{integer(1)}] Number of locations at which to sample the function.
+##' @param xlab [\code{character(1)}] Label of x (x1) axes.
+##' @param ylab [\code{character(1)}] Label of y (x2) axes.
+##' @param main [\code{character(1)}] Main title of plot.
+##' @param log [\code{boolean(1)}] If \code{TRUE}, the z axes is plotted on log scale.
+##' @param rank [\code{boolean(1)}] If \code{TRUE}, instead of the y values, their ranks are drawn.
+##' @param show [\code{character}] A vector of parts to plot. Defaults to
 ##'   \code{c("image", "contour")} and can be any subset.
-##' @param asp Aspect ratio of plot. Defaults to \code{1}.
+##' @param asp [\code{numeric(1)}] Aspect ratio of plot. Defaults to \code{1}.
 ##' @param ... Ignored.
-##' @param image_args List of further arguments passed to image().
-##' @param contour_args List of further arguments passed to contour().
+##' @param image_args [\code{list}] List of further arguments passed to image().
+##' @param contour_args [\code{list}] List of further arguments passed to contour().
 ##'
 ##' @examples
 ##' par(mfrow=c(2, 2))
