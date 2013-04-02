@@ -20,7 +20,7 @@
 ##' @export
 ##' @useDynLib soobench do_eval_batman
 generate_batman_function <- function(dimensions, alpha) {
-  if(alpha < 0) 
+  if(alpha <= 0) 
     warning("Alpha should be greater zero. Otherwise you lose the global optimum!")
   f <- function(x) {}
   body(f) <- substitute(.Call(do_eval_batman, alpha, x), 

@@ -53,10 +53,10 @@ if (Sys.getenv("SKIP_BBOB") != "1") {
 
 ## FIXME: OME: Both functions are currently broken. Neither optimal
 ## value is correct!
-if (FALSE) {
+if (TRUE) {
 ### Tests for happyCat and batman function
 for (dim in c(2, 3, 5, 10, 20)) {
-  for (alpha in seq(0, 1, by=0.1)) {
+  for (alpha in seq(0.1, 1, by=0.05)) {
     check_fun(generate_happycat_function(dim, alpha))
     check_fun(generate_batman_function(dim, alpha))
   }
