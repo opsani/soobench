@@ -14,8 +14,7 @@ The implementation can usually be reduced to:
     <generic>(..., ee[["<inner_function_name>"]], ...)
   }
 
-Note
-----
-
-It would be nice if there was an automated way to test that these are
-present and working. Suggestions welcome.
+As an alternative, you can add the class 'wrapped_soo_function'
+_after_ your class and then implement the inner_function() generic for
+_your_ class. It is crucial that your class come before
+'wrapped_soo_function'.
