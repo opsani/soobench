@@ -12,3 +12,5 @@
    do_bbob_eval, do_happycat_eval and do_batman_eval.
 
  * Check BBOB Noisy functions.
+ 
+ * JB: Add 10 test functions from Haarala, Miettinnen, Mäkelä paper. Add appropriate tests.

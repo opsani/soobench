@@ -39,6 +39,12 @@ for (dim in c(2, 3, 5, 10, 20)) {
   ##check_fun(schwefel_function(dim))
   check_fun(generate_sphere_function(dim))
   check_fun(generate_weierstrass_function(dim))
+  #check_fun(generate_generalized_MAXQ_function(dim))
+  #check_fun(generate_generalized_MXHLIB_function(dim))
+  #check_fun(generate_chained_LQ_function(dim))
+  #check_fun(generate_chained_CB3_I_function(dim))
+  #check_fun(generate_chained_CB3_II_function(dim))
+  #check_fun(generate_number_of_active_faces_function(dim))
 }
 
 if (Sys.getenv("SKIP_BBOB") != "1") {
