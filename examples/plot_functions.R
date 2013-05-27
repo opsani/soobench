@@ -1,18 +1,18 @@
 library("soobench")
 
 generators <- list(generate_ackley_function,
-                   branin_function,
-                   discus_function,
-                   ellipsoidal_function,
-                   griewank_function,
-                   kotancheck_function,
-                   mexican_hat_function,
-                   rastrigin_function,
-                   rosenbrock_function,
+                   generate_branin_function,
+                   generate_discus_function,
+                   generate_ellipsoidal_function,
+                   generate_griewank_function,
+                   generate_kotanchek_function,
+                   generate_mexican_hat_function,
+                   generate_rastrigin_function,
+                   generate_rosenbrock_function,
                    generate_sphere_function,
                    #schwefel_function,
-                   double_sum_function,
-                   weierstrass_function)
+                   generate_double_sum_function,
+                   generate_weierstrass_function)
 
 plotit <- function(fn) {
   message("Plotting '", function_id(fn), "' ...")
@@ -35,17 +35,17 @@ for (generator in generators) {
 ## some of these fail, this is a known issue
 for (fid in 1:24) {
   for (iid in 1:1) {
-    f <- bbob2009_function(2, fid, iid)
+    f <- generate_bbob2009_function(2, fid, iid)
     plotit(f)
   }
 }
 
-for(alpha in seq(0,1,by=0.1)) {
+for(alpha in seq(0.1, 1, by=0.1)) {
 	f <- generate_happycat_function(2, alpha)
 	plotit(f)
 }
 
-for(alpha in seq(0,1,by=0.1)) {
+for(alpha in seq(0.1, 1, by=0.1)) {
 	f <- generate_batman_function(2, alpha)
 	plotit(f)
 }

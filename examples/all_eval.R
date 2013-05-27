@@ -3,16 +3,15 @@ library("soobench")
 smessage <- function(msg, ...)
   message(sprintf(msg, ...))
 
-functions <- ls("package:soobench", pattern="f_*")
+functions <- ls("package:soobench", pattern="generate_*")
 
 functions <- setdiff(functions, "f_bbob2009")
 
-dim <- 2
-
 for (fname in functions) {
+	#FIXME: get soo_function, not soo_function_generator
   f <- get(fname)
-  l <- lower_bounds(f, dim)
-  u <- upper_bounds(f, dim)
+  l <- lower_bounds(f)
+  u <- upper_bounds(f)
   par <- runif(dim) * (u - l) + l
 
   smessage("Optimizing %s...", fname)

@@ -1,7 +1,8 @@
 library("soobench")
 
 fn <- generate_rosenbrock_function(2)
-fn <- fixed_budget_function(fn, 110)
+fn <- with_fixed_budget(fn, 110)
+#FIXME: record_target_values_function undefined
 fn <- record_target_values_function(fn)
 
 par <- random_parameter(fn)

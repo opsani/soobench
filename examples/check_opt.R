@@ -1,18 +1,18 @@
 library("soobench")
 
-generators <- list(ackley_function,
-                   branin_function,
-                   discus_function,
-                   ellipsoidal_function,
-                   griewank_function,
-                   kotancheck_function,
-                   mexican_hat_function,
-                   rastrigin_function,
-                   rosenbrock_function,
-                   sphere_function,
-                   ##schwefel_function,
-                   double_sum_function,
-                   weierstrass_function)
+generators <- list(generate_ackley_function,
+                   generate_branin_function,
+                   generate_discus_function,
+                   generate_ellipsoidal_function,
+                   generate_griewank_function,
+                   generate_kotancheck_function,
+                   generate_mexican_hat_function,
+                   generate_rastrigin_function,
+                   generate_rosenbrock_function,
+                   generate_sphere_function,
+                   ##generate_schwefel_function,
+                   generate_double_sum_function,
+                   generate_weierstrass_function)
 
 check <- function(f, par, value) {
   delta <- f(par) - value
