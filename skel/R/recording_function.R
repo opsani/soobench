@@ -75,9 +75,9 @@ recording_function <- function(fn,
     for (i in 1:ncol(x)) {
       current_par <- x[, i]
       current_value <- y[i]
-      current_time <- current_time + 1L
+      current_time <<- current_time + 1L
       if (predicate(current_par, current_value, current_time)) {
-        current_position <- current_position + 1L        
+        current_position <<- current_position + 1L        
         times[current_position] <<- current_time
         if (record_pars)
           pars <<- cbind(pars, current_par, deparse.level=0)

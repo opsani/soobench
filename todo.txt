@@ -14,3 +14,5 @@
  * Check BBOB Noisy functions.
  
  * JB: Add 10 test functions from Haarala, Miettinnen, Mäkelä paper. Add appropriate tests.
+
+ * write unit test for record_target_values_function und first_hitting_times
