@@ -18,6 +18,7 @@ generate_chained_CB3_I_function <- function(dimensions)
                dimensions=dimensions,
                lower_bounds=rep(-Inf, dimensions),
                upper_bounds=rep(Inf, dimensions),
+               #FIXME: best params unknown
                best_par=rep(0, dimensions),
                best_value=2*(dimensions - 1))
   

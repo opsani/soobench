@@ -18,6 +18,7 @@ generate_number_of_active_faces_function <- function(dimensions)
                dimensions=dimensions,
                lower_bounds=rep(-Inf, dimensions),
                upper_bounds=rep(Inf, dimensions),
+               #FIXME: unknown param values
                best_par=rep(0, dimensions),
                best_value=0)
   
@@ -26,6 +27,7 @@ attr(generate_number_of_active_faces_function, "id") <- "number_of_active_faces"
 attr(generate_number_of_active_faces_function, "name") <- "Number of active faces test function"
 
 f_number_of_active_faces_function <- function(x, ...) {
-	# implement this stuff
-	0
+	s = sum(x)
+  tmp = c(log(abs(-s)+1), log(abs(x))+1)
+  max(tmp)
 }

@@ -18,6 +18,7 @@ generate_generalized_MXHILB_function <- function(dimensions)
                dimensions=dimensions,
                lower_bounds=rep(-Inf, dimensions),
                upper_bounds=rep(Inf, dimensions),
+               #FIXME: best params unknown
                best_par=rep(0, dimensions),
                best_value=0)
   

@@ -1,6 +1,6 @@
 ##' Generalized MAXQ test function generator.
 ##'
-##' The generalized test function is defined as
+##' The generalized MAXW test function is defined as
 ##'
 ##'   \deqn{f(x) = \max_{1 \leq i \neq n} x_i^2}
 ##' 
@@ -17,7 +17,8 @@ generate_generalized_MAXQ_function <- function(dimensions)
                dimensions=dimensions,
                lower_bounds=rep(-Inf, dimensions),
                upper_bounds=rep(Inf, dimensions),
-               best_par=rep(0, dimensions),
+               #FIXME: best params unknown
+               best_par=rep(0, dimensions), 
                best_value=0)
   
 class(generate_generalized_MAXQ_function) <- "soo_function_generator"
