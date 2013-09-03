@@ -31,10 +31,11 @@
 ##' @useDynLib soobench do_bbob_opt do_bbob_eval do_set_bbob_noise_seed
 ##' @rdname bbob2009_function.Rd
 generate_bbob2009_function <- function(dimensions, fid, iid) {
+  dimensions <- as.integer(dimensions)
   fid <- as.integer(fid)
-  stopifnot(fid < 25)
   iid <- as.integer(iid)
-  opt <- .Call(do_bbob_opt, fid, iid, as.integer(dimensions))
+  stopifnot(fid < 25, dimensions > 1)
+  opt <- .Call(do_bbob_opt, fid, iid, dimensions)
   f <- function(x) {}
   body(f) <- substitute(.Call(do_bbob_eval, fid, iid, x),
                         list(fid=fid, iid=iid))
