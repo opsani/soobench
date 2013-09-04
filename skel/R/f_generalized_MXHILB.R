@@ -11,29 +11,19 @@
 ##' memory bundle method for large-scale nonsmooth optimization.
 ##'
 ##' @export
-generate_generalized_MXHILB_function <- function(dimensions)
+##' @useDynLib soobench do_f_generalized_mxhilb
+generate_generalized_mxhilb_function <- function(dimensions)
   soo_function(name="Generalized MXHILB",
-               id=sprintf("generalized-MXHILB-%id", dimensions),
-               fun=f_generalized_MAXHLIB,
+               id=sprintf("generalized-mxhilb-%id", dimensions),
+               fun=function(x) .Call(do_f_generalized_mxhilb, x),
                dimensions=dimensions,
-               lower_bounds=rep(-Inf, dimensions),
-               upper_bounds=rep(Inf, dimensions),
-               #FIXME: best params unknown
+               lower_bounds=rep(-10, dimensions),
+               upper_bounds=rep(10, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
   
-class(generate_generalized_MXHILB_function) <- "soo_function_generator"
-attr(generate_generalized_MXHILB_function, "id") <- "generalized_MXHILB"
-attr(generate_generalized_MXHILB_function, "name") <- "Generalized MXHILB test function"
+class(generate_generalized_mxhilb_function) <- "soo_function_generator"
+attr(generate_generalized_mxhilb_function, "id") <- "generalized_mxhilb"
+attr(generate_generalized_mxhilb_function, "name") <- "Generalized MXHILB test function"
 
-f_generalized_MAXHLIB = function(x, ...) {
-	n = length(x)
-	res = numeric(n)
-	for (i in 1:n) {
-		res[i] = 0
-		for (j in 1:n) {
-			res[i] = res[i] + (x[j] / (i+j-1))
-		}
-	}
-	max(res)
-}
+
