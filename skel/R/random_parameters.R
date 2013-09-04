@@ -25,10 +25,21 @@ random_parameters <- function(n, fn)
   UseMethod("random_parameters", fn)
 
 ##' @S3method random_parameters soo_function
-random_parameters.soo_function <- function(n, fn)
-  replicate(n, runif(number_of_parameters(fn),
-                     lower_bounds(fn),
-                     upper_bounds(fn)))
+random_parameters.soo_function <- function(n, fn) {
+  X <- replicate(n, runif(number_of_parameters(fn),
+                          lower_bounds(fn),
+                          upper_bounds(fn)))
+  ## This block is only necessary because replicate simplifies for
+  ## convinence and not for correctness. Instead of returning a 1
+  ## column matrix, it returns a vector.
+  if (is.matrix(X))
+    X
+  else {
+    ## Handle 1D case :/
+    dim(X) <- c(1, length(X))
+    X
+  }
+}
 
 ##' @S3method random_parameters wrapped_soo_function
 random_parameters.wrapped_soo_function <- function(n, fn)
