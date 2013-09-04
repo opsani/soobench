@@ -25,7 +25,7 @@
 ##' @export
 ##' @useDynLib soobench do_eval_happycat
 ##' @rdname generate_happycat_function
-generate_happycat_function <- function(dimensions, alpha) {
+generate_happycat_function <- function(dimensions, alpha=0.125) {
   if(alpha <= 0) 
     stop("Alpha must be greater zero!")
   f <- function(x) {}
