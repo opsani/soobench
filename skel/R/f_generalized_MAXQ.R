@@ -10,17 +10,17 @@
 ##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
 ##' @export
-generate_generalized_MAXQ_function <- function(dimensions)
+##' @useDynLib soobench do_f_generalized_maxq
+generate_generalized_maxq_function <- function(dimensions)
   soo_function(name="Generalized MAXQ",
-               id=sprintf("generalized-MAXQ-%id", dimensions),
-               fun=function(x, ...) max(x^2),
+               id=sprintf("generalized-maxq-%id", dimensions),
+               fun=function(x, ...) .Call(do_f_generalized_maxq, x),
                dimensions=dimensions,
-               lower_bounds=rep(-Inf, dimensions),
-               upper_bounds=rep(Inf, dimensions),
-               #FIXME: best params unknown
-               best_par=rep(0, dimensions), 
+               lower_bounds=rep(-10, dimensions),
+               upper_bounds=rep(10, dimensions),
+               best_par=rep(0, dimensions),
                best_value=0)
   
-class(generate_generalized_MAXQ_function) <- "soo_function_generator"
-attr(generate_generalized_MAXQ_function, "id") <- "generalized_MAXQ"
-attr(generate_generalized_MAXQ_function, "name") <- "Generalized MAXQ test function"
+class(generate_generalized_maxq_function) <- "soo_function_generator"
+attr(generate_generalized_maxq_function, "id") <- "generalized_maxq"
+attr(generate_generalized_maxq_function, "name") <- "Generalized MAXQ test function"
