@@ -10,5 +10,3 @@ test_that("1D random_parameters()", {
   X <- random_parameters(100, fn)
   expect_equal(dim(X), c(1, 100))
 })
-
-
