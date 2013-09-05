@@ -13,6 +13,7 @@ usage:
 	echo " package  - build source package"
 	echo " help     - shows all available targets"
 	echo " test     - run test suite"
+	echo " fulltest - run test suite including expensive tests"
 
 help: usage
 	echo " clean    - clean up package cruft"
@@ -45,4 +46,7 @@ pkg: clean
 	${RSCRIPT} ./tools/set-version 1 1
 
 test: install
+	(export SKIP_BBOB=1 ; ${RSCRIPT} ./tools/run-tests )
+
+full-test: install
 	${RSCRIPT} ./tools/run-tests
