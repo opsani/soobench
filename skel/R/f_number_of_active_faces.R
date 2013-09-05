@@ -11,23 +11,17 @@
 ##' memory bundle method for large-scale nonsmooth optimization.
 ##'
 ##' @export
+##' @useDynLib soobench do_f_number_of_active_faces
 generate_number_of_active_faces_function <- function(dimensions)
   soo_function(name="Number of active faces",
                id=sprintf("number-of-active-faces-%id", dimensions),
-               fun=f_number_of_active_faces_function,
+               fun=function(x, ...) .Call(do_f_number_of_active_faces, x),
                dimensions=dimensions,
-               lower_bounds=rep(-Inf, dimensions),
-               upper_bounds=rep(Inf, dimensions),
-               #FIXME: unknown param values
+               lower_bounds=rep(-10, dimensions),
+               upper_bounds=rep(10, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
   
 class(generate_number_of_active_faces_function) <- "soo_function_generator"
 attr(generate_number_of_active_faces_function, "id") <- "number_of_active_faces"
 attr(generate_number_of_active_faces_function, "name") <- "Number of active faces test function"
-
-f_number_of_active_faces_function <- function(x, ...) {
-	s = sum(x)
-  tmp = c(log(abs(-s)+1), log(abs(x))+1)
-  max(tmp)
-}

@@ -1,5 +1,5 @@
 validate_generator <- function(g) {
-  context(deparse(substitute(g)))
+  context(sprintf("Generator %s", function_id(g)))
   test_that("Is a valid generator",
             expect_true(inherits(g, "soo_function_generator")))
   test_that("Has a name and id", {
@@ -24,3 +24,7 @@ validate_generator(generate_rastrigin_function)
 validate_generator(generate_rosenbrock_function)
 validate_generator(generate_sphere_function)
 validate_generator(generate_weierstrass_function)
+validate_generator(generate_weierstrass_function)
+validate_generator(generate_generalized_maxq_function)
+validate_generator(generate_generalized_mxhilb_function)
+validate_generator(generate_nonsmooth_generalized_brown_2_function)

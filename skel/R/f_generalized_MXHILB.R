@@ -25,5 +25,3 @@ generate_generalized_mxhilb_function <- function(dimensions)
 class(generate_generalized_mxhilb_function) <- "soo_function_generator"
 attr(generate_generalized_mxhilb_function, "id") <- "generalized_mxhilb"
 attr(generate_generalized_mxhilb_function, "name") <- "Generalized MXHILB test function"
-
-

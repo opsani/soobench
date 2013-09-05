@@ -49,3 +49,5 @@ R_SOOFUNCTION(f_sphere)
 R_SOOFUNCTION(f_discus)
 /* R_SOOFUNCTION(f_schwefel) */
 R_SOOFUNCTION(f_weierstrass)
+R_SOOFUNCTION(f_number_of_active_faces)
+R_SOOFUNCTION(f_nonsmooth_generalized_brown_2)

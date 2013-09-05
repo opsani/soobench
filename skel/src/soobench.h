@@ -28,6 +28,7 @@ SOOFUNCTION(f_rosenbrock)
 /* SOOFUNCTION(f_schwefel) */
 SOOFUNCTION(f_sphere)
 SOOFUNCTION(f_weierstrass)
-
+SOOFUNCTION(f_number_of_active_faces)
+SOOFUNCTION(f_nonsmooth_generalized_brown_2)
 #undef SOOFUNCTION /* Hygiene */
 #endif

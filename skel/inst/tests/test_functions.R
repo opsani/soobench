@@ -1,5 +1,5 @@
 check_fun <- function(fn) {
-  context(function_id(fn))
+  context(sprintf("Function %s", function_id(fn)))
   lbl <- sprintf("%s can handle vectorized_input", function_id(fn))
   test_that(lbl, {
     X <- random_parameters(100, fn)
@@ -45,10 +45,11 @@ for (dim in c(1, 2, 3, 5, 10, 20)) {
   check_fun(generate_weierstrass_function(dim))
   check_fun(generate_generalized_maxq_function(dim))
   check_fun(generate_generalized_mxhilb_function(dim))
-##  check_fun(generate_chained_LQ_function(dim))
-##  check_fun(generate_chained_CB3_I_function(dim))
-##  check_fun(generate_chained_CB3_II_function(dim))
-##  check_fun(generate_number_of_active_faces_function(dim))
+  ##  check_fun(generate_chained_LQ_function(dim))
+  ##  check_fun(generate_chained_CB3_I_function(dim))
+  ##  check_fun(generate_chained_CB3_II_function(dim))
+  check_fun(generate_number_of_active_faces_function(dim))
+  check_fun(generate_nonsmooth_generalized_brown_2_function(dim))
 }
 
 if (Sys.getenv("SKIP_BBOB") != "1") {
