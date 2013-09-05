@@ -30,5 +30,8 @@ SOOFUNCTION(f_sphere)
 SOOFUNCTION(f_weierstrass)
 SOOFUNCTION(f_number_of_active_faces)
 SOOFUNCTION(f_nonsmooth_generalized_brown_2)
+SOOFUNCTION(f_chained_cb3_i)
+SOOFUNCTION(f_chained_cb3_ii)
+
 #undef SOOFUNCTION /* Hygiene */
 #endif

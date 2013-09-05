@@ -46,8 +46,8 @@ for (dim in c(1, 2, 3, 5, 10, 20)) {
   check_fun(generate_generalized_maxq_function(dim))
   check_fun(generate_generalized_mxhilb_function(dim))
   ##  check_fun(generate_chained_LQ_function(dim))
-  ##  check_fun(generate_chained_CB3_I_function(dim))
-  ##  check_fun(generate_chained_CB3_II_function(dim))
+  check_fun(generate_chained_cb3_i_function(dim))
+  check_fun(generate_chained_cb3_ii_function(dim))
   check_fun(generate_number_of_active_faces_function(dim))
   check_fun(generate_nonsmooth_generalized_brown_2_function(dim))
 }

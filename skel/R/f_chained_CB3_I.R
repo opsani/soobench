@@ -11,26 +11,17 @@
 ##' memory bundle method for large-scale nonsmooth optimization.
 ##'
 ##' @export
-generate_chained_CB3_I_function <- function(dimensions)
-  soo_function(name="Chained_CB3_I",
-               id=sprintf("chained-CB3-I-%id", dimensions),
-               fun=f_chained_CB3_I,
+##' @useDynLib soobench do_f_chained_cb3_i
+generate_chained_cb3_i_function <- function(dimensions)
+  soo_function(name="Chained_cb3_i",
+               id=sprintf("chained-cb3-i-%id", dimensions),
+               fun=function(x, ...) .Call(do_f_chained_cb3_i, x),
                dimensions=dimensions,
-               lower_bounds=rep(-Inf, dimensions),
-               upper_bounds=rep(Inf, dimensions),
-               #FIXME: best params unknown
-               best_par=rep(0, dimensions),
+               lower_bounds=rep(-10, dimensions),
+               upper_bounds=rep(10, dimensions),
+               best_par=rep(1, dimensions),
                best_value=2*(dimensions - 1))
   
-class(generate_chained_CB3_I_function) <- "soo_function_generator"
-attr(generate_chained_CB3_I_function, "id") <- "chained_CB3_I"
-attr(generate_chained_CB3_I_function, "name") <- "Chained CB3 I test function"
-
-f_chained_CB3_I <- function(x, ...) {
-	n = length(x)
-	res = 0
-	for (i in 1:(n-1)) {
-		res = res + max(x[i]^4 + x[i+1]^2, (2-x[i])^2 + (2-x[i+1])^2, 2*exp(-x[i] + x[i+1]))
-	}
-	res
-}
+class(generate_chained_cb3_i_function) <- "soo_function_generator"
+attr(generate_chained_cb3_i_function, "id") <- "chained_cb3_i"
+attr(generate_chained_cb3_i_function, "name") <- "Chained CB3 I test function"
