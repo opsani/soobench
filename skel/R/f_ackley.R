@@ -1,8 +1,21 @@
+##' Ackley test function generator
+##'
 ##' Generator for the Ackley test function.
-##'
-##' The definition used is
-##'
-##'   \deqn{f(x) = \displaystyle -20 \exp\left(-0.2 \sqrt{\frac{1}{n} \sum_{i=1}^n\left(x_i^2\right)}\right) - \exp\left(\frac{1}{n}\sum_{i=1}^n \cos\left(2 \pi x_i \right)\right) + 20 + \exp(1)}
+##' The Ackley function is defined as
+##' \deqn{
+##'   f(x)
+##'   =
+##'   -20 \exp
+##'   \left(
+##'     -0.2 \sqrt{\frac{1}{n}
+##'                \sum_{i=1}^n \left(x_i^2\right)}
+##'   \right) - \exp
+##'   \left(
+##'     \frac{1}{n}\sum_{i=1}^n \cos\left(2 \pi x_i \right)
+##'   \right) + 20 + \exp(1)}{
+##' f(x) = -20 * exp(-0.2 * sqrt(1/n * sum(x^2)))
+##'        -exp(1/n * sum(cos(2 * \pi * x))) + 20 + exp(1)
+##' }
 ##'
 ##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
