@@ -2,9 +2,9 @@
 ##'
 ##' The definition used is
 ##'
-##'   \deqn{f(x) = \displaystyle\sum_{i=1}^{n-1} \left[100\left(x_{i+1} - x_i^2\right)^2 + \left(x_i - 1\right)^2\right]}
+##'   \deqn{f(x) = \displaystyle\sum_{i=1}^{n-1} \left(100\left(x_{i+1} - x_i^2\right)^2 + \left(x_i - 1\right)^2\right)}
 ##'
-##' @param dimensions [\code{integer(1)}] Size of parameter space.
+##' @param dimensions [\code{integer(1)}] Size of parameter space. Must be greater than 1.
 ##' @return A \code{soo_function}.
 ##'
 ##' @references H. H. Rosenbrock. An Automatic Method for Finding the 
@@ -13,7 +13,8 @@
 ##' 
 ##' @export
 ##' @useDynLib soobench do_f_rosenbrock
-generate_rosenbrock_function <- function(dimensions)
+generate_rosenbrock_function <- function(dimensions) {
+  stopifnot(dimensions > 1L) 
   soo_function(name="Rosenbrock",
                id=sprintf("rosenbrock-%id", dimensions),
                fun=function(x, ...) .Call(do_f_rosenbrock, x),
@@ -22,7 +23,7 @@ generate_rosenbrock_function <- function(dimensions)
                upper_bounds=rep(2.048, dimensions),
                best_par=rep(1, dimensions),
                best_value=0)
-            
+}
                
 ## Set attributes for soo_function_generator class.
 class(generate_rosenbrock_function) <- "soo_function_generator"

@@ -2,7 +2,7 @@
 ##'
 ##' The definition used is
 ##'
-##'   \deqn{f(x) = \displaystyle - \frac{\exp\left\{-\left(x_1 - 1\right)^2\right\}}{1.2 + \left(x_1 - 2.5\right)^2}}
+##'   \deqn{f(x) = - \frac{\exp\left(-(x_1 - 1)^2\right)}{1.2 + \left(x_1 - 2.5\right)^2}}
 ##' 
 ##' @return A \code{soo_function}.
 ##' @export

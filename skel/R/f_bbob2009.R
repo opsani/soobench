@@ -1,6 +1,6 @@
 ##' (Noisy) BBOB 2009 test function generator.
 ##'
-##' @param dimensions [\code{integer(1)}] Size of parameter space.
+##' @param dimensions [\code{integer(1)}] Size of parameter space. Must be greater than 1 and less than or eqaul to 40.
 ##' @param fid [\code{integer(1)}] Function ID, valid values are 1 to 24.
 ##' @param iid [\code{integer(1)}] Instance ID, defaults to \code{1L}.
 ##' @param noiseSeed [\code{integer(1)}] Seed for the noise random number generator,
@@ -34,7 +34,7 @@ generate_bbob2009_function <- function(dimensions, fid, iid) {
   dimensions <- as.integer(dimensions)
   fid <- as.integer(fid)
   iid <- as.integer(iid)
-  stopifnot(fid < 25, dimensions > 1)
+  stopifnot(fid < 25, dimensions > 1, dimensions <= 40)
   opt <- .Call(do_bbob_opt, fid, iid, dimensions)
   f <- function(x) {}
   body(f) <- substitute(.Call(do_bbob_eval, fid, iid, x),

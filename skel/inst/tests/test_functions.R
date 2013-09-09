@@ -39,7 +39,6 @@ for (dim in c(1, 2, 3, 5, 10, 20)) {
   check_fun(generate_griewank_function(dim))
   check_fun(generate_mexican_hat_function(dim))
   check_fun(generate_rastrigin_function(dim))
-  check_fun(generate_rosenbrock_function(dim))
   ##check_fun(schwefel_function(dim))
   check_fun(generate_sphere_function(dim))
   check_fun(generate_weierstrass_function(dim))
@@ -50,6 +49,10 @@ for (dim in c(1, 2, 3, 5, 10, 20)) {
   check_fun(generate_chained_cb3_ii_function(dim))
   check_fun(generate_number_of_active_faces_function(dim))
   check_fun(generate_nonsmooth_generalized_brown_2_function(dim))
+}
+
+for (dim in c(2, 3, 5, 10, 20)) {
+  check_fun(generate_rosenbrock_function(dim))  
 }
 
 if (Sys.getenv("SKIP_BBOB") != "1") {

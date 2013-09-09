@@ -2,7 +2,7 @@
 ##'
 ##' The number of active faces function test function is defined as
 ##'
-##'   \deqn{f(x) = \max_{1 \leq i \leq n} \left\{\ln\left(\left|-\sum_{i=1}^{n} x_i\right| + 1\right), \ln(|x_i| + 1)\right\}}
+##'   \deqn{f(x) = \max_{1 \leq i \leq n} \left\{\ln\left(\left|\sum_{i=1}^{n} x_i\right| + 1\right), \ln(|x_i| + 1)\right\}}
 ##' 
 ##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.

@@ -10,9 +10,12 @@ generators <- list(generate_ackley_function,
                    generate_rastrigin_function,
                    generate_rosenbrock_function,
                    generate_sphere_function,
-                   #schwefel_function,
                    generate_double_sum_function,
-                   generate_weierstrass_function)
+                   generate_weierstrass_function,
+                   generate_number_of_active_faces_function,
+                   generate_generalized_maxq_function,
+                   generate_generalized_mxhilb_function
+                   )
 
 plotit <- function(fn) {
   message("Plotting '", function_id(fn), "' ...")
@@ -32,12 +35,14 @@ for (generator in generators) {
   }
 }
 
+if (FALSE) {
 ## some of these fail, this is a known issue
 for (fid in 1:24) {
   for (iid in 1:1) {
     f <- generate_bbob2009_function(2, fid, iid)
     plotit(f)
   }
+}
 }
 
 for(alpha in seq(0.1, 1, by=0.1)) {

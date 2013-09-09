@@ -3,7 +3,7 @@
 ##' The Mexican hat function is defined slightly differently by
 ##' different people. The definition used here is
 ##'
-##' \deqn{f(x) = -(1 - x'x) * \exp(-\frac{x'x}{2})}{f(x) = -(1 - x'x) * exp(-0.5 * x'x)}
+##' \deqn{f(x) = -(1 - x'x) * \exp\left(-\frac{x'x}{2}\right)}{f(x) = -(1 - x'x) * exp(-0.5 * x'x)}
 ##'
 ##' Note that we have flipped the sign of the function so that it is a
 ##' minimization problem like all other SOO functions.

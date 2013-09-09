@@ -2,7 +2,7 @@
 ##'
 ##' The definition used is
 ##'
-##'   \deqn{f(x) = \displaystyle \sum_{i=1}^n \left( \sum_{k=0}^{k_{max}} \left[a^k \cos \left(2 \pi b^k \left(x_i + 0.5 \right)\right)\right]\right) - n \sum_{k=0}^{k_{max}} \left[a^k \cos \left( \pi b^k \right)\right]; \newline a=0.5, b=3, k_{max}=20}
+##'   \deqn{f(x) = \displaystyle \sum_{i=1}^n \left( \sum_{k=0}^{20} \left(0.5^k \cos \left(2 \pi 3^k \left(x_i + 0.5 \right)\right)\right]\right) - n \sum_{k=0}^{20} \left[a^k \cos \left( \pi b^k \right)\right)}
 ##'
 ##' @param dimensions [\code{integer(1)}] Size of parameter space.
 ##' @return A \code{soo_function}.
