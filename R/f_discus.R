@@ -10,7 +10,7 @@
 #'
 #' Note that the functions returned by this generator only differ in
 #' the elongated axis from those returned by
-#' \code{\link{generate_ellipsoid_function}}.
+#' \code{\link{generate_ellipsoidal_function}}.
 #' 
 #' @export
 #' @useDynLib soobench do_f_discus
@@ -29,4 +29,3 @@ generate_discus_function <- function(dimensions) {
 class(generate_discus_function) <- c("soo_function_generator", "function")
 attr(generate_discus_function, "id") <- "discus"
 attr(generate_discus_function, "name") <- "Discus test function"
-

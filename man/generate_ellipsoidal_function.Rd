@@ -12,9 +12,9 @@ generate_ellipsoidal_function(dimensions)
 \value{
 A \code{soo_function}.
 
-#' Note that the functions returned by this generator only differ in
+Note that the functions returned by this generator only differ in
 the elongated axis from those returned by
-\code{\link{generate_ellipsoid_function}}.
+\code{\link{generate_discus_function}}.
 }
 \description{
 The ellipsoidal test function is a badly conditioned variant of

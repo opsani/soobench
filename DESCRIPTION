@@ -8,5 +8,5 @@ Author: Olaf Mersmann <olafm@p-value.net>, Bernd Bischl
 Maintainer: Olaf Mersmann <olafm@p-value.net>
 License: BSD_2_clause + file LICENSE
 LazyData: yes
-Version: 1.9-0.4
+Version: 1.9-0.5
 Suggests: rgl, testthat

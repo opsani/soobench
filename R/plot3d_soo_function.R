@@ -29,7 +29,7 @@ plot3d <- function(x,
                   rank=FALSE,
                   ...)
 {
-  if (!require("rgl"))
+  if (!requireNamespace("rgl"))
     stop("plot3d requires the rgl package. Please install it first.")
   stopifnot(n == as.integer(n), number_of_parameters(x) == 2)
   k <- floor(sqrt(n))
@@ -48,8 +48,8 @@ plot3d <- function(x,
   if (rank)
     z <- rank(z)
   dim(z) <- c(k, k)
-  persp3d(x1, x2, z,
-          xlab=xlab, ylab=ylab, ...,
-          main=main,
-          color=terrain.colors(200)[cut(z, 200)])
+  rgl::persp3d(x1, x2, z,
+               xlab=xlab, ylab=ylab, ...,
+               main=main,
+               color=terrain.colors(200)[cut(z, 200)])
 }

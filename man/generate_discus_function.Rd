@@ -14,7 +14,7 @@ A \code{soo_function}.
 
 Note that the functions returned by this generator only differ in
 the elongated axis from those returned by
-\code{\link{generate_ellipsoid_function}}.
+\code{\link{generate_ellipsoidal_function}}.
 }
 \description{
 The discus test function is similar to a high condition
