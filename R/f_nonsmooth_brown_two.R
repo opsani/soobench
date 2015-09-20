@@ -22,7 +22,7 @@ generate_nonsmooth_generalized_brown_2_function <- function(dimensions)
                best_par=rep(0, dimensions),
                best_value=0)
   
-class(generate_nonsmooth_generalized_brown_2_function) <- "soo_function_generator"
+class(generate_nonsmooth_generalized_brown_2_function) <- c("soo_function_generator", "function")
 attr(generate_nonsmooth_generalized_brown_2_function, "id") <- "nonsmooth_generalized_brown_2"
 attr(generate_nonsmooth_generalized_brown_2_function, "name") <- "Nonsmooth generalized Brown 2 test function"
 

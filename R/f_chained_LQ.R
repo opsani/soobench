@@ -22,7 +22,7 @@ generate_chained_LQ_function <- function(dimensions)
                best_par=rep(0, dimensions),
                best_value=-(dimensions - 1)*sqrt(2))
   
-class(generate_chained_LQ_function) <- "soo_function_generator"
+class(generate_chained_LQ_function) <- c("soo_function_generator", "function")
 attr(generate_chained_LQ_function, "id") <- "chained_LQ"
 attr(generate_chained_LQ_function, "name") <- "Chained LQ test function"
 

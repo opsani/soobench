@@ -36,6 +36,6 @@ generate_batman_function <- function(dimensions, alpha=0.25) {
                best_value=0)
 }
 
-class(generate_batman_function) <- "soo_function_generator"
+class(generate_batman_function) <- c("soo_function_generator", "function")
 attr(generate_batman_function, "id") <- "batman"
 attr(generate_batman_function, "name") <- "Batman test function"

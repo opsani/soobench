@@ -22,7 +22,7 @@ generate_chained_crescent_II_function <- function(dimensions)
                best_par=rep(0, dimensions),
                best_value=0)
   
-class(generate_chained_crescent_II_function) <- "soo_function_generator"
+class(generate_chained_crescent_II_function) <- c("soo_function_generator", "function")
 attr(generate_chained_crescent_II_function, "id") <- "chained_crescent_II"
 attr(generate_chained_crescent_II_function, "name") <- "Chained Crescent II test function"
 

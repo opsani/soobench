@@ -26,7 +26,7 @@ generate_discus_function <- function(dimensions) {
                best_value=0)
 }
 
-class(generate_discus_function) <- "soo_function_generator"
+class(generate_discus_function) <- c("soo_function_generator", "function")
 attr(generate_discus_function, "id") <- "discus"
 attr(generate_discus_function, "name") <- "Discus test function"
 

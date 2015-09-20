@@ -29,7 +29,7 @@ generate_ellipsoidal_function <- function(dimensions)
                best_value=0)
                
 ## Set attributes for soo_function_generator class.
-class(generate_ellipsoidal_function) <- "soo_function_generator"
+class(generate_ellipsoidal_function) <- c("soo_function_generator", "function")
 attr(generate_ellipsoidal_function, "id") <- "ellipsoidal"
 attr(generate_ellipsoidal_function, "name") <- "Ellipsoidal test function"
 

@@ -22,6 +22,6 @@ generate_generalized_mxhilb_function <- function(dimensions)
                best_par=rep(0, dimensions),
                best_value=0)
   
-class(generate_generalized_mxhilb_function) <- "soo_function_generator"
+class(generate_generalized_mxhilb_function) <- c("soo_function_generator", "function")
 attr(generate_generalized_mxhilb_function, "id") <- "generalized_mxhilb"
 attr(generate_generalized_mxhilb_function, "name") <- "Generalized MXHILB test function"

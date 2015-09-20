@@ -51,7 +51,7 @@ generate_bbob2009_function <- function(dimensions, fid, iid) {
 }
 
 ## Set attributes for soo_function_generator class.
-class(generate_bbob2009_function) <- "soo_function_generator"
+class(generate_bbob2009_function) <- c("soo_function_generator", "function")
 attr(generate_bbob2009_function, "id") <- "bbob2009"
 attr(generate_bbob2009_function, "name") <- "BBOB 2009 test function"
 
@@ -86,6 +86,6 @@ generate_noisy_bbob2009_function <- function(dimensions, fid, iid, noiseSeed=1L)
 }
 
 ## Set attributes for soo_function_generator class.
-class(generate_noisy_bbob2009_function) <- "soo_function_generator"
+class(generate_noisy_bbob2009_function) <- c("soo_function_generator", "function")
 attr(generate_noisy_bbob2009_function, "id") <- "noisy-bbob2009"
 attr(generate_noisy_bbob2009_function, "name") <- "Noisy BBOB 2009 test function"

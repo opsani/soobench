@@ -22,7 +22,7 @@ generate_chained_mifflin_function <- function(dimensions)
                best_par=rep(0, dimensions),
                best_value=0)
   
-class(generate_chained_mifflin_function) <- "soo_function_generator"
+class(generate_chained_mifflin_function) <- c("soo_function_generator", "function")
 attr(generate_chained_mifflin_function, "id") <- "chained_mifflin_2"
 attr(generate_chained_mifflin_function, "name") <- "Chained Mifflin 2 test function"
 

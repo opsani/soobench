@@ -22,6 +22,6 @@ generate_number_of_active_faces_function <- function(dimensions)
                best_par=rep(0, dimensions),
                best_value=0)
   
-class(generate_number_of_active_faces_function) <- "soo_function_generator"
+class(generate_number_of_active_faces_function) <- c("soo_function_generator", "function")
 attr(generate_number_of_active_faces_function, "id") <- "number_of_active_faces"
 attr(generate_number_of_active_faces_function, "name") <- "Number of active faces test function"

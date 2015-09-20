@@ -23,6 +23,6 @@ generate_griewank_function <- function(dimensions)
                best_value=0)
 
 ## Set attributes for soo_function_generator class.
-class(generate_griewank_function) <- "soo_function_generator"
+class(generate_griewank_function) <- c("soo_function_generator", "function")
 attr(generate_griewank_function, "id") <- "griewank"
 attr(generate_griewank_function, "name") <- "Griewank test function"

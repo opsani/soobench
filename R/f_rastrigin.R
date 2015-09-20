@@ -25,6 +25,6 @@ generate_rastrigin_function <- function(dimensions)
                
                
 ## Set attributes for soo_function_generator class.
-class(generate_rastrigin_function) <- "soo_function_generator"
+class(generate_rastrigin_function) <- c("soo_function_generator", "function")
 attr(generate_rastrigin_function, "id") <- "rastrigin"
 attr(generate_rastrigin_function, "name") <- "Rastrigin test function"

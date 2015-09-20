@@ -27,7 +27,7 @@ generate_himmelblau_function <- function()
                best_value=0)
 
 
-class(generate_himmelblau_function) <- "soo_function_generator"
+class(generate_himmelblau_function) <- c("soo_function_generator", "function")
 attr(generate_himmelblau_function, "id") <- "himmelblau"
 attr(generate_himmelblau_function, "name") <- "Himmelblau test function"
 

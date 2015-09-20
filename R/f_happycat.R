@@ -42,6 +42,6 @@ generate_happycat_function <- function(dimensions, alpha=0.125) {
                best_value=0)
 }
 
-class(generate_happycat_function) <- "soo_function_generator"
+class(generate_happycat_function) <- c("soo_function_generator", "function")
 attr(generate_happycat_function, "id") <- "happycat"
 attr(generate_happycat_function, "name") <- "HappyCat test function"

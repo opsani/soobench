@@ -26,7 +26,7 @@ generate_rosenbrock_function <- function(dimensions) {
 }
                
 ## Set attributes for soo_function_generator class.
-class(generate_rosenbrock_function) <- "soo_function_generator"
+class(generate_rosenbrock_function) <- c("soo_function_generator", "function")
 attr(generate_rosenbrock_function, "id") <- "rosenbrock"
 attr(generate_rosenbrock_function, "name") <- "Rosenbrock test function"
 

@@ -23,6 +23,6 @@ generate_double_sum_function <- function(dimensions)
                best_value=0)
                
                
-class(generate_double_sum_function) <- "soo_function_generator"
+class(generate_double_sum_function) <- c("soo_function_generator", "function")
 attr(generate_double_sum_function, "id") <- "double-sum"
 attr(generate_double_sum_function, "name") <- "Double sum test function"

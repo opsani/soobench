@@ -23,6 +23,6 @@ generate_mexican_hat_function <- function(dimensions)
                best_value=-1)
                
 ## Set attributes for soo_function_generator class.
-class(generate_mexican_hat_function) <- "soo_function_generator"
+class(generate_mexican_hat_function) <- c("soo_function_generator", "function")
 attr(generate_mexican_hat_function, "id") <- "mexican-hat"
 attr(generate_mexican_hat_function, "name") <- "Mexican hat test function"

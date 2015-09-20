@@ -27,6 +27,6 @@ generate_sphere_function <- function(dimensions) {
 }
 
 ## Set attributes for soo_function_generator class.
-class(generate_sphere_function) <- "soo_function_generator"
+class(generate_sphere_function) <- c("soo_function_generator", "function")
 attr(generate_sphere_function, "id") <- "sphere"
 attr(generate_sphere_function, "name") <- "Sphere test function"

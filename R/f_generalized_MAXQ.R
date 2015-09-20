@@ -21,6 +21,6 @@ generate_generalized_maxq_function <- function(dimensions)
                best_par=rep(0, dimensions),
                best_value=0)
   
-class(generate_generalized_maxq_function) <- "soo_function_generator"
+class(generate_generalized_maxq_function) <- c("soo_function_generator", "function")
 attr(generate_generalized_maxq_function, "id") <- "generalized_maxq"
 attr(generate_generalized_maxq_function, "name") <- "Generalized MAXQ test function"

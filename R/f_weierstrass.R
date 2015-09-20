@@ -5,6 +5,7 @@
 #'   \deqn{f(x) = \displaystyle \sum_{i=1}^n \left( \sum_{k=0}^{20} \left(0.5^k \cos \left(2 \pi 3^k \left(x_i + 0.5 \right)\right)\right]\right) - n \sum_{k=0}^{20} \left[a^k \cos \left( \pi b^k \right)\right)}
 #'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
+#'
 #' @return A \code{soo_function}.
 #'
 #' @examples
@@ -23,6 +24,6 @@ generate_weierstrass_function <- function(dimensions)
                best_value=0)
 
 ## Set attributes for soo_function_generator class.
-class(generate_weierstrass_function) <- "soo_function_generator"
+class(generate_weierstrass_function) <- c("soo_function_generator", "function")
 attr(generate_weierstrass_function, "id") <- "weierstrass"
 attr(generate_weierstrass_function, "name") <- "Weierstrass test function"

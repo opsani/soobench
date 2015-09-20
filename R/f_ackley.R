@@ -39,7 +39,7 @@ generate_ackley_function <- function(dimensions)
                best_value=0)
 
 
-class(generate_ackley_function) <- "soo_function_generator"
+class(generate_ackley_function) <- c("soo_function_generator", "function")
 attr(generate_ackley_function, "id") <- "ackley"
 attr(generate_ackley_function, "name") <- "Ackley test function"
 

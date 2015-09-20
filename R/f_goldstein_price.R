@@ -25,7 +25,7 @@ generate_goldstein_price_function <- function()
                best_par=c(0, -1),
                best_value=3)
 
-class(generate_goldstein_price_function) <- "soo_function_generator"
+class(generate_goldstein_price_function) <- c("soo_function_generator", "function")
 attr(generate_goldstein_price_function, "id") <- "goldstein-price"
 attr(generate_goldstein_price_function, "name") <- "Goldstein-Price test function"
 

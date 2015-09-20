@@ -18,3 +18,7 @@ src/*.so
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
+
+# Cruft
+*.swp
+*~

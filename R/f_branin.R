@@ -27,7 +27,7 @@ generate_branin_function <- function()
                best_value=0.3978873577297381558537381351925432682037353515625)
 
                
-class(generate_branin_function) <- "soo_function_generator"
+class(generate_branin_function) <- c("soo_function_generator", "function")
 attr(generate_branin_function, "id") <- "branin"
 attr(generate_branin_function, "name") <- "Branin test function"
 

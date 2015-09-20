@@ -27,7 +27,7 @@ generate_beale_function <- function()
                best_value=0)
 
 
-class(generate_beale_function) <- "soo_function_generator"
+class(generate_beale_function) <- c("soo_function_generator", "function")
 attr(generate_beale_function, "id") <- "beale"
 attr(generate_beale_function, "name") <- "Beale test function"
 
