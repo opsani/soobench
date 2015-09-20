@@ -5,6 +5,8 @@
 \alias{generate_generalized_mxhilb_function}
 \title{Generalized MXHILB test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 15 41 23 28 41 28 15 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4bc5ad0> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "generalized_mxhilb"
  - attr(*, "name")= chr "Generalized MXHILB test function"

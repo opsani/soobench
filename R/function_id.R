@@ -11,14 +11,17 @@
 function_id <- function(fn)
   UseMethod("function_id")    
 
-#' @S3method function_id soo_function
+#' @export
+#' @method function_id soo_function
 function_id.soo_function <- function(fn)
   attr(fn, "id")
 
-#' @S3method function_id wrapped_soo_function
+#' @export
+#' @method function_id wrapped_soo_function
 function_id.wrapped_soo_function <- function(fn)
   function_id(inner_function(fn))
 
-#' @S3method function_id soo_function_generator
+#' @export
+#' @method function_id soo_function_generator
 function_id.soo_function_generator <- function(fn)
   attr(fn, "id")

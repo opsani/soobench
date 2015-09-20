@@ -11,7 +11,8 @@
 #' plot(fn, rank=TRUE)
 #' plot(fn, log=TRUE)
 #' @author Olaf Mersmann \email{olafm@@p-value.net}
-#' @S3method plot soo_function
+#' @export
+#' @method plot soo_function
 #' @method plot soo_function
 #' @export
 plot.soo_function <- function(x, ...) {

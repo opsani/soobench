@@ -5,6 +5,8 @@
 \alias{generate_branin_function}
 \title{Generator for the Branin test function.}
 \format{\preformatted{function ()  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 18 29 27 78 29 78 18 27
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4e77268> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "branin"
  - attr(*, "name")= chr "Branin test function"

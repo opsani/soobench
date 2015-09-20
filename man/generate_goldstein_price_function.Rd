@@ -5,6 +5,8 @@
 \alias{generate_goldstein_price_function}
 \title{Generator for the Goldstein-Price function.}
 \format{\preformatted{function ()  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 18 38 26 28 38 28 18 26
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4c02c80> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "goldstein-price"
  - attr(*, "name")= chr "Goldstein-Price test function"

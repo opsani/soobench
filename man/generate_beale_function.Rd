@@ -5,6 +5,8 @@
 \alias{generate_beale_function}
 \title{Generator for the Beale test function.}
 \format{\preformatted{function ()  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 20 28 27 28 28 28 20 27
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4ee93c8> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "beale"
  - attr(*, "name")= chr "Beale test function"

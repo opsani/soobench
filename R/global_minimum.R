@@ -14,10 +14,12 @@
 global_minimum <- function(fn)
   UseMethod("global_minimum")
 
-#' @S3method global_minimum soo_function
+#' @export
+#' @method global_minimum soo_function
 global_minimum.soo_function <- function(fn)
   list(par=attr(fn, "best_par"), value=attr(fn, "best_value"))
 
-#' @S3method global_minimum wrapped_soo_function
+#' @export
+#' @method global_minimum wrapped_soo_function
 global_minimum.wrapped_soo_function <- function(fn)
   global_minimum(inner_function(fn))

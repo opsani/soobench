@@ -5,6 +5,8 @@
 \alias{generate_griewank_function}
 \title{Griewank test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 15 31 23 28 31 28 15 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x48413b8> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "griewank"
  - attr(*, "name")= chr "Griewank test function"

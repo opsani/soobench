@@ -13,13 +13,15 @@ first_hitting_times <- function(x, target_levels) {
   UseMethod("first_hitting_times")
 }
 
-#' @S3method first_hitting_times numeric
+#' @export
+#' @method first_hitting_times numeric
 #' @method first_hitting_times numeric
 first_hitting_times.numeric <- function(x, target_levels) {
   sapply(target_levels, function(level) which(x <= level)[1L])
 }
 
-#' @S3method first_hitting_times recording_function
+#' @export
+#' @method first_hitting_times recording_function
 #' @method first_hitting_times recording_function
 first_hitting_times.recording_function <- function(x, target_levels) {
   rv <- recorded_values(x)

@@ -5,6 +5,8 @@
 \alias{generate_chained_mifflin_function}
 \title{Chained Mifflin 2 function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 14 38 23 28 38 28 14 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4bae6d0> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "chained_mifflin_2"
  - attr(*, "name")= chr "Chained Mifflin 2 test function"

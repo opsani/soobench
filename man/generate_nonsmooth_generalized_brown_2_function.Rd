@@ -5,6 +5,8 @@
 \alias{generate_nonsmooth_generalized_brown_2_function}
 \title{Nonsmooth generalized Brown function 2 function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 15 52 23 28 52 28 15 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4984d08> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "nonsmooth_generalized_brown_2"
  - attr(*, "name")= chr "Nonsmooth generalized Brown 2 test function"

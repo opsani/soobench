@@ -5,6 +5,8 @@
 \alias{generate_kotanchek_function}
 \title{Kotanchek test function generator.}
 \format{\preformatted{function ()  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 10 32 18 59 32 59 10 18
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4a63338> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "kotanchek"
  - attr(*, "name")= chr "Kotanchek test function"

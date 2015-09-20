@@ -107,7 +107,8 @@ recording_function <- function(fn,
 recorded_values <- function(fn)
   UseMethod("recorded_values")
 
-#' @S3method recorded_values recording_function
+#' @export
+#' @method recorded_values recording_function
 #' @method recorded_values recording_function
 recorded_values.recording_function <- function(fn) {
   ee <- environment(fn)
@@ -116,7 +117,8 @@ recorded_values.recording_function <- function(fn) {
        value=ee$values)
 }
 
-#' @S3method recorded_values wrapped_soo_function
+#' @export
+#' @method recorded_values wrapped_soo_function
 #' @method recorded_values wrapped_soo_function
 recorded_values.wrapped_soo_function <- function(fn) {
   recorded_values(inner_function(fn))
@@ -135,19 +137,23 @@ recorded_values.wrapped_soo_function <- function(fn) {
 is_recording_function <- function(fn)
   UseMethod("is_recording_function")
 
-#' @S3method is_recording_function wrapped_soo_function
+#' @export
+#' @method is_recording_function wrapped_soo_function
 is_recording_function.wrapped_soo_function <- function(fn)
   is_recording_function(inner_function(fn))
 
-#' @S3method is_recording_function recording_function
+#' @export
+#' @method is_recording_function recording_function
 is_recording_function.recording_function <- function(fn)
   TRUE
 
-#' @S3method is_recording_function soo_function
+#' @export
+#' @method is_recording_function soo_function
 is_recording_function.soo_function <- function(fn)
   FALSE
 
-#' @S3method inner_function recording_function
+#' @export
+#' @method inner_function recording_function
 inner_function.recording_function <- function(fn) {
   ee <- environment(fn)
   ee$fn

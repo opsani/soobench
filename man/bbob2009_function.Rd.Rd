@@ -6,6 +6,8 @@
 \alias{generate_noisy_bbob2009_function}
 \title{(Noisy) BBOB 2009 test function generator.}
 \format{\preformatted{function (dimensions, fid, iid)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 33 31 51 1 31 1 33 51
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4f60f20> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "bbob2009"
  - attr(*, "name")= chr "BBOB 2009 test function"

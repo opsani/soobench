@@ -5,6 +5,8 @@
 \alias{generate_weierstrass_function}
 \title{Generator for the Weierstrass function.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 16 34 23 28 34 28 16 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4738b18> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "weierstrass"
  - attr(*, "name")= chr "Weierstrass test function"

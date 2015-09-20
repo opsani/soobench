@@ -6,3 +6,6 @@
 ^src/.*\.so
 ^manual/
 README.md
+todo.txt
+generics.txt
+

@@ -24,7 +24,8 @@
 random_parameters <- function(n, fn)
   UseMethod("random_parameters", fn)
 
-#' @S3method random_parameters soo_function
+#' @export
+#' @method random_parameters soo_function
 random_parameters.soo_function <- function(n, fn) {
   X <- replicate(n, runif(number_of_parameters(fn),
                           lower_bounds(fn),
@@ -41,7 +42,8 @@ random_parameters.soo_function <- function(n, fn) {
   }
 }
 
-#' @S3method random_parameters wrapped_soo_function
+#' @export
+#' @method random_parameters wrapped_soo_function
 random_parameters.wrapped_soo_function <- function(n, fn)
   random_parameters(n, inner_function(fn))
 

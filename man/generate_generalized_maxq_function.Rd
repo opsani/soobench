@@ -5,6 +5,8 @@
 \alias{generate_generalized_maxq_function}
 \title{Generalized MAXQ test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 14 39 22 28 39 28 14 22
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x47eaec0> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "generalized_maxq"
  - attr(*, "name")= chr "Generalized MAXQ test function"

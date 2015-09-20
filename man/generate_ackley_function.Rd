@@ -5,6 +5,8 @@
 \alias{generate_ackley_function}
 \title{Ackley test function generator}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 32 29 39 28 29 28 32 39
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4ff6300> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "ackley"
  - attr(*, "name")= chr "Ackley test function"

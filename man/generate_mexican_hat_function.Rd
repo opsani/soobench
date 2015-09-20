@@ -5,6 +5,8 @@
 \alias{generate_mexican_hat_function}
 \title{Mexican hat test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 15 34 23 29 34 29 15 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x49e75d8> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "mexican-hat"
  - attr(*, "name")= chr "Mexican hat test function"

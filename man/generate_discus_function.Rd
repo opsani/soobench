@@ -5,6 +5,8 @@
 \alias{generate_discus_function}
 \title{Discus test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 17 29 27 1 29 1 17 27
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x47dfd60> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "discus"
  - attr(*, "name")= chr "Discus test function"

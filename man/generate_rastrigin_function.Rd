@@ -5,6 +5,8 @@
 \alias{generate_rastrigin_function}
 \title{Rastrigin test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 16 32 24 28 32 28 16 24
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4875410> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "rastrigin"
  - attr(*, "name")= chr "Rastrigin test function"

@@ -5,6 +5,8 @@
 \alias{generate_happycat_function}
 \title{Generator for the Happycat function.}
 \format{\preformatted{function (dimensions, alpha = 0.125)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 28 31 43 1 31 1 28 43
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4ca48f8> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "happycat"
  - attr(*, "name")= chr "HappyCat test function"

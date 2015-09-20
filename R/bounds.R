@@ -12,22 +12,26 @@ lower_bounds <- function(fn)
 upper_bounds <- function(fn)
   UseMethod("upper_bounds")
 
-#' @S3method lower_bounds soo_function
+#' @export
+#' @method lower_bounds soo_function
 #' @method  lower_bounds soo_function
 lower_bounds.soo_function <- function(fn)
   attr(fn, "lower_bounds")
 
-#' @S3method lower_bounds wrapped_soo_function
+#' @export
+#' @method lower_bounds wrapped_soo_function
 #' @method  lower_bounds wrapped_soo_function
 lower_bounds.wrapped_soo_function <- function(fn)
   lower_bounds(inner_function(fn))
 
-#' @S3method upper_bounds soo_function
+#' @export
+#' @method upper_bounds soo_function
 #' @method  upper_bounds soo_function
 upper_bounds.soo_function <- function(fn)
   attr(fn, "upper_bounds")
 
-#' @S3method upper_bounds wrapped_soo_function
+#' @export
+#' @method upper_bounds wrapped_soo_function
 #' @method  upper_bounds wrapped_soo_function
 upper_bounds.wrapped_soo_function <- function(fn)
   upper_bounds(inner_function(fn))

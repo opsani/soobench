@@ -5,6 +5,8 @@
 \alias{generate_chained_crescent_II_function}
 \title{Chained Crescent II function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 14 42 23 28 42 28 14 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4cc2108> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "chained_crescent_II"
  - attr(*, "name")= chr "Chained Crescent II test function"

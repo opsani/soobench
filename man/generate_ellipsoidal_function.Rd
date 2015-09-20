@@ -5,6 +5,8 @@
 \alias{generate_ellipsoidal_function}
 \title{Generator for ellipsoidal test functions.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 21 34 29 28 34 28 21 29
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x478c7a0> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "ellipsoidal"
  - attr(*, "name")= chr "Ellipsoidal test function"

@@ -5,6 +5,8 @@
 \alias{generate_batman_function}
 \title{Generator for the Batman function.}
 \format{\preformatted{function (dimensions, alpha = 0.25)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 22 29 37 1 29 1 22 37
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4fb0c58> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "batman"
  - attr(*, "name")= chr "Batman test function"

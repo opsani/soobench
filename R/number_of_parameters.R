@@ -11,10 +11,12 @@
 number_of_parameters <- function(fn)
   UseMethod("number_of_parameters")
 
-#' @S3method number_of_parameters soo_function
+#' @export
+#' @method number_of_parameters soo_function
 number_of_parameters.soo_function <- function(fn)
   attr(fn, "dimensions")
 
-#' @S3method number_of_parameters wrapped_soo_function
+#' @export
+#' @method number_of_parameters wrapped_soo_function
 number_of_parameters.wrapped_soo_function <- function(fn)
   number_of_parameters(inner_function(fn))

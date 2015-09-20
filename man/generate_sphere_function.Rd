@@ -5,6 +5,8 @@
 \alias{generate_sphere_function}
 \title{Sphere test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 18 29 27 1 29 1 18 27
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4774f10> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "sphere"
  - attr(*, "name")= chr "Sphere test function"

@@ -5,6 +5,8 @@
 \alias{generate_chained_cb3_i_function}
 \title{Chained CB3 I test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 15 36 23 45 36 45 15 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4e5ad30> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "chained_cb3_i"
  - attr(*, "name")= chr "Chained CB3 I test function"

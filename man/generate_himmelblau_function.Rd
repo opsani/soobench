@@ -5,6 +5,8 @@
 \alias{generate_himmelblau_function}
 \title{Generator for the Himmelblau test function.}
 \format{\preformatted{function ()  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 17 33 27 28 33 28 17 27
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4b702c8> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "himmelblau"
  - attr(*, "name")= chr "Himmelblau test function"

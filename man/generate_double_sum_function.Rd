@@ -5,6 +5,8 @@
 \alias{generate_double_sum_function}
 \title{Double sum test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 15 33 23 28 33 28 15 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4be1f78> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "double-sum"
  - attr(*, "name")= chr "Double sum test function"

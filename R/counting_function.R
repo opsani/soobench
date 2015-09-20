@@ -50,11 +50,13 @@ counting_function <- function(fn) {
 number_of_evaluations <- function(fn)
   UseMethod("number_of_evaluations")
 
-#' @S3method number_of_evaluations counting_function
+#' @export
+#' @method number_of_evaluations counting_function
 number_of_evaluations.counting_function <- function(fn)
   environment(fn)$count
 
-#' @S3method number_of_evaluations wrapped_soo_function
+#' @export
+#' @method number_of_evaluations wrapped_soo_function
 number_of_evaluations.wrapped_soo_function <- function(fn)
   number_of_evaluations(inner_function(fn))
 
@@ -75,14 +77,16 @@ number_of_evaluations.wrapped_soo_function <- function(fn)
 reset_evaluation_counter <- function(fn)
   UseMethod("reset_evaluation_counter")
 
-#' @S3method reset_evaluation_counter counting_function
+#' @export
+#' @method reset_evaluation_counter counting_function
 reset_evaluation_counter.counting_function <- function(fn) {
   last_count <- environment(fn)$count
   environment(fn)$count <- 0L
   last_count
 }
 
-#' @S3method reset_evaluation_counter wrapped_soo_function
+#' @export
+#' @method reset_evaluation_counter wrapped_soo_function
 reset_evaluation_counter.wrapped_soo_function <- function(fn)
   reset_evaluation_counter(inner_function(fn))
 
@@ -97,18 +101,22 @@ reset_evaluation_counter.wrapped_soo_function <- function(fn)
 is_counting_function <- function(fn)
   UseMethod("is_counting_function")
 
-#' @S3method is_counting_function counting_function
+#' @export
+#' @method is_counting_function counting_function
 is_counting_function.counting_function <- function(fn)
   TRUE
 
-#' @S3method is_counting_function soo_function
+#' @export
+#' @method is_counting_function soo_function
 is_counting_function.soo_function <- function(fn)
   FALSE
 
-#' @S3method is_counting_function wrapped_soo_function
+#' @export
+#' @method is_counting_function wrapped_soo_function
 is_counting_function.wrapped_soo_function <- function(fn)
   is_counting_function(inner_function(fn))
 
-#' @S3method inner_function counting_function
+#' @export
+#' @method inner_function counting_function
 inner_function.counting_function <- function(fn)
   environment(fn)$fn

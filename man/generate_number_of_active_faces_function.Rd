@@ -5,6 +5,8 @@
 \alias{generate_number_of_active_faces_function}
 \title{Number of active faces test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 15 45 23 28 45 28 15 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x48e0bb8> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "number_of_active_faces"
  - attr(*, "name")= chr "Number of active faces test function"

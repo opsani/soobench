@@ -5,6 +5,8 @@
 \alias{generate_chained_LQ_function}
 \title{Chained LQ test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 14 33 23 52 33 52 14 23
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x4d243d8> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "chained_LQ"
  - attr(*, "name")= chr "Chained LQ test function"

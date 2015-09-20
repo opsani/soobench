@@ -5,6 +5,8 @@
 \alias{generate_rosenbrock_function}
 \title{Rosenbrock test function generator.}
 \format{\preformatted{function (dimensions)  
+ - attr(*, "srcref")=Class 'srcref'  atomic [1:8] 16 33 26 1 33 1 16 26
+  .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x47ee940> 
  - attr(*, "class")= chr "soo_function_generator"
  - attr(*, "id")= chr "rosenbrock"
  - attr(*, "name")= chr "Rosenbrock test function"

@@ -81,6 +81,7 @@ with_fixed_budget <- function(expr, budget) {
   res <- list(par=best_par, value=best_value, counts=c(count, NA))
 }
 
-#' @S3method inner_function fixed_budget_function
+#' @export
+#' @method inner_function fixed_budget_function
 inner_function.fixed_budget_function <- function(fn)
   environment(fn)$original_function
