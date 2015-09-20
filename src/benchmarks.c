@@ -307,6 +307,7 @@ TwoDoubles f6(double* x) {
 
     /* BOUNDARY HANDLING*/
     /* TRANSFORMATION IN SEARCH SPACE*/
+#if 0
     for (i = 0; i < DIM; i++) {
 
         tmx[i] = 0.;
@@ -314,7 +315,11 @@ TwoDoubles f6(double* x) {
             tmx[i] += linearTF[i][j] * (x[j] - Xopt[j]);
         }
     }
-
+#else
+    for (i = 0; i < DIM; i++) {
+        tmx[i] = x[i] - Xopt[i];
+    }
+#endif
     /* COMPUTATION core*/
     for (i = 0; i < DIM; i++)
     {
@@ -323,6 +328,7 @@ TwoDoubles f6(double* x) {
         Ftrue += tmx[i] * tmx[i];
     }
 
+#if 0
     /*MonotoneTFosc...*/
     if (Ftrue > 0)
     {
@@ -333,6 +339,7 @@ TwoDoubles f6(double* x) {
         Ftrue = -pow(exp(log(-Ftrue)/0.1 + 0.49*(sin(0.55 * log(-Ftrue)/0.1) + sin(0.31*log(-Ftrue)/0.1))), 0.1);
     }
     Ftrue = pow(Ftrue, 0.9);
+#endif
     Ftrue += Fadd;
     Fval = Ftrue; /* without noise*/
 
