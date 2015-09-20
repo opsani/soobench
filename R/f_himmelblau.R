@@ -1,19 +1,19 @@
-##' Generator for the Himmelblau test function.
-##'
-##' The function is defined as:
-##'
-##' \deqn{
-##'   f(x) = (x_1^2 + x_2 - 11)^2 + (x_1 + x_2^2 - 7)^2
-##' }
-##' 
-##' @return A \code{soo_function}.
-##'
-##' @examples
-##' f <- generate_himmelblau_function()
-##' plot(f, rank=TRUE)
-##'
-##' @export
-##' @useDynLib soobench do_f_himmelblau
+#' Generator for the Himmelblau test function.
+#'
+#' The function is defined as:
+#'
+#' \deqn{
+#'   f(x) = (x_1^2 + x_2 - 11)^2 + (x_1 + x_2^2 - 7)^2
+#' }
+#' 
+#' @return A \code{soo_function}.
+#'
+#' @examples
+#' f <- generate_himmelblau_function()
+#' plot(f, rank=TRUE)
+#'
+#' @export
+#' @useDynLib soobench do_f_himmelblau
 generate_himmelblau_function <- function()
   soo_function(name="Himmelblau", id="himmelblau",
                dimensions=2,

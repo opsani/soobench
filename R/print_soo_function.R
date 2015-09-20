@@ -1,9 +1,9 @@
-##' Print a SOO function.
-##'
-##' @param x [\code{\link{soo_function}}] A \code{\link{soo_function}} object.
-##' @param ... Ignored.
-##' @S3method print soo_function
-##' @method print soo_function
+#' Print a SOO function.
+#'
+#' @param x [\code{\link{soo_function}}] A \code{\link{soo_function}} object.
+#' @param ... Ignored.
+#' @S3method print soo_function
+#' @method print soo_function
 print.soo_function <- function(x, ...) {
   cat(function_name(x), "\n", 
       "  Lower bounds: (", paste(lower_bounds(x), collapse=", "), ")\n",

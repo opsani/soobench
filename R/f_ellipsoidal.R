@@ -1,23 +1,23 @@
-##' Generator for ellipsoidal test functions.
-##'
-##' The ellipsoidal test function is a badly conditioned variant of
-##' the sphere function. The definition used here is
-##'
-##' \deqn{f(x) = \sum_{i=1}^n 10^{6\frac{i}{n}}x_i^2}
-##' 
-##' @param dimensions [\code{integer(1)}] Size of parameter space.
-##' @return A \code{soo_function}.
-##'
-##' ##' Note that the functions returned by this generator only differ in
-##' the elongated axis from those returned by
-##' \code{\link{generate_ellipsoid_function}}.
-##'
-##' @examples
-##' f <- generate_ellipsoidal_function(2)
-##' plot(f, rank=TRUE)
-##' 
-##' ##' @export
-##' @useDynLib soobench do_f_ellipsoidal
+#' Generator for ellipsoidal test functions.
+#'
+#' The ellipsoidal test function is a badly conditioned variant of
+#' the sphere function. The definition used here is
+#'
+#' \deqn{f(x) = \sum_{i=1}^n 10^{6\frac{i}{n}}x_i^2}
+#' 
+#' @param dimensions [\code{integer(1)}] Size of parameter space.
+#' @return A \code{soo_function}.
+#'
+#' #' Note that the functions returned by this generator only differ in
+#' the elongated axis from those returned by
+#' \code{\link{generate_ellipsoid_function}}.
+#'
+#' @examples
+#' f <- generate_ellipsoidal_function(2)
+#' plot(f, rank=TRUE)
+#' 
+#' #' @export
+#' @useDynLib soobench do_f_ellipsoidal
 generate_ellipsoidal_function <- function(dimensions)
   soo_function(name="Ellispoidal",
                id=sprintf("ellipsoidal-%id", dimensions),

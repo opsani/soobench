@@ -1,18 +1,18 @@
-##' Generator for the Weierstrass function.
-##'
-##' The definition used is
-##'
-##'   \deqn{f(x) = \displaystyle \sum_{i=1}^n \left( \sum_{k=0}^{20} \left(0.5^k \cos \left(2 \pi 3^k \left(x_i + 0.5 \right)\right)\right]\right) - n \sum_{k=0}^{20} \left[a^k \cos \left( \pi b^k \right)\right)}
-##'
-##' @param dimensions [\code{integer(1)}] Size of parameter space.
-##' @return A \code{soo_function}.
-##'
-##' @examples
-##' f <- generate_weierstrass_function(2)
-##' plot(f, rank=TRUE)
-##' 
-##' @export
-##' @useDynLib soobench do_f_weierstrass
+#' Generator for the Weierstrass function.
+#'
+#' The definition used is
+#'
+#'   \deqn{f(x) = \displaystyle \sum_{i=1}^n \left( \sum_{k=0}^{20} \left(0.5^k \cos \left(2 \pi 3^k \left(x_i + 0.5 \right)\right)\right]\right) - n \sum_{k=0}^{20} \left[a^k \cos \left( \pi b^k \right)\right)}
+#'
+#' @param dimensions [\code{integer(1)}] Size of parameter space.
+#' @return A \code{soo_function}.
+#'
+#' @examples
+#' f <- generate_weierstrass_function(2)
+#' plot(f, rank=TRUE)
+#' 
+#' @export
+#' @useDynLib soobench do_f_weierstrass
 generate_weierstrass_function <- function(dimensions)
   soo_function(name="Weierstrass", id=sprintf("weierstrass-%id", dimensions),
                dimensions=dimensions,

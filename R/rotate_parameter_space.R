@@ -1,16 +1,16 @@
-##' Generate a random \code{d}-dimensional rotation matrix.
-##'
-##' The algorithm used to randomly create the rotation matrix is due
-##' to R Salomon (see reference). No guarantee is given that the
-##' generated rotation matrices are uniformly distributed in any
-##' sense.
-##' 
-##' @param d Dimension of desired rotation matrix.
-##' @return A random \eqn{d \times d} rotation matrix.
-##' @references Salomon R. Re-evaluating genetic algorithm performance
-##' under coordinate rotation of benchmark functions. A survey of some
-##' theoretical and practical
-##' aspects of genetic algorithms. Biosystems. 1996;39(3):263-78. 
+#' Generate a random \code{d}-dimensional rotation matrix.
+#'
+#' The algorithm used to randomly create the rotation matrix is due
+#' to R Salomon (see reference). No guarantee is given that the
+#' generated rotation matrices are uniformly distributed in any
+#' sense.
+#' 
+#' @param d Dimension of desired rotation matrix.
+#' @return A random \eqn{d \times d} rotation matrix.
+#' @references Salomon R. Re-evaluating genetic algorithm performance
+#' under coordinate rotation of benchmark functions. A survey of some
+#' theoretical and practical
+#' aspects of genetic algorithms. Biosystems. 1996;39(3):263-78. 
 random_rotation_matrix <- function(d) {
   simple_rotation_matrix <- function(d, i, j, alpha) {
     R <- diag(d)
@@ -32,26 +32,26 @@ random_rotation_matrix <- function(d) {
   R    
 }
 
-##' Rotate the parameter space of a SOO function.
-##'
-##' This function is a simple parameter space transformation. Given a
-##' function \eqn{f(x)} it retuns a new function \eqn{f_r(x) = f(Rx)},
-##' where \eqn{R} is a random rotation matrix.
-##'
-##' If you want repeatable results, make sure you explicitly set a
-##' seed before calling \code{rotate_parameter_space}.
-##' 
-##' @param fn A \code{soo_function} object.
-##' @return A new \code{soo_function} object where the parameter space
-##'  has been randomly rotated.
-##' @examples
-##' f <- generate_ackley_function(2)
-##' f_r <- rotate_parameter_space(f)
-##' par(mfrow=c(1, 2))
-##' plot(f)
-##' plot(f_r)
-##' 
-##' @export
+#' Rotate the parameter space of a SOO function.
+#'
+#' This function is a simple parameter space transformation. Given a
+#' function \eqn{f(x)} it retuns a new function \eqn{f_r(x) = f(Rx)},
+#' where \eqn{R} is a random rotation matrix.
+#'
+#' If you want repeatable results, make sure you explicitly set a
+#' seed before calling \code{rotate_parameter_space}.
+#' 
+#' @param fn A \code{soo_function} object.
+#' @return A new \code{soo_function} object where the parameter space
+#'  has been randomly rotated.
+#' @examples
+#' f <- generate_ackley_function(2)
+#' f_r <- rotate_parameter_space(f)
+#' par(mfrow=c(1, 2))
+#' plot(f)
+#' plot(f_r)
+#' 
+#' @export
 rotate_parameter_space <- function(fn) {
   d <- number_of_parameters(fn)
   R <- random_rotation_matrix(d)

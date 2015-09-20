@@ -1,17 +1,17 @@
-##' Retrieve the inner function contained in a wrapping function.
-##'
-##' @details This function is a utility function that is used
-##' internally by functions that wrap \code{soo_function} objects and
-##' want to return \dQuote{wrapped} versions of these functions. Such
-##' a \dQuote{wrapped} function should still provide all the methods
-##' that are applicable to the \dQuote{inner} function. For this to
-##' work in a generic fashion, we need a method to retrieve the inner
-##' function and continue method dispatch on it. This generic
-##' implements that interface.
-##' 
-##' @param fn [\code{function}]\cr Function object
-##'
-##' @return The inner function of \code{fn}.
+#' Retrieve the inner function contained in a wrapping function.
+#'
+#' @details This function is a utility function that is used
+#' internally by functions that wrap \code{soo_function} objects and
+#' want to return \dQuote{wrapped} versions of these functions. Such
+#' a \dQuote{wrapped} function should still provide all the methods
+#' that are applicable to the \dQuote{inner} function. For this to
+#' work in a generic fashion, we need a method to retrieve the inner
+#' function and continue method dispatch on it. This generic
+#' implements that interface.
+#' 
+#' @param fn [\code{function}]\cr Function object
+#'
+#' @return The inner function of \code{fn}.
 inner_function <- function(fn)
   UseMethod("inner_function")
 

@@ -1,47 +1,47 @@
-##' Recording functions
-##'
-##' Return a new function which is identical to the \code{soofunction}
-##' passed in except that evaluated parameter settings and function
-##' values are recorded.
-##' 
-##' @param fn A test function (class \code{soo_function} or
-##' \code{wrapped_soo_function}).
-##' 
-##' @param record_pars [\code{boolean(1)}]\cr If \code{TRUE}, parameter
-##'   values (x) will be recorded.
-##' 
-##' @param record_values [\code{boolean(1)}]\cr If \code{TRUE}, function
-##'   values (y) will be recorded.
-##' 
-##' @param predicate [\code{function(par, value, time)}]\cr Predicate
-##'   function that returns \code{TRUE} if recoding should take place
-##'   for the given parameter setting \code{par}, function value
-##'   \code{value} and evaluation \code{time}. Note that \code{time} is
-##'   measured in function evaluations.
-##'
-##' @seealso \code{\link{recorded_values}} to retrieve the recorded
-##' parameter and function values.
-##'
-##' @examples
-##' fn <- recording_function(generate_sphere_function(2))
-##' X <- random_parameters(10, fn)
-##' y <- fn(X)
-##' rv <- recorded_values(fn)
-##' all.equal(rv$par, X)
-##' all.equal(rv$value, y)
-##'
-##' ## With a predicate
-##' pv <- function(par, value, time)
-##'   time %% 3 == 0
-##' fn <- recording_function(generate_sphere_function(2), predicate=pv)
-##' X <- random_parameters(10, fn)
-##' y <- fn(X)
-##' rv <- recorded_values(fn)
-##' all(rv$time %% 3 == 0)
-##' all.equal(rv$par, X[, rv$time])
-##' all.equal(rv$value, y[rv$time])
-##' 
-##' @export
+#' Recording functions
+#'
+#' Return a new function which is identical to the \code{soofunction}
+#' passed in except that evaluated parameter settings and function
+#' values are recorded.
+#' 
+#' @param fn A test function (class \code{soo_function} or
+#' \code{wrapped_soo_function}).
+#' 
+#' @param record_pars [\code{boolean(1)}]\cr If \code{TRUE}, parameter
+#'   values (x) will be recorded.
+#' 
+#' @param record_values [\code{boolean(1)}]\cr If \code{TRUE}, function
+#'   values (y) will be recorded.
+#' 
+#' @param predicate [\code{function(par, value, time)}]\cr Predicate
+#'   function that returns \code{TRUE} if recoding should take place
+#'   for the given parameter setting \code{par}, function value
+#'   \code{value} and evaluation \code{time}. Note that \code{time} is
+#'   measured in function evaluations.
+#'
+#' @seealso \code{\link{recorded_values}} to retrieve the recorded
+#' parameter and function values.
+#'
+#' @examples
+#' fn <- recording_function(generate_sphere_function(2))
+#' X <- random_parameters(10, fn)
+#' y <- fn(X)
+#' rv <- recorded_values(fn)
+#' all.equal(rv$par, X)
+#' all.equal(rv$value, y)
+#'
+#' ## With a predicate
+#' pv <- function(par, value, time)
+#'   time %% 3 == 0
+#' fn <- recording_function(generate_sphere_function(2), predicate=pv)
+#' X <- random_parameters(10, fn)
+#' y <- fn(X)
+#' rv <- recorded_values(fn)
+#' all(rv$time %% 3 == 0)
+#' all.equal(rv$par, X[, rv$time])
+#' all.equal(rv$value, y[rv$time])
+#' 
+#' @export
 recording_function <- function(fn,
                                record_pars=TRUE,
                                record_values=TRUE,
@@ -91,24 +91,24 @@ recording_function <- function(fn,
   cfun
 }
 
-##' Return the internally recorded parameter settings and function
-##' values for a test function.
-##'
-##' @param fn A function whos recorded parameter settings and function
-##' values should be returnd.
-##' 
-##' @return A list with elements \code{time}, \code{par} and
-##' \code{value} which are the point in time (in number of function
-##' evaluations), the parameter setting and the function value
-##' recorded. The parameter settings are stored in a matrix where each
-##' column is one parameter settings. 
-##' 
-##' @export
+#' Return the internally recorded parameter settings and function
+#' values for a test function.
+#'
+#' @param fn A function whos recorded parameter settings and function
+#' values should be returnd.
+#' 
+#' @return A list with elements \code{time}, \code{par} and
+#' \code{value} which are the point in time (in number of function
+#' evaluations), the parameter setting and the function value
+#' recorded. The parameter settings are stored in a matrix where each
+#' column is one parameter settings. 
+#' 
+#' @export
 recorded_values <- function(fn)
   UseMethod("recorded_values")
 
-##' @S3method recorded_values recording_function
-##' @method recorded_values recording_function
+#' @S3method recorded_values recording_function
+#' @method recorded_values recording_function
 recorded_values.recording_function <- function(fn) {
   ee <- environment(fn)
   list(time=ee$times,
@@ -116,38 +116,38 @@ recorded_values.recording_function <- function(fn) {
        value=ee$values)
 }
 
-##' @S3method recorded_values wrapped_soo_function
-##' @method recorded_values wrapped_soo_function
+#' @S3method recorded_values wrapped_soo_function
+#' @method recorded_values wrapped_soo_function
 recorded_values.wrapped_soo_function <- function(fn) {
   recorded_values(inner_function(fn))
 }
 
-##' Recording function
-##'
-##' Check if a function supports the \sQuote{recording_function} interface.
-##'
-##' @param fn Function to check.
-##'
-##' @return \code{TRUE} if \code{fn} is a \sQuote{recording_function}
-##' else \code{FALSE}.
-##'
-##' @export
+#' Recording function
+#'
+#' Check if a function supports the \sQuote{recording_function} interface.
+#'
+#' @param fn Function to check.
+#'
+#' @return \code{TRUE} if \code{fn} is a \sQuote{recording_function}
+#' else \code{FALSE}.
+#'
+#' @export
 is_recording_function <- function(fn)
   UseMethod("is_recording_function")
 
-##' @S3method is_recording_function wrapped_soo_function
+#' @S3method is_recording_function wrapped_soo_function
 is_recording_function.wrapped_soo_function <- function(fn)
   is_recording_function(inner_function(fn))
 
-##' @S3method is_recording_function recording_function
+#' @S3method is_recording_function recording_function
 is_recording_function.recording_function <- function(fn)
   TRUE
 
-##' @S3method is_recording_function soo_function
+#' @S3method is_recording_function soo_function
 is_recording_function.soo_function <- function(fn)
   FALSE
 
-##' @S3method inner_function recording_function
+#' @S3method inner_function recording_function
 inner_function.recording_function <- function(fn) {
   ee <- environment(fn)
   ee$fn

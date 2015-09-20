@@ -1,22 +1,22 @@
-##' Generator for the Beale test function.
-##'
-##' The function is defined as:
-##'
-##' \deqn{
-##'   f(x) =
-##'    (1.5 - x_1 * (1 - x_2))^2
-##'    + (2.25 - x_1 * (1 - x_2^2))^2
-##'    + (2.625 - x_1 * (1-x_2^3))^2
-##' }
-##' 
-##' @return A \code{soo_function}.
-##'
-##' @examples
-##' f <- generate_beale_function()
-##' plot(f, rank=TRUE)
-##'
-##' @export
-##' @useDynLib soobench do_f_beale
+#' Generator for the Beale test function.
+#'
+#' The function is defined as:
+#'
+#' \deqn{
+#'   f(x) =
+#'    (1.5 - x_1 * (1 - x_2))^2
+#'    + (2.25 - x_1 * (1 - x_2^2))^2
+#'    + (2.625 - x_1 * (1-x_2^3))^2
+#' }
+#' 
+#' @return A \code{soo_function}.
+#'
+#' @examples
+#' f <- generate_beale_function()
+#' plot(f, rank=TRUE)
+#'
+#' @export
+#' @useDynLib soobench do_f_beale
 generate_beale_function <- function()
   soo_function(name="Beale", id="beale",
                dimensions=2,

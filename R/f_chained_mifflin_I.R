@@ -1,16 +1,16 @@
-##' Chained Mifflin 2 function generator.
-##'
-##' The chained Mifflin function 2 is defined as
-##'
-##'   \deqn{f(x) = \sum_{i=1}^{n-1} \left(-x_i + 2(x_i^2 + x_{i+1}^2 - 1) + 1.75|x_i^2 + x_{i+1}^2 - 1|\right)}
-##' 
-##' @param dimensions [\code{integer(1)}] Size of parameter space.
-##' @return A \code{soo_function}.
-##'
-##' @references Haarala, M. and Miettinen, K. and Maekelae, M. M., New limited
-##' memory bundle method for large-scale nonsmooth optimization.
-##'
-##' @export
+#' Chained Mifflin 2 function generator.
+#'
+#' The chained Mifflin function 2 is defined as
+#'
+#'   \deqn{f(x) = \sum_{i=1}^{n-1} \left(-x_i + 2(x_i^2 + x_{i+1}^2 - 1) + 1.75|x_i^2 + x_{i+1}^2 - 1|\right)}
+#' 
+#' @param dimensions [\code{integer(1)}] Size of parameter space.
+#' @return A \code{soo_function}.
+#'
+#' @references Haarala, M. and Miettinen, K. and Maekelae, M. M., New limited
+#' memory bundle method for large-scale nonsmooth optimization.
+#'
+#' @export
 generate_chained_mifflin_function <- function(dimensions)
   soo_function(name="Chained Mifflin 2",
                id=sprintf("chained-mifflin-2-%id", dimensions),

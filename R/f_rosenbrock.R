@@ -1,18 +1,18 @@
-##' Rosenbrock test function generator.
-##'
-##' The definition used is
-##'
-##'   \deqn{f(x) = \displaystyle\sum_{i=1}^{n-1} \left(100\left(x_{i+1} - x_i^2\right)^2 + \left(x_i - 1\right)^2\right)}
-##'
-##' @param dimensions [\code{integer(1)}] Size of parameter space. Must be greater than 1.
-##' @return A \code{soo_function}.
-##'
-##' @references H. H. Rosenbrock. An Automatic Method for Finding the 
-##' Greatest or Least Value of a Function.
-##' The Computer Journal, 3(3):175-184, 1960. 
-##' 
-##' @export
-##' @useDynLib soobench do_f_rosenbrock
+#' Rosenbrock test function generator.
+#'
+#' The definition used is
+#'
+#'   \deqn{f(x) = \displaystyle\sum_{i=1}^{n-1} \left(100\left(x_{i+1} - x_i^2\right)^2 + \left(x_i - 1\right)^2\right)}
+#'
+#' @param dimensions [\code{integer(1)}] Size of parameter space. Must be greater than 1.
+#' @return A \code{soo_function}.
+#'
+#' @references H. H. Rosenbrock. An Automatic Method for Finding the 
+#' Greatest or Least Value of a Function.
+#' The Computer Journal, 3(3):175-184, 1960. 
+#' 
+#' @export
+#' @useDynLib soobench do_f_rosenbrock
 generate_rosenbrock_function <- function(dimensions) {
   stopifnot(dimensions > 1L) 
   soo_function(name="Rosenbrock",

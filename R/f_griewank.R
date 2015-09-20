@@ -1,17 +1,17 @@
-##' Griewank test function generator.
-##'
-##' The definition used is
-##'
-##'   \deqn{f(x) = \displaystyle \sum_{i=1}^n \frac{x_i^2}{4000} - \prod_{i=1}^n \cos \left(\frac{x_i}{\sqrt{i}}\right) + 1}
-##'
-##' @param dimensions [\code{integer(1)}] Size of parameter space.
-##' @return A \code{soo_function}.
-##' 
-##' @references A. O. Griewank. Generalized descent for global optimization. 
-##' Journal of Optimization Theory and Applications 34:11-39, 1981.
-##'
-##' @export
-##' @useDynLib soobench do_f_griewank
+#' Griewank test function generator.
+#'
+#' The definition used is
+#'
+#'   \deqn{f(x) = \displaystyle \sum_{i=1}^n \frac{x_i^2}{4000} - \prod_{i=1}^n \cos \left(\frac{x_i}{\sqrt{i}}\right) + 1}
+#'
+#' @param dimensions [\code{integer(1)}] Size of parameter space.
+#' @return A \code{soo_function}.
+#' 
+#' @references A. O. Griewank. Generalized descent for global optimization. 
+#' Journal of Optimization Theory and Applications 34:11-39, 1981.
+#'
+#' @export
+#' @useDynLib soobench do_f_griewank
 generate_griewank_function <- function(dimensions)
   soo_function(name="Griewank",
                id=sprintf("griewank-%id", dimensions),

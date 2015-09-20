@@ -1,23 +1,23 @@
-##' Plot a test function in 3D.
-##' 
-##' @param x Object of type \code{\link{soo_function}} to plot.
-##' @param lower Lower bounds of x1 and x2.
-##' @param upper Upper bounds of x1 and x2.
-##' @param n Number of locations at which to sample the function.
-##' @param xlab Label of x (x1) axes.
-##' @param ylab Label of y (x2) axes.
-##' @param main Main title of plot.
-##' @param log If \code{TRUE}, the z axes is plotted on log scale.
-##' @param rank If \code{TRUE}, instead of the y values, their ranks are drawn.
-##' @param ... Passed to \code{persp3d.default}.
-##'
-##' par(mfrow=c(1, 3))
-##' fn <- generate_sphere_function(2)
-##' plot3d(fn)
-##' plot3d(fn, log=TRUE)
-##' plot3d(fn, rank=TRUE)
-##'
-##' @author Olaf Mersmann \email{olafm@@datensplitter.net}
+#' Plot a test function in 3D.
+#' 
+#' @param x Object of type \code{\link{soo_function}} to plot.
+#' @param lower Lower bounds of x1 and x2.
+#' @param upper Upper bounds of x1 and x2.
+#' @param n Number of locations at which to sample the function.
+#' @param xlab Label of x (x1) axes.
+#' @param ylab Label of y (x2) axes.
+#' @param main Main title of plot.
+#' @param log If \code{TRUE}, the z axes is plotted on log scale.
+#' @param rank If \code{TRUE}, instead of the y values, their ranks are drawn.
+#' @param ... Passed to \code{persp3d.default}.
+#'
+#' par(mfrow=c(1, 3))
+#' fn <- generate_sphere_function(2)
+#' plot3d(fn)
+#' plot3d(fn, log=TRUE)
+#' plot3d(fn, rank=TRUE)
+#'
+#' @author Olaf Mersmann \email{olafm@@datensplitter.net}
 plot3d <- function(x,
                   lower=lower_bounds(x), 
                   upper=upper_bounds(x),
