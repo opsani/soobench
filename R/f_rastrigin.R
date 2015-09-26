@@ -22,8 +22,7 @@ generate_rastrigin_function <- function(dimensions)
                upper_bounds=rep(5, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
-               
-               
+
 ## Set attributes for soo_function_generator class.
 class(generate_rastrigin_function) <- c("soo_function_generator", "function")
 attr(generate_rastrigin_function, "id") <- "rastrigin"

@@ -21,7 +21,7 @@ generate_chained_crescent_I_function <- function(dimensions)
                #FIXME: best params unknown
                best_par=rep(0, dimensions),
                best_value=0)
-  
+
 class(generate_chained_crescent_I_function) <- c("soo_function_generator", "function")
 attr(generate_chained_crescent_I_function, "id") <- "chained_crescent_I"
 attr(generate_chained_crescent_I_function, "name") <- "Chained Crescent I test function"

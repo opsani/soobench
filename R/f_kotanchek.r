@@ -17,7 +17,7 @@ generate_kotanchek_function <- function()
                best_par=c(2.5, 1),
                best_value=-0.83333333333333333333333333333)
                
-class(generate_kotanchek_function) <- "soo_function_generator"
+class(generate_kotanchek_function) <- c("soo_function_generator", "function")
 attr(generate_kotanchek_function, "id") <- "kotanchek"
 attr(generate_kotanchek_function, "name") <- "Kotanchek test function"
 
