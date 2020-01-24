@@ -8,7 +8,7 @@ package):
 
 ```splus
 library("devtools")
-install_github("olafmersmann/soobench")
+install_github("opsani/soobench")
 ```
 
 [![CRAN Status Badge](http://www.r-pkg.org/badges/version/soobench)](http://cran.r-project.org/web/packages/soobench)

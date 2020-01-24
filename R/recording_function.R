@@ -109,7 +109,6 @@ recorded_values <- function(fn)
 
 #' @export
 #' @method recorded_values recording_function
-#' @method recorded_values recording_function
 recorded_values.recording_function <- function(fn) {
   ee <- environment(fn)
   list(time=ee$times,
@@ -118,7 +117,6 @@ recorded_values.recording_function <- function(fn) {
 }
 
 #' @export
-#' @method recorded_values wrapped_soo_function
 #' @method recorded_values wrapped_soo_function
 recorded_values.wrapped_soo_function <- function(fn) {
   recorded_values(inner_function(fn))

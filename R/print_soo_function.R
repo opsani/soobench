@@ -4,7 +4,6 @@
 #' @param ... Ignored.
 #' @export
 #' @method print soo_function
-#' @method print soo_function
 print.soo_function <- function(x, ...) {
   cat(function_name(x), "\n", 
       "  Lower bounds: (", paste(lower_bounds(x), collapse=", "), ")\n",

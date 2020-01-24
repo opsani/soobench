@@ -5,7 +5,7 @@
 ##   packages is expensive. So in the interest of fast startup, they are
 ##   loaded on demand by the respective functions.
 
-SELFUPGRADE_URL <- "https://raw.githubusercontent.com/olafmersmann/do-r/master/do"
+SELFUPGRADE_URL <- "https://raw.githubusercontent.com/opsani/soobench/master/do"
 
 catf <- function(fmt, ...) cat(sprintf(fmt, ...))
 messagef <- function(fmt, ...) message(sprintf(fmt, ...))
@@ -273,7 +273,7 @@ main <- function(cmd, ...) {
 }
 
 if (interactive()) {
-  message("WARN: 'do' is not ment to be used interactively! Consider using devtools instead.")
+  message("WARN: 'do' is not meant to be used interactively! Consider using devtools instead.")
 } else {
   args <- parse_arguments(commandArgs(TRUE))
   do.call(main, args)

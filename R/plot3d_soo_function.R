@@ -18,6 +18,7 @@
 #' plot3d(fn, rank=TRUE)
 #'
 #' @author Olaf Mersmann \email{olafm@@datensplitter.net}
+#' @importFrom grDevices terrain.colors
 plot3d <- function(x,
                   lower=lower_bounds(x), 
                   upper=upper_bounds(x),

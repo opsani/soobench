@@ -13,7 +13,6 @@
 #' @author Olaf Mersmann \email{olafm@@p-value.net}
 #' @export
 #' @method plot soo_function
-#' @method plot soo_function
 #' @export
 plot.soo_function <- function(x, ...) {
   stopifnot(number_of_parameters(x) <= 2)
