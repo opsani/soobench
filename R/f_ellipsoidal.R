@@ -16,7 +16,7 @@
 #' f <- generate_ellipsoidal_function(2)
 #' plot(f, rank=TRUE)
 #' 
-#' #' @export
+#' @export
 #' @useDynLib soobench do_f_ellipsoidal
 generate_ellipsoidal_function <- function(dimensions)
   soo_function(name="Ellispoidal",
