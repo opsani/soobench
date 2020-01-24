@@ -26,6 +26,7 @@ random_parameters <- function(n, fn)
 
 #' @export
 #' @method random_parameters soo_function
+#' @importFrom stats runif
 random_parameters.soo_function <- function(n, fn) {
   X <- replicate(n, runif(number_of_parameters(fn),
                           lower_bounds(fn),

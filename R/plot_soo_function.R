@@ -39,6 +39,7 @@ plot.soo_function <- function(x, ...) {
 #' 
 #' @author Olaf Mersmann \email{olafm@@p-value.net}
 #' @export
+#' @importFrom graphics plot
 plot_1d_soo_function <- function(fn,
                                  lower=lower_bounds(fn),
                                  upper=upper_bounds(fn),
@@ -107,6 +108,7 @@ plot_1d_soo_function <- function(fn,
 #' plot(fn, log=TRUE)
 #' @author Olaf Mersmann \email{olafm@@p-value.net}
 #' @export
+#' @importFrom graphics image contour
 plot_2d_soo_function <- function(fn,
                                  lower=lower_bounds(fn),
                                  upper=upper_bounds(fn),

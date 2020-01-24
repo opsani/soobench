@@ -11,6 +11,7 @@
 #' under coordinate rotation of benchmark functions. A survey of some
 #' theoretical and practical
 #' aspects of genetic algorithms. Biosystems. 1996;39(3):263-78. 
+#' @importFrom stats runif
 random_rotation_matrix <- function(d) {
   simple_rotation_matrix <- function(d, i, j, alpha) {
     R <- diag(d)
