@@ -3,7 +3,7 @@
 #' The chained Crescent II function is defined as
 #'
 #'   \deqn{f(x) = \sum_{i=1}^{n-1} \max\left\{x_i^2 +(x_{i+1}^2 -1)^2 + x_{i+1} - 1), -x_i^2 - (x_{i+1}^2 -1)^2 + x_{i+1} 1 1\right\}}
-#' 
+#'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
 #'
@@ -21,7 +21,7 @@ generate_chained_crescent_II_function <- function(dimensions)
                #FIXME: best params unknown
                best_par=rep(0, dimensions),
                best_value=0)
-  
+
 class(generate_chained_crescent_II_function) <- c("soo_function_generator", "function")
 attr(generate_chained_crescent_II_function, "id") <- "chained_crescent_II"
 attr(generate_chained_crescent_II_function, "name") <- "Chained Crescent II test function"

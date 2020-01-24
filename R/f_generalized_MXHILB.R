@@ -6,7 +6,7 @@
 #'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
-#' 
+#'
 #' @references Haarala, M. and Miettinen, K. and Maekelae, M. M., New limited
 #' memory bundle method for large-scale nonsmooth optimization.
 #'
@@ -21,7 +21,7 @@ generate_generalized_mxhilb_function <- function(dimensions)
                upper_bounds=rep(10, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
-  
+
 class(generate_generalized_mxhilb_function) <- c("soo_function_generator", "function")
 attr(generate_generalized_mxhilb_function, "id") <- "generalized_mxhilb"
 attr(generate_generalized_mxhilb_function, "name") <- "Generalized MXHILB test function"

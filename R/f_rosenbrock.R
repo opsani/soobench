@@ -7,14 +7,14 @@
 #' @param dimensions [\code{integer(1)}] Size of parameter space. Must be greater than 1.
 #' @return A \code{soo_function}.
 #'
-#' @references H. H. Rosenbrock. An Automatic Method for Finding the 
+#' @references H. H. Rosenbrock. An Automatic Method for Finding the
 #' Greatest or Least Value of a Function.
-#' The Computer Journal, 3(3):175-184, 1960. 
-#' 
+#' The Computer Journal, 3(3):175-184, 1960.
+#'
 #' @export
 #' @useDynLib soobench do_f_rosenbrock
 generate_rosenbrock_function <- function(dimensions) {
-  stopifnot(dimensions > 1L) 
+  stopifnot(dimensions > 1L)
   soo_function(name="Rosenbrock",
                id=sprintf("rosenbrock-%id", dimensions),
                fun=function(x, ...) .Call(do_f_rosenbrock, x),
@@ -24,7 +24,7 @@ generate_rosenbrock_function <- function(dimensions) {
                best_par=rep(1, dimensions),
                best_value=0)
 }
-               
+
 ## Set attributes for soo_function_generator class.
 class(generate_rosenbrock_function) <- c("soo_function_generator", "function")
 attr(generate_rosenbrock_function, "id") <- "rosenbrock"

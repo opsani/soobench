@@ -4,13 +4,13 @@
 #' to R Salomon (see reference). No guarantee is given that the
 #' generated rotation matrices are uniformly distributed in any
 #' sense.
-#' 
+#'
 #' @param d Dimension of desired rotation matrix.
 #' @return A random \eqn{d \times d} rotation matrix.
 #' @references Salomon R. Re-evaluating genetic algorithm performance
 #' under coordinate rotation of benchmark functions. A survey of some
 #' theoretical and practical
-#' aspects of genetic algorithms. Biosystems. 1996;39(3):263-78. 
+#' aspects of genetic algorithms. Biosystems. 1996;39(3):263-78.
 #' @importFrom stats runif
 random_rotation_matrix <- function(d) {
   simple_rotation_matrix <- function(d, i, j, alpha) {
@@ -30,7 +30,7 @@ random_rotation_matrix <- function(d) {
     for (i in 2:(d-1))
       R <- R %*% simple_rotation_matrix(d, i, d, runif(1, -pi/4, pi/4))
   }
-  R    
+  R
 }
 
 #' Rotate the parameter space of a SOO function.
@@ -41,7 +41,7 @@ random_rotation_matrix <- function(d) {
 #'
 #' If you want repeatable results, make sure you explicitly set a
 #' seed before calling \code{rotate_parameter_space}.
-#' 
+#'
 #' @param fn A \code{soo_function} object.
 #' @return A new \code{soo_function} object where the parameter space
 #'  has been randomly rotated.
@@ -51,13 +51,13 @@ random_rotation_matrix <- function(d) {
 #' par(mfrow=c(1, 2))
 #' plot(f)
 #' plot(f_r)
-#' 
+#'
 #' @export
 rotate_parameter_space <- function(fn) {
   d <- number_of_parameters(fn)
   R <- random_rotation_matrix(d)
   opt <- global_minimum(fn)
-  
+
   ## Handle multiple optima locations:
   opt$par <- if (is.list(opt$par)) {
     tmp <- Filter(function(x) is_in_bounds(fn, x),

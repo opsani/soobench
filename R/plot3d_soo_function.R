@@ -1,5 +1,5 @@
 #' Plot a test function in 3D.
-#' 
+#'
 #' @param x Object of type \code{\link{soo_function}} to plot.
 #' @param lower Lower bounds of x1 and x2.
 #' @param upper Upper bounds of x1 and x2.
@@ -20,7 +20,7 @@
 #' @author Olaf Mersmann \email{olafm@@datensplitter.net}
 #' @importFrom grDevices terrain.colors
 plot3d <- function(x,
-                  lower=lower_bounds(x), 
+                  lower=lower_bounds(x),
                   upper=upper_bounds(x),
                   n=10000L,
                   main=function_name(x),

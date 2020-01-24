@@ -1,5 +1,5 @@
 #' Single Objective Optimization Function
-#' 
+#'
 #' Define a new \code{soo_function} object.
 #'
 #' @param name Name of function.
@@ -28,7 +28,7 @@
 #'
 #' ## And then plot it:
 #' plot(f)
-#' 
+#'
 #' @export
 soo_function <- function(name, id, fun, dimensions,
                          lower_bounds, upper_bounds,
@@ -44,7 +44,7 @@ soo_function <- function(name, id, fun, dimensions,
             length(id) == 1)
   if(is.null(grep("^[:alpha:]+[[:alnum:]_-]*$", id, value=TRUE)))
     warning("Function Id should start with letter and contain only characters from the set [A-Za-z0-9_-]")
-  
+
   structure(fun, name=name, id=id, dimensions=dimensions,
             class=c("soo_function", class(fun)),
             lower_bounds=lower_bounds,

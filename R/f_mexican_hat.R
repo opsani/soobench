@@ -7,7 +7,7 @@
 #'
 #' Note that we have flipped the sign of the function so that it is a
 #' minimization problem like all other SOO functions.
-#' 
+#'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
 #' @export
@@ -21,7 +21,7 @@ generate_mexican_hat_function <- function(dimensions)
                upper_bounds=rep(5, dimensions),
                best_par=rep(0, dimensions),
                best_value=-1)
-               
+
 ## Set attributes for soo_function_generator class.
 class(generate_mexican_hat_function) <- c("soo_function_generator", "function")
 attr(generate_mexican_hat_function, "id") <- "mexican-hat"

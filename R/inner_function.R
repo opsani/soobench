@@ -8,7 +8,7 @@
 #' work in a generic fashion, we need a method to retrieve the inner
 #' function and continue method dispatch on it. This generic
 #' implements that interface.
-#' 
+#'
 #' @param fn [\code{function}]\cr Function object
 #'
 #' @return The inner function of \code{fn}.

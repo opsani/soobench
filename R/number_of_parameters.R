@@ -1,12 +1,12 @@
 #' Number of parameters
-#' 
+#'
 #' Return the parameter space size of a function.
 #'
 #' @param fn [\code{soo_function}]\cr Function.
-#' 
+#'
 #' @return Expected length of first argument. I.e. the size of the
 #' parameter space of the function \code{fn}.
-#' 
+#'
 #' @export
 number_of_parameters <- function(fn)
   UseMethod("number_of_parameters")

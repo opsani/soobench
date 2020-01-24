@@ -11,22 +11,22 @@
 #' value at the optimal parameter settings (as returned by
 #' \code{\link{global_minimum}}) may differ slightly from the optimal
 #' function value. These differences are in the order of
-#' \eqn{10^{-16}}. 
+#' \eqn{10^{-16}}.
 #'
 #' Also note that the random number generator used for the noisy test
 #' functions is shared by all instanciated test functions. This means
 #' that if you run multiple trials in parallel  within the same
 #' interpreter, your results will not necessarily be repeatable.
-#' 
+#'
 #' @author \R interface by Olaf Mersmann. Original C code graciously
 #' provided by the BBOB team (Anne Auger, Hans-Georg Beyer, Nikolaus
 #' Hansen, Steffen Finck, Raymond Ros, Marc Schoenauer, Darrell
 #' Whitley)
-#' 
+#'
 #' @references For a complete description of the 24 test functions
 #' and much more background information please see the
 #' \href{http://coco.gforge.inria.fr/doku.php?id=bbob-2009-downloads}{BBOB homepage}
-#' 
+#'
 #' @export
 #' @useDynLib soobench do_bbob_opt do_bbob_eval do_set_bbob_noise_seed
 #' @rdname bbob2009_function.Rd
@@ -39,7 +39,7 @@ generate_bbob2009_function <- function(dimensions, fid, iid) {
   f <- function(x) {}
   body(f) <- substitute(.Call(do_bbob_eval, fid, iid, x),
                         list(fid=fid, iid=iid))
-  
+
   soo_function(name=sprintf("BBOB 2009 problem %i (instance %i)", fid, iid),
                id=sprintf("bbob2009-%02i-%02i-%id", fid, iid, dimensions),
                fun=f,

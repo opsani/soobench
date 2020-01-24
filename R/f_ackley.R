@@ -23,8 +23,8 @@
 #' @examples
 #' f <- generate_ackley_function(2)
 #' plot(f, rank=TRUE)
-#' 
-#' @references D. H. Ackley. A connectionist machine for genetic hillclimbing. 
+#'
+#' @references D. H. Ackley. A connectionist machine for genetic hillclimbing.
 #' Kluwer Academic Publishers, Boston, 1987
 #'
 #' @export

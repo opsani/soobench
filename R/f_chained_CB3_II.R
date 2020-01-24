@@ -21,7 +21,7 @@ generate_chained_cb3_ii_function <- function(dimensions)
                upper_bounds=rep(10, dimensions),
                best_par=rep(1, dimensions),
                best_value=2*(dimensions - 1))
-  
+
 class(generate_chained_cb3_ii_function) <- c("soo_function_generator", "function")
 attr(generate_chained_cb3_ii_function, "id") <- "chained_cb3_ii"
 attr(generate_chained_cb3_ii_function, "name") <- "Chained CB3 II test function"

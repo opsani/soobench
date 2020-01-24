@@ -5,7 +5,7 @@
 #' \deqn{
 #'   f(x) = (x_1^2 + x_2 - 11)^2 + (x_1 + x_2^2 - 7)^2
 #' }
-#' 
+#'
 #' @return A \code{soo_function}.
 #'
 #' @examples

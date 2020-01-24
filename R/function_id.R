@@ -1,5 +1,5 @@
 #' Function ID
-#' 
+#'
 #' Get a short id for the function that can be used in filenames and
 #' such. It is guaranteed that the ID contains only \dQuote{safe}
 #' characters in the range {A-Z,a-z,0-9,_,-}.
@@ -9,7 +9,7 @@
 #' functions.
 #' @export
 function_id <- function(fn)
-  UseMethod("function_id")    
+  UseMethod("function_id")
 
 #' @export
 #' @method function_id soo_function

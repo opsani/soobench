@@ -1,5 +1,5 @@
 #' SOO function generator
-#' 
+#'
 #' Returns wether \code{fn} is a generator for a single objective
 #' optimization function.
 #'

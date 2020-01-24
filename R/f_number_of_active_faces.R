@@ -3,7 +3,7 @@
 #' The number of active faces function test function is defined as
 #'
 #'   \deqn{f(x) = \max_{1 \leq i \leq n} \left\{\ln\left(\left|\sum_{i=1}^{n} x_i\right| + 1\right), \ln(|x_i| + 1)\right\}}
-#' 
+#'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
 #'
@@ -21,7 +21,7 @@ generate_number_of_active_faces_function <- function(dimensions)
                upper_bounds=rep(10, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
-  
+
 class(generate_number_of_active_faces_function) <- c("soo_function_generator", "function")
 attr(generate_number_of_active_faces_function, "id") <- "number_of_active_faces"
 attr(generate_number_of_active_faces_function, "name") <- "Number of active faces test function"

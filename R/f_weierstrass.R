@@ -11,7 +11,7 @@
 #' @examples
 #' f <- generate_weierstrass_function(2)
 #' plot(f, rank=TRUE)
-#' 
+#'
 #' @export
 #' @useDynLib soobench do_f_weierstrass
 generate_weierstrass_function <- function(dimensions)

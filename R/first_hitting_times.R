@@ -1,6 +1,6 @@
-#' Return numerical vector of first hitting times, counted in 
+#' Return numerical vector of first hitting times, counted in
 #' function evaluations.
-#' 
+#'
 #' @param x Object from which the reached target values are to be
 #'   extracted. Methods for numeric vectors and
 #'   \code{record_target_values_function} class objects are provided.

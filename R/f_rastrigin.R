@@ -7,8 +7,8 @@
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
 #'
-#' @references L. A. Rastrigin. Extremal control systems.  
-#' Theoretical Foundations of Engineering Cybernetics Series. 
+#' @references L. A. Rastrigin. Extremal control systems.
+#' Theoretical Foundations of Engineering Cybernetics Series.
 #' (in Russian), Nauka, Moscow, 1974.
 #'
 #' @export

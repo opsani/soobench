@@ -16,7 +16,7 @@
 #' @export
 plot.soo_function <- function(x, ...) {
   stopifnot(number_of_parameters(x) <= 2)
-  
+
   if (number_of_parameters(x) == 1) {
     plot_1d_soo_function(x, ...)
   } else {
@@ -36,7 +36,7 @@ plot.soo_function <- function(x, ...) {
 #' @param log [\code{boolean(1)}] If \code{TRUE}, the z axes is plotted on log scale.
 #' @param rank [\code{boolean(1)}] If \code{TRUE}, instead of the y values, their ranks are drawn.
 #' @param ... Ignored.
-#' 
+#'
 #' @author Olaf Mersmann \email{olafm@@p-value.net}
 #' @export
 #' @importFrom graphics plot
@@ -74,7 +74,7 @@ plot_1d_soo_function <- function(fn,
     }
     z <- log(z)
   }
-  
+
   if (rank)
     z <- rank(z)
   plot(drop(X), z, xlab=xlab, ylab=ylab, type="l", main=main)
@@ -124,13 +124,13 @@ plot_2d_soo_function <- function(fn,
             is.list(image_args),
             is.list(contour_args),
             n == as.integer(n))
-  
+
   breaks_per_axis <- floor(sqrt(n))
   x1 <- seq(lower[1], upper[1], length.out=breaks_per_axis)
   x2 <- seq(lower[2], upper[2], length.out=breaks_per_axis)
   X <- expand.grid(x1, x2)
   z <- apply(X, 1, fn)
-  
+
   ## Shoud we logarithm the function values?
   if (log) {
     ## Ooops, some below zero. Lets fix that.
@@ -140,17 +140,17 @@ plot_2d_soo_function <- function(fn,
     }
     z <- log(z)
   }
-  
+
   if (rank)
     z <- rank(z)
-  
+
   ## Make z a breaks_per_axis times breaks_per_axis matrix:
   dim(z) <- c(breaks_per_axis, breaks_per_axis)
-  
+
   ## Fixup image_args:
   if (!"col" %in% names(image_args))
     image_args$col <- terrain.colors(255)
-  
+
   ## Plot image:
   if ("image" %in% show) {
     image_args <- append(list(x=x1, y=x2, z=z, xlab=xlab, ylab=ylab,
@@ -159,7 +159,7 @@ plot_2d_soo_function <- function(fn,
     do.call(image, image_args)
   }
   ## Plot contour:
-  if ("contour" %in% show) {    
+  if ("contour" %in% show) {
     contour_args <- append(list(x=x1, y=x2, z=z, asp=asp), contour_args)
     ## If we did not plot an image, fixup contour args to include axis
     ## labels and plot title:

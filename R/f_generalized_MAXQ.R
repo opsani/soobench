@@ -3,7 +3,7 @@
 #' The generalized MAXW test function is defined as
 #'
 #'   \deqn{f(x) = \max_{1 \leq i \neq n} x_i^2}
-#' 
+#'
 #' @references Haarala, M. and Miettinen, K. and Maelelae, M. M., New limited
 #' memory bundle method for large-scale nonsmooth optimization.
 #'
@@ -20,7 +20,7 @@ generate_generalized_maxq_function <- function(dimensions)
                upper_bounds=rep(10, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
-  
+
 class(generate_generalized_maxq_function) <- c("soo_function_generator", "function")
 attr(generate_generalized_maxq_function, "id") <- "generalized_maxq"
 attr(generate_generalized_maxq_function, "name") <- "Generalized MAXQ test function"

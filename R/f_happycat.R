@@ -17,21 +17,21 @@
 #' f <- generate_happycat_function(2, 1/8)
 #' plot(f)
 #'
-#' @references H.-G. Beyer and S. Finck. HappyCat - A Simple Function Class 
+#' @references H.-G. Beyer and S. Finck. HappyCat - A Simple Function Class
 #'   Where Well-Known Direct Search Algorithms Do Fail.
-#'   In: PPSN XII (Parallel Problem Solving from Nature), 367-376, 
+#'   In: PPSN XII (Parallel Problem Solving from Nature), 367-376,
 #'   Springer, Heidelberg, 2012.
 #'
 #' @export
 #' @useDynLib soobench do_eval_happycat
 #' @rdname generate_happycat_function
 generate_happycat_function <- function(dimensions, alpha=0.125) {
-  if(alpha <= 0) 
+  if(alpha <= 0)
     stop("Alpha must be greater zero!")
   f <- function(x) {}
-  body(f) <- substitute(.Call(do_eval_happycat, alpha, x), 
+  body(f) <- substitute(.Call(do_eval_happycat, alpha, x),
                         list(alpha=alpha))
-  soo_function(name="Happycat", 
+  soo_function(name="Happycat",
                id=sprintf("happycat-%id-%5.3f", dimensions, alpha),
                dimensions=dimensions,
                fun=f,

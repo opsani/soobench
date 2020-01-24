@@ -6,8 +6,8 @@
 #'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
-#' 
-#' @references A. O. Griewank. Generalized descent for global optimization. 
+#'
+#' @references A. O. Griewank. Generalized descent for global optimization.
 #' Journal of Optimization Theory and Applications 34:11-39, 1981.
 #'
 #' @export

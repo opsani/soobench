@@ -3,7 +3,7 @@
 ##' The definition used is
 ##'
 ##'   \deqn{f(x) = - \frac{\exp\left(-(x_1 - 1)^2\right)}{1.2 + \left(x_1 - 2.5\right)^2}}
-##' 
+##'
 ##' @return A \code{soo_function}.
 ##' @export
 ##' @useDynLib soobench do_f_kotanchek
@@ -16,7 +16,7 @@ generate_kotanchek_function <- function()
                upper_bounds=c(4, 4),
                best_par=c(2.5, 1),
                best_value=-0.83333333333333333333333333333)
-               
+
 class(generate_kotanchek_function) <- c("soo_function_generator", "function")
 attr(generate_kotanchek_function, "id") <- "kotanchek"
 attr(generate_kotanchek_function, "name") <- "Kotanchek test function"

@@ -3,7 +3,7 @@
 #' The chained Crescent I function is defined as
 #'
 #'   \deqn{f(x) = \max\left\{\sum_{i=1}^{n-1} \left(x_i^2 +(x_{i+1}^2 -1)^2 + x_{i+1} - 1\right), \sum_{i=1}^{n-1} \left(-x_i^2 - (x_{i+1}^2 -1)^2 + x_{i+1} 1 1\right)\right\}}
-#' 
+#'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
 #'

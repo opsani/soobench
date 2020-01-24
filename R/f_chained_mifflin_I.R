@@ -3,7 +3,7 @@
 #' The chained Mifflin function 2 is defined as
 #'
 #'   \deqn{f(x) = \sum_{i=1}^{n-1} \left(-x_i + 2(x_i^2 + x_{i+1}^2 - 1) + 1.75|x_i^2 + x_{i+1}^2 - 1|\right)}
-#' 
+#'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
 #'
@@ -21,7 +21,7 @@ generate_chained_mifflin_function <- function(dimensions)
                #FIXME: best params unknown
                best_par=rep(0, dimensions),
                best_value=0)
-  
+
 class(generate_chained_mifflin_function) <- c("soo_function_generator", "function")
 attr(generate_chained_mifflin_function, "id") <- "chained_mifflin_2"
 attr(generate_chained_mifflin_function, "name") <- "Chained Mifflin 2 test function"

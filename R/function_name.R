@@ -6,7 +6,7 @@
 #' @return Name of function.
 #' @export
 function_name <- function(fn)
-  UseMethod("function_name")    
+  UseMethod("function_name")
 
 #' @export
 #' @method function_name soo_function

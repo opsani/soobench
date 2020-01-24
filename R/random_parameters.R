@@ -18,7 +18,7 @@
 #' X <- random_parameters(100, fn)
 #' str(X)
 #' y <- fn(X)
-#' 
+#'
 #' @export
 #' @rdname random_parameters
 random_parameters <- function(n, fn)
@@ -50,5 +50,5 @@ random_parameters.wrapped_soo_function <- function(n, fn)
 
 #' @export
 #' @rdname random_parameters
-random_parameter <- function(fn) 
+random_parameter <- function(fn)
   random_parameters(1, fn)[,1]

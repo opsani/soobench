@@ -1,5 +1,5 @@
 #' Count number of function evaluations
-#' 
+#'
 #' Return a new function which is identical to the  \code{\link{soo_function}}
 #' passed in except that all function evaluations are counted.
 #'
@@ -11,17 +11,17 @@
 #'
 #' y <- f(random_parameters(1, f))
 #' number_of_evaluations(f)
-#' 
+#'
 #' reset_evaluation_counter(f)
 #' number_of_evaluations(f)
-#' 
+#'
 #' y <- f(random_parameters(21, f))
 #' number_of_evaluations(f)
 #'
 #' @seealso \code{\link{number_of_evaluations}},
 #'          \code{\link{reset_evaluation_counter}}
 #' @export
-counting_function <- function(fn) {            
+counting_function <- function(fn) {
   force(fn)
   stopifnot(is_soo_function(fn))
   if (is_counting_function(fn))
@@ -35,15 +35,15 @@ counting_function <- function(fn) {
 }
 
 #' Retrieve evaluation counter
-#' 
+#'
 #' Return the number of times a test function has been evaluated.
 #'
 #' The test function must be wrapped by
 #' \code{\link{counting_function}} for this to work.
-#' 
+#'
 #' @param fn [\code{counting_function}]\cr A counting function  as
 #' returned by \code{\link{counting_function}}.
-#' 
+#'
 #' @return The current value of the evaluation counter.
 #'
 #' @export
@@ -62,17 +62,17 @@ number_of_evaluations.wrapped_soo_function <- function(fn)
 
 
 #' Reset evaluation counter
-#' 
+#'
 #' Reset the evaluation counter of a test function.
 #'
 #' The test function must be wrapped by
 #' \code{\link{counting_function}} for this to work.
-#' 
+#'
 #' @param fn [\code{counting_function}]\cr A counting function as
 #' returned by \code{\link{counting_function}}.
 #'
 #' @return The current value of the evaluation counter.
-#' 
+#'
 #' @export
 reset_evaluation_counter <- function(fn)
   UseMethod("reset_evaluation_counter")

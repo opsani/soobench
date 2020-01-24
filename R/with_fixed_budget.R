@@ -22,7 +22,7 @@
 #' fail. For example, if the employed optimization algorithm is
 #' written in C and does not use the memory allocation routines
 #' provided by R, then this will certainly lead to memory leaks. You have been warned.
-#' 
+#'
 #' @return A \code{list} with elements \sQuote{par}, \sQuote{value}
 #' and \sQuote{counts} whos contents are identical to the return
 #' value of \code{\link{optim}}
@@ -31,7 +31,7 @@
 #' fn <- generate_sphere_function(10)
 #' res <- with_fixed_budget(optim(random_parameter(fn), fn), 25)
 #' print(res)
-#' 
+#'
 #' @export
 with_fixed_budget <- function(expr, budget) {
   stopifnot(is.numeric(budget), budget == as.integer(budget))

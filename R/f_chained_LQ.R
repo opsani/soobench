@@ -6,7 +6,7 @@
 #'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
-#' 
+#'
 #' @references Haarala, M. and Miettinen, K. and Maekelae, M. M., New limited
 #' memory bundle method for large-scale nonsmooth optimization.
 #'
@@ -21,7 +21,7 @@ generate_chained_LQ_function <- function(dimensions)
                #FIXME: best params unknown
                best_par=rep(0, dimensions),
                best_value=-(dimensions - 1)*sqrt(2))
-  
+
 class(generate_chained_LQ_function) <- c("soo_function_generator", "function")
 attr(generate_chained_LQ_function, "id") <- "chained_LQ"
 attr(generate_chained_LQ_function, "name") <- "Chained LQ test function"

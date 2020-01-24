@@ -4,7 +4,7 @@
 #' the sphere function. The definition used here is
 #'
 #' \deqn{f(x) = \sum_{i=1}^n 10^{6\frac{i}{n}}x_i^2}
-#' 
+#'
 #' @param dimensions [\code{integer(1)}] Size of parameter space.
 #' @return A \code{soo_function}.
 #'
@@ -15,7 +15,7 @@
 #' @examples
 #' f <- generate_ellipsoidal_function(2)
 #' plot(f, rank=TRUE)
-#' 
+#'
 #' @export
 #' @useDynLib soobench do_f_ellipsoidal
 generate_ellipsoidal_function <- function(dimensions)
@@ -27,7 +27,7 @@ generate_ellipsoidal_function <- function(dimensions)
                upper_bounds=rep(32.786, dimensions),
                best_par=rep(0, dimensions),
                best_value=0)
-               
+
 ## Set attributes for soo_function_generator class.
 class(generate_ellipsoidal_function) <- c("soo_function_generator", "function")
 attr(generate_ellipsoidal_function, "id") <- "ellipsoidal"
