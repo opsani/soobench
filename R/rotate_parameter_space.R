@@ -36,7 +36,7 @@ random_rotation_matrix <- function(d) {
 #' Rotate the parameter space of a SOO function.
 #'
 #' This function is a simple parameter space transformation. Given a
-#' function \eqn{f(x)} it retuns a new function \eqn{f_r(x) = f(Rx)},
+#' function \eqn{f(x)} it returns a new function \eqn{f_r(x) = f(Rx)},
 #' where \eqn{R} is a random rotation matrix.
 #'
 #' If you want repeatable results, make sure you explicitly set a

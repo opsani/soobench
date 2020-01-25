@@ -8,6 +8,6 @@ Author: Olaf Mersmann <olafm@p-value.net>, Bernd Bischl
 Maintainer: Eric Kalosa-Kenyon <eric@opsani.com>
 License: BSD_2_clause + file LICENSE
 LazyData: yes
-Version: 1.9-0.12
+Version: 1.9.12
 Suggests: rgl, testthat
 RoxygenNote: 7.0.2

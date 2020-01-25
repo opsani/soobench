@@ -1,6 +1,6 @@
 #' SOO function generator
 #'
-#' Returns wether \code{fn} is a generator for a single objective
+#' Returns whether \code{fn} is a generator for a single objective
 #' optimization function.
 #'
 #' @param fn Function.

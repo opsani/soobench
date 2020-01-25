@@ -1,6 +1,7 @@
 #' (Noisy) BBOB 2009 test function generator.
 #'
-#' @param dimensions [\code{integer(1)}] Size of parameter space. Must be greater than 1 and less than or eqaul to 40.
+#' @param dimensions [\code{integer(1)}] Size of parameter space. Must be greater than 1 and less
+#' than or equal to 40.
 #' @param fid [\code{integer(1)}] Function ID, valid values are 1 to 24.
 #' @param iid [\code{integer(1)}] Instance ID, defaults to \code{1L}.
 #' @param noiseSeed [\code{integer(1)}] Seed for the noise random number generator,
@@ -14,7 +15,7 @@
 #' \eqn{10^{-16}}.
 #'
 #' Also note that the random number generator used for the noisy test
-#' functions is shared by all instanciated test functions. This means
+#' functions is shared by all instantiated test functions. This means
 #' that if you run multiple trials in parallel  within the same
 #' interpreter, your results will not necessarily be repeatable.
 #'

@@ -1,5 +1,5 @@
 # soobench
-Collection of single objective optimization test problems for R. 
+Collection of single objective optimization test problems for R.
 
 ## Install from github
 
@@ -10,6 +10,14 @@ package):
 library("devtools")
 install_github("opsani/soobench")
 ```
+
+## Development
+
+If you make changes, before you submit a PR, please help me out by running
+```
+./do check package
+```
+to ensure the changes will be accepted by the CRAN team.
 
 [![CRAN Status Badge](http://www.r-pkg.org/badges/version/soobench)](http://cran.r-project.org/web/packages/soobench)
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/soobench)](http://cran.rstudio.com/web/packages/soobench/index.html)

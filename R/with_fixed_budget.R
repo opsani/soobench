@@ -15,7 +15,7 @@
 #' \code{\link{condition}} if the budget is reached. For this to
 #' work, the function must find one and only one \code{soofunction}
 #' object in \code{expr} which will be replaced by a modified test
-#' function that performs the tracking and signalling.
+#' function that performs the tracking and signaling.
 #'
 #' While elegant from a users perspective, this function is not fool
 #' proof. It is possible to construct situations were it will
@@ -24,7 +24,7 @@
 #' provided by R, then this will certainly lead to memory leaks. You have been warned.
 #'
 #' @return A \code{list} with elements \sQuote{par}, \sQuote{value}
-#' and \sQuote{counts} whos contents are identical to the return
+#' and \sQuote{counts} with contents that are identical to the return
 #' value of \code{\link{optim}}
 #'
 #' @examples

@@ -14,7 +14,7 @@
 #'   values (y) will be recorded.
 #'
 #' @param predicate [\code{function(par, value, time)}]\cr Predicate
-#'   function that returns \code{TRUE} if recoding should take place
+#'   function that returns \code{TRUE} if recording should take place
 #'   for the given parameter setting \code{par}, function value
 #'   \code{value} and evaluation \code{time}. Note that \code{time} is
 #'   measured in function evaluations.
@@ -94,8 +94,8 @@ recording_function <- function(fn,
 #' Return the internally recorded parameter settings and function
 #' values for a test function.
 #'
-#' @param fn A function whos recorded parameter settings and function
-#' values should be returnd.
+#' @param fn A function with recorded parameter settings and function
+#' values that should be returned.
 #'
 #' @return A list with elements \code{time}, \code{par} and
 #' \code{value} which are the point in time (in number of function

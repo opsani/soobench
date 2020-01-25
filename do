@@ -104,11 +104,16 @@ do_check <- function(subcommand, ...) {
                            "00check.log")
     dir.create(check_dir)
     message("INFO: Checking package.")
-    ok <- tryCatch(check(".", document=FALSE, quiet=TRUE, cleanup=FALSE,
-                         check_dir=check_dir),
-                   error = function(e) FALSE)
+    # ok <- tryCatch(check(".", document=FALSE, quiet=TRUE, cleanup=FALSE,
+    #                      check_dir=check_dir),
+    #                error = function(e) FALSE)
+    ok <- check(".", document=FALSE, quiet=TRUE, check_dir=check_dir)
 
-    if (ok) {
+    if (ok$status == 0 &&
+        identical(ok$errors, character(0)) &&
+        identical(ok$warnings, character(0)) &&
+        identical(ok$notes, character(0))
+      ) {
       ## Read check log lines
       lines <- readLines(check_log)
       ## Find all lines containing stuff we know is OK or irrelevant
