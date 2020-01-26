@@ -9,4 +9,6 @@
 README.md
 todo.txt
 generics.txt
+cran-comments.md
 
+^CRAN-RELEASE$
