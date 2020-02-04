@@ -1,3 +1,7 @@
+# devtools 1.9.18
+
+* Maintenance update to pass `R CMD check` [bugfix](https://bugs.r-project.org/bugzilla/show_bug.cgi?id=16223)
+
 # devtools 1.9.12
 
 * Maintenance update to pass recent CRAN standards changes including:
