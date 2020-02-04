@@ -10,7 +10,8 @@ generate_bbob2009_function(dimensions, fid, iid)
 generate_noisy_bbob2009_function(dimensions, fid, iid, noiseSeed = 1L)
 }
 \arguments{
-\item{dimensions}{[\code{integer(1)}] Size of parameter space. Must be greater than 1 and less than or equal to 40.}
+\item{dimensions}{[\code{integer(1)}] Size of parameter space. Must be greater than 1 and less
+than or equal to 40.}
 
 \item{fid}{[\code{integer(1)}] Function ID, valid values are 1 to 24.}
 
@@ -33,7 +34,7 @@ function value. These differences are in the order of
 \eqn{10^{-16}}.
 
 Also note that the random number generator used for the noisy test
-functions is shared by all instanciated test functions. This means
+functions is shared by all instantiated test functions. This means
 that if you run multiple trials in parallel  within the same
 interpreter, your results will not necessarily be repeatable.
 }

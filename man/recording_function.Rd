@@ -17,7 +17,7 @@ values (x) will be recorded.}
 values (y) will be recorded.}
 
 \item{predicate}{[\code{function(par, value, time)}]\cr Predicate
-function that returns \code{TRUE} if recoding should take place
+function that returns \code{TRUE} if recording should take place
 for the given parameter setting \code{par}, function value
 \code{value} and evaluation \code{time}. Note that \code{time} is
 measured in function evaluations.}

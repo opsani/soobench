@@ -14,6 +14,6 @@ is_soo_function_generator(fn)
   \code{FALSE} otherwise.
 }
 \description{
-Returns wether \code{fn} is a generator for a single objective
+Returns whether \code{fn} is a generator for a single objective
 optimization function.
 }

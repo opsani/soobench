@@ -8,8 +8,8 @@ values for a test function.}
 recorded_values(fn)
 }
 \arguments{
-\item{fn}{A function whos recorded parameter settings and function
-values should be returnd.}
+\item{fn}{A function with recorded parameter settings and function
+values that should be returned.}
 }
 \value{
 A list with elements \code{time}, \code{par} and

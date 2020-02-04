@@ -17,7 +17,8 @@ plot_2d_soo_function(
   asp = 1,
   show = c("image", "contour"),
   image_args = list(useRaster = TRUE),
-  contour_args = list()
+  contour_args = list(),
+  ...
 )
 }
 \arguments{

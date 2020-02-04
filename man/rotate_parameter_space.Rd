@@ -15,7 +15,7 @@ A new \code{soo_function} object where the parameter space
 }
 \description{
 This function is a simple parameter space transformation. Given a
-function \eqn{f(x)} it retuns a new function \eqn{f_r(x) = f(Rx)},
+function \eqn{f(x)} it returns a new function \eqn{f_r(x) = f(Rx)},
 where \eqn{R} is a random rotation matrix.
 }
 \details{

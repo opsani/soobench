@@ -119,7 +119,8 @@ plot_2d_soo_function <- function(fn,
                                  log=FALSE, rank=FALSE, asp=1,
                                  show=c("image", "contour"),
                                  image_args=list(useRaster=TRUE),
-                                 contour_args=list()) {
+                                 contour_args=list(),
+                                 ...) {
   stopifnot(number_of_parameters(fn) == 2,
             is.list(image_args),
             is.list(contour_args),
