@@ -33,5 +33,5 @@ TwoDoubles f130(double *x);
 void initbenchmarksnoisy();
 void finibenchmarksnoisy();
 
-bbobFunction handlesNoisy[30];
-unsigned int handlesNoisyLength;
+extern bbobFunction handlesNoisy[30];
+extern unsigned int handlesNoisyLength;
