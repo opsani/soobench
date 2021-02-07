@@ -1,4 +1,5 @@
 Package: soobench
+Version: 1.9.19
 Title: Single Objective Optimization Benchmark Functions
 Description: Collection of different single objective test functions
         useful for benchmarks and algorithm development.
@@ -8,7 +9,6 @@ Author: Olaf Mersmann <olafm@p-value.net>, Bernd Bischl
 Maintainer: Eric Kalosa-Kenyon <eric@opsani.com>
 License: BSD_2_clause + file LICENSE
 LazyData: yes
-Version: 1.9.19
 Suggests: 
     rgl,
     testthat,
@@ -16,3 +16,4 @@ Suggests:
     rmarkdown
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
+Encoding: UTF-8
