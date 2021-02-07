@@ -12,3 +12,5 @@ generics.txt
 cran-comments.md
 
 ^CRAN-RELEASE$
+^doc$
+^Meta$

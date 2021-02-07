@@ -23,3 +23,6 @@ vignettes/*.pdf
 *.swp
 *~
 cscope.out
+inst/doc
+doc
+Meta
